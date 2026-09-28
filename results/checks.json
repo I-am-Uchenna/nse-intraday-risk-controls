@@ -1,0 +1,9 @@
+{
+  "data_label": "SYNTHETIC / NOT MARKET DATA",
+  "tests_run": 34,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "scope": "Execution and input-validation tests only; no empirical validation."
+}

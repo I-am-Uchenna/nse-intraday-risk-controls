@@ -1,0 +1,2 @@
+# Current implementation uses only the Python standard library (Python >= 3.10).
+# Add pinned dependencies only when the market-data pipeline requires them.
