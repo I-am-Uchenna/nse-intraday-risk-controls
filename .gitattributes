@@ -1,0 +1,6 @@
+# Preserve exact input/protocol and source fingerprints across Git checkouts.
+# These remain ordinary text files; disable automatic line-ending conversion.
+*.py -text
+*.json -text
+*.csv -text
+requirements.txt -text

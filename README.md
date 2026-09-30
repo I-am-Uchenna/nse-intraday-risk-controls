@@ -2,47 +2,164 @@
 
 Student Group 17838 | MScFE 690 Capstone
 
-This repository contains the initial execution code for a comparison of three
-exit policies: **time-only, stop-only, and combined stop-loss and profit-target
-exits**. The research question is whether the latter two improve net returns or
-downside risk relative to a fixed holding period, and whether any benefits remain
-under conservative execution assumptions.
+This study compares three exit policies for the same long-only intraday entries:
+**time-only, stop-only with the same time cap, and combined stop-loss and
+profit-target exits with that time cap**. The question is whether risk controls
+improve returns after costs or reduce downside risk, and whether the comparison
+survives conservative assumptions about execution. A target-only strategy is
+outside the submitted scope.
 
-## Current status
+## Implementation and evidence
 
-The minute-bar execution core and deterministic synthetic checks are implemented.
-Market-data audit and integration are pending. The supplied data are not included
-here. Signal generation, portfolio accounting and out-of-sample inference remain
-planned work. No result in this repository is a market profitability estimate.
+The M3 execution component applies the three policies to predetermined episodes
+under O-L-H-C and O-H-L-C candle paths. Its checked-in example results are entirely
+synthetic. They test event ordering and arithmetic; they are not market results.
 
-The code accepts a predetermined entry episode, applies all three policies to
-that same episode, and reports resolved or unresolved outcomes. It does **not**
-claim to test the entire proposed strategy or verify that supplied entry signals
-were calculated without future information.
+The M4 development pipeline adds a streaming vendor-data adapter, selected-file
+audits, past-only stock-minus-index signals, fixed-notional allocation and
+independent session cash accounts. It processes a bounded January–March 2021
+sample under a protocol declared before the first strategy replay. The five
+predeclared examples are RELIANCE, HDFCBANK, INFY, TCS and ITC, with .NSEI as the
+signal benchmark. They are not a performance-selected or representative NSE
+universe, and the index is not traded as a hedge.
 
-## Run
+The development replay is conditional on timestamp and fill assumptions. It is
+not an out-of-sample test, a parameter search or a continuously funded portfolio.
+It does not construct minute-by-minute marked-to-market equity, establish
+maximum drawdown, validate real fills or demonstrate a deployable trading edge.
+See [methods](METHODS.md) and the [remaining work](PIPELINE.md).
 
-Use Python 3.10 or newer. No third-party packages are required for the current code.
+## Requirements
 
-```text
-python scripts/run_checks.py
+- Python **3.10 or newer**; the Python code uses only the standard library.
+- Windows for `run_limited.py` and the supplied archive-preparation workflow.
+- Windows `tar` / bsdtar with support for the instructor's RAR and 7z containers.
+  Python's standard-library `zipfile` reads the outer ZIP files.
+- The separately supplied instructor archives and enough local disk space for
+  selected archive containers and the private SQLite database.
+
+`requirements.txt` documents the absence of third-party Python dependencies.
+Check that `python` resolves to an installed interpreter and `tar --version`
+identifies a suitable archive reader. No market data are included in this
+repository. Read [data handling](data/README.md) before preparing local inputs.
+
+## Reproduce the synthetic checks
+
+Run all commands from the repository root. In Windows PowerShell:
+
+```powershell
+python scripts/run_limited.py --memory-mib 384 --report data/checks_memory.json -- python scripts/run_checks.py
 ```
 
-This runs the unit tests and regenerates the checked-in synthetic outputs. To
-regenerate only the examples:
+This runs the tests and regenerates `results/checks.json` and the labelled M3
+synthetic examples. The final test count and pass/fail status are recorded in
+`results/checks.json`; a passing test suite is not empirical validation.
+To regenerate only the synthetic examples:
 
-```text
-python scripts/run_examples.py
+```powershell
+python scripts/run_limited.py --memory-mib 384 --report data/examples_memory.json -- python scripts/run_examples.py
 ```
 
-Run these commands from the repository root. The scripts also work with an
-absolute path to the Python executable.
+The wrapper applies a **384 MiB aggregate committed-memory limit** to the child
+process tree, including archive-reader descendants, and runs it at idle priority.
+This is not a strict resident-memory limit. The small supervising process is
+outside the cap. Its JSON report records the observed peak, exit status and any
+failure. A nonzero exit alone does not identify memory exhaustion.
 
-## Initial findings
+## Prepare the private development sample
 
-**All prices and results below are SYNTHETIC / NOT MARKET DATA.**
+`config/m4_pilot.json` records the frozen pilot universe, dates, calendar handling,
+source selection and execution scenarios. Keep this version intact; record any
+later design change in a new version before evaluating its outcomes.
+`config/reference_protocol.json` describes the full-study specification and its
+remaining implementation work; `results/m4_pilot/run_manifest.json` identifies
+the completed development replay.
 
-One constructed episode enters at 100, sets a stop at 99 and a target at 101, and
+Replace the path below with the directory containing the original downloads.
+Preparation streams one selected CSV at a time into SQLite and records input
+checksums and row diagnostics. It stages compressed nested containers on disk;
+it does not unpack the entire archive collection or load it into memory.
+
+```powershell
+python scripts/run_limited.py --memory-mib 384 --report data/m4_pilot/prepare_memory.json -- python scripts/prepare_pilot.py --downloads "C:\path\to\downloaded_archives" --work-dir data/m4_pilot --config config/m4_pilot.json
+```
+
+The delivery filenames must match the frozen configuration's `raw_delivery_glob`.
+The script creates `data/m4_pilot/pilot.sqlite` and
+`data/m4_pilot/input_audit.json`. It refuses to overwrite an existing database;
+use a new work directory for a new preparation run. The database and staged
+archives remain private local files excluded from version control.
+
+## Run the conditional market development replay
+
+After preparation completes:
+
+```powershell
+python scripts/run_limited.py --memory-mib 384 --report data/m4_pilot/replay_memory.json -- python scripts/run_pilot.py --config config/m4_pilot.json --work-dir data/m4_pilot --output-dir results/m4_pilot
+```
+
+The runner checks the configuration hash and stored data against the preparation
+audit, then reads the private database one session at a time. Aggregate outputs
+are written separately from the private market ledgers:
+
+| Location | Outputs |
+| --- | --- |
+| `results/m4_pilot/` | `summary.json`, `scenario_means.csv`, `paired_contrasts.csv`, `sensitivity_comparisons.csv`, `run_diagnostics.csv`. |
+| `data/m4_pilot/` | `replay_ledgers.jsonl`, `daily_accounts.csv`; these contain restricted market detail and remain local. |
+
+These generated results must be interpreted as conditional development evidence.
+Use each run's configuration hash, input audit, exclusions and resource report
+when reproducing or reviewing it.
+
+The replay compares assumed start-labelled and end-labelled minutes; neither
+case establishes the supplier's actual convention. Asia/Kolkata is also an
+explicit assumption. Calendar sessions come from the declared calendar rather
+than whichever days happen to appear in the files. The nonstandard session on
+24 February 2021 is excluded from trading but retained as missing history.
+That retrospective exclusion was declared before inspecting pilot P&L; it was
+not a historically available trading decision, and outage-day losses are not
+estimated. Missing windows are not replaced with older valid observations.
+
+The reference scenario uses a one-minute entry delay, 15-minute holding cap and
+15 bp round-trip cost. One-at-a-time checks use 5/25 bp common cost, 5/10 bp extra
+stop slippage and 2/5-minute entry delay. Each uses all three policies and both
+candle paths. These are declared research assumptions, not verified brokerage
+charges or recovered price paths.
+
+## M4 preliminary findings
+
+All 14 declared runs completed. The 18 selected input files contain 137,036 rows;
+the runner rechecked their ingestion hashes. The pilot has 20 common evaluable
+sessions, 20 warmup sessions, one nonstandard exclusion and 20 later sessions
+with incomplete prior history. The reference start/end interpretations have
+33/24 episodes, respectively, and include 4/7 valid zero-trade days.
+
+| Reference mean daily P&L / INR 100,000, in bp | Start labels | End labels |
+| --- | ---: | ---: |
+| Time-only | -2.914 | -0.886 |
+| Stop-only | -2.734 | -1.359 |
+| Stop and target | -3.476 | -1.957 |
+| Combined minus time | -0.562 | -1.072 |
+
+Reference costs are 15 bp per round trip with a one-minute entry delay. Both
+intrabar paths coincide because **no ambiguous active dual-barrier episode occurs
+in this pilot**. This is not evidence that ambiguity is unimportant elsewhere.
+The start-label stop-only advantage of 0.180 bp becomes -0.220 bp with 5 bp extra
+stop slippage. Some lower-cost/delay scenarios have positive time-only returns;
+none establishes the correct timestamp interpretation or a deployable strategy.
+
+See the [complete scenario summary](results/m4_pilot/summary.json),
+[paired contrasts](results/m4_pilot/paired_contrasts.csv),
+[source fingerprints](results/m4_pilot/run_manifest.json) and
+[independent reconciliation](results/m4_pilot/independent_reconciliation.json).
+All 99 software checks pass. The market replay peaked at 39.70 MiB of aggregate
+child-process committed memory; this excludes its supervisor and OS file cache.
+
+## Synthetic illustration from M3
+
+**All prices and results in this table are SYNTHETIC / NOT MARKET DATA.**
+
+A constructed episode enters at 100, sets a stop at 99 and a target at 101, and
 has a scheduled exit 15 minutes later at 100.5. Its first candle contains both
 barriers. At 15 bp round-trip cost:
 
@@ -52,68 +169,54 @@ barriers. At 15 bp round-trip cost:
 | Open-high-low-close | +35 | -115 | +85 |
 
 The combined-minus-time difference changes from -150 to +50 bp without changing
-the candle data. This demonstrates why the proposed empirical comparison needs
-explicit path assumptions. It does not establish how frequently this occurs in
-NSE stocks or which policy will perform better.
+the candles. This establishes a possible ordering effect, not its frequency in
+NSE stocks or the preferred exit policy. See the [synthetic findings](results/initial_findings.md),
+[ledger](results/synthetic_examples.csv) and [paired comparisons](results/synthetic_comparisons.csv).
 
-Other constructed cases check gap fills, expiry precedence, missing records,
-delayed entries, common-cost cancellation and additional stop slippage. See
-[initial findings](results/initial_findings.md), the
-[complete trade ledger](results/synthetic_examples.csv),
-[paired comparisons](results/synthetic_comparisons.csv), and
-[machine-readable summary](results/synthetic_summary.json).
+## Repository guide
 
-## Files
-
-| File | Purpose |
+| Path | Purpose |
 | --- | --- |
-| `src/path_robust/engine.py` | Validated bars and episodes; three-policy execution; explicit unresolved outcomes. |
-| `src/path_robust/data.py` | CSV schema and validation for one instrument's bar stream. |
-| `src/path_robust/fixtures.py` | Hand-constructed example inputs. |
-| `tests/` | Execution and input-validation tests with independently specified expected outcomes. |
-| `examples/` | Regenerated synthetic inputs and episode specifications. |
-| `results/` | Regenerated synthetic ledgers, paired differences, summary and test report. |
-| `config/reference_protocol.json` | Provisional study settings and implementation status. |
-| `METHODS.md` | Exact interpretation of the implemented execution rules. |
-| `PIPELINE.md` | Remaining signal, data, accounting and evaluation work. |
+| `src/path_robust/engine.py` | Three-policy execution and explicit unresolved outcomes. |
+| `src/path_robust/data.py` | Canonical single-instrument OHLC input validation. |
+| `src/path_robust/vendor.py` | Streaming parser for the declared instructor CSV schema. |
+| `src/path_robust/research.py` | Past-only features, matched episodes, session cash accounts and a descriptive expected-shortfall calculation. |
+| `scripts/prepare_pilot.py` | Selected-archive staging, SQLite ingestion and private input audit. |
+| `scripts/run_pilot.py` | Session-by-session development replay and separated aggregate/private outputs. |
+| `scripts/run_limited.py` | Windows process-tree memory limit and resource report. |
+| `tests/` | Deterministic execution, input, chronology and accounting checks. |
+| `examples/` | Synthetic inputs only. |
+| `results/` | Labelled M3 synthetic outputs and current deterministic checks. |
+| `results/m4_pilot/` | Aggregated M4 market development outputs, separately labelled from synthetic results. |
+| `config/m4_pilot.json` | Versioned, predeclared development-pilot specification. |
+| `METHODS.md` | Implemented rules and interpretation limits. |
+| `PIPELINE.md` | Completed components, remaining validation and final evaluation. |
+| `CONTRIBUTORS.md` | Group membership, proposed workstreams and access status. |
 
-## Interpretation and limitations
+## Collaboration and access
 
-- The paths O-L-H-C and O-H-L-C are coherent scenarios, not recovered tick paths
-  or universal bounds on portfolio drawdown.
-- A touched target is treated as filled under an assumption. Order queues,
-  spread, market impact and capacity are not observed from OHLC.
-- Barriers are fixed after entry. The engine is long-only and checks that each
-  episode is within one Indian calendar date. The market-data adapter must also
-  validate the actual exchange session and special trading days.
-- A missing required bar produces `UNRESOLVED`, with no numeric return. A gap
-  after an already completed exit does not invalidate that completed trade, but
-  a matched difference is withheld when its benchmark fails the coverage rule.
-  The starter requires complete active-period minute coverage even for time-only:
-  its endpoint P&L can sometimes be calculated across an interior gap, but is
-  withheld under this strict comparability rule. This is an explicit data-quality
-  choice, not a claim that endpoint arithmetic is impossible.
-- Costs are declared scenarios, not a claim about verified NSE fees. The current
-  reference is 15 bp of entry notional per round trip, plus optional stop slippage.
-- The engine does not generate new entries or recycle early-exit capital. A
-  later portfolio layer must enforce common allocations, reserved capital and
-  the absence of implicit borrowing.
+Repository: https://github.com/I-am-Uchenna/nse-intraday-risk-controls
 
-## Research sources
+The course's source-code guideline requests a private repository. This existing
+repository remains public, and the visibility decision is deferred. Public
+readability does not establish the group members' collaboration permissions or
+confirm that instructor access has been checked. Those permissions and the
+private-repository requirement remain to be resolved; no compliance claim is
+made. See [CONTRIBUTORS.md](CONTRIBUTORS.md).
 
-The distinction between a candle's observed price range and its unobserved order
-is discussed by Stanislaus Maier-Paape and Andreas Platen in
-["Backtest of Trading Systems on Candle Charts," *IFTA Journal*, 2016, pp. 10-17](https://www.ifta.org/assets/docs/d_ifta_journal_16.pdf).
-The present core implements the project's declared scenarios; it is not a
-reproduction of that paper's full algorithm.
+Do not commit instructor data, derived price databases, course documents, contact
+details, credentials, access tokens or private sharing links. Public outputs must
+not disclose restricted prices or input records.
 
-Related theoretical work includes Tim Leung and Xin Li,
-["Optimal Mean Reversion Trading with Transaction Costs and Stop-Loss Exit"](https://arxiv.org/abs/1411.5062v3),
+## Research context
+
+The distinction between a candle's price range and its unknown ordering is
+examined by Stanislaus Maier-Paape and Andreas Platen in
+[“Backtest of Trading Systems on Candle Charts,” *IFTA Journal*, 2016, pp. 10–17](https://www.ifta.org/assets/docs/d_ifta_journal_16.pdf).
+This repository implements the declared study scenarios, not their entire
+algorithm. Related model-based work includes Tim Leung and Xin Li,
+[“Optimal Mean Reversion Trading with Transaction Costs and Stop-Loss Exit”](https://arxiv.org/abs/1411.5062v3),
 and Alexander Lipton and Marcos Lopez de Prado,
-["A Closed-Form Solution for Optimal Mean-Reverting Trading Strategies"](https://arxiv.org/abs/2003.10502v1).
-Those model-based results do not establish performance for the proposed NSE
-equity strategy. The accompanying literature review supplies the wider evidence
-and comparison with existing approaches.
-
-Do not add restricted market data, course documents, contact details, access
-tokens or sharing links to this repository. See [data handling](data/README.md).
+[“A Closed-Form Solution for Optimal Mean-Reverting Trading Strategies”](https://arxiv.org/abs/2003.10502v1).
+Those studies do not establish performance for this NSE equity strategy. The
+accompanying capstone review provides the broader literature and competitor analysis.

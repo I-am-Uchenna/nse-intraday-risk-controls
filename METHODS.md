@@ -1,8 +1,10 @@
-# Implemented execution rules
+# Implemented research and execution rules
 
-This is the initial execution component of **Path-Robust Risk Controls for
-Intraday Mean Reversion in NSE Equities**. The following rules describe the code
-that currently runs. They are not claims of observed fills.
+These rules describe **Path-Robust Risk Controls for Intraday Mean Reversion in
+NSE Equities**. The M3 episode engine and M4 development pipeline retain exactly
+three policies: time-only, stop-only and stop plus target, all with the same time
+cap. Execution rules are assumptions, not observed fills. The bounded M4 replay
+is development evidence; final empirical evaluation remains outstanding.
 
 ## Inputs and timing
 
@@ -16,15 +18,16 @@ The input adapter preserves gaps.
 An episode supplies a signal-completion time, entry time, expiry time, stop
 multiplier, target multiplier and entry notional. Entry must be at least one
 minute after signal completion. Entry and expiry are bar-open events on the same
-Indian calendar date. Exchange-session validation remains part of the pending
-market-data audit; a calendar-date check alone does not establish a valid session.
+Indian calendar date. The M4 runner supplies the declared session calendar and
+excludes the specified nonstandard session. A calendar-date check in the execution engine alone does
+not establish a valid exchange session.
 
 The actual entry price is that entry bar's open. The fixed stop and target equal
 that price times their supplied multipliers. Thus delayed entry changes the
 entry price and reanchors both barriers. The fixtures use 0.99 and 1.01 to make
 arithmetic easy to verify; these are demonstration settings, not estimated market
-parameters. The provisional empirical rule instead derives the multipliers from
-past volatility, as described in `config/reference_protocol.json`.
+parameters. The M4 rule derives the multipliers from past stock-return
+volatility, as declared in `config/m4_pilot.json` and described below.
 
 ## Event order
 
@@ -72,8 +75,9 @@ net_pnl = entry_notional * net_return_bp / 10,000
 The ledger records both X and the effective exit price. `gross_return_bp` is
 before the separately recorded stop penalty; using the effective exit price and
 then subtracting s again would double-count it. Costs are split equally between
-entry and exit. The current code resolves trade P&L only: it does not create an
-intraday cash ledger or an equity curve.
+entry and exit. The episode engine resolves trade P&L. The M4 research layer also records
+within-session cash debits and reserved proceeds, as described below; it does
+not construct a marked-to-market equity curve.
 
 Identical c cancels from a matched difference of completed trade returns. It
 still changes each absolute return. Stop-specific s can change the relative
@@ -100,7 +104,133 @@ complete-case comparison requires disclosure of exclusions and potential bias.
 
 The synthetic examples establish that these event-order and arithmetic rules
 produce their specified outcomes. The unit tests also reject malformed input.
-They do not validate a trading signal, actual fill probability, liquidity,
-market capacity, net profitability, expected shortfall, or out-of-sample stability.
-The code needs a reviewed real-data adapter, past-only signal implementation,
-portfolio layer and empirical evaluation before any such claims are considered.
+They do not validate actual fill probability, liquidity, market capacity, net
+profitability or out-of-sample stability. The M4 tests additionally examine
+source parsing, past-only signal calculations, missing-history retention, matched
+allocations and session cash conservation. These properties do not establish
+that the supplied timestamps have the assumed meaning, that the sample is
+representative or that a fitted strategy generalizes.
+
+
+## Vendor input and bounded preparation
+
+The vendor parser requires the explicit eight-field header
+`<ticker>,<date>,<time>,<open>,<high>,<low>,<close>,<volume>`, optionally followed
+by a ninth `<o/i>` or blank field name. Dates are MM/DD/YYYY and times HH:MM:SS.
+The ninth value is retained without identifying its economic meaning. Prices
+must be positive and finite, volume finite and nonnegative, and minute labels
+strictly increasing. Headerless supplements, unexpected schemas, duplicates,
+unsorted rows and inconsistent OHLC are rejected. The parser does not silently
+sort, deduplicate, drop, forward-fill or invent rows.
+
+Raw timestamps remain naive source labels during preparation. `as_bar` attaches
+the assumed Indian time zone and either keeps an assumed minute-start label or
+shifts an assumed minute-end label back one minute. This is a sensitivity check,
+not supplier confirmation. Session filtering follows conversion. Neither a
+successful parse nor the appearance of familiar trading hours establishes the
+interval semantics, adjustment status or actual liquidity.
+
+`prepare_pilot.py` stages only the configured compressed monthly stock/index
+containers and streams selected members into a private SQLite database. It
+records source-member identities, checksums, row counts and label diagnostics.
+The parser holds one row at a time; SQLite uses a small page cache and disk-backed
+temporary storage. Local archive containers and the database need disk space
+even though the full CSV corpus is not extracted or held in memory.
+
+## Past-only signal and matched episodes
+
+At each declared decision time, a completed 15-minute close-to-close return uses
+16 consecutive minute-start labels, from decision minus 16 minutes through
+decision minus one minute. Both stock and index coverage must be complete.
+The signal return is the stock log return minus the index log return.
+
+The current residual is standardized against the mean and sample standard
+deviation of the same-clock residual returns in exactly the preceding 20
+calendar sessions. Missing history is retained as missing; an older valid
+observation never replaces an unavailable session. No current or future return
+enters that reference distribution. Insufficient warm-up, missing current or
+historical windows, and zero scales are explicit ineligibility reasons.
+
+The long-only entry threshold is z <= -2. The stop scale **v** is estimated
+separately: it is the sample standard deviation of the stock's own 15-minute
+same-clock log returns over those prior sessions, not the residual standard
+deviation. Fixed barriers are entry price multiplied by exp(-v) and exp(1.5v).
+
+Decisions occur every 30 minutes, beginning 30 minutes after the session opens.
+The reference entry is at the open one minute after the decision and the expiry
+is 15 minutes after entry. The declared session must accommodate entry and
+expiry. Delay scenarios reanchor entry and both barriers without using future
+coverage to decide whether the signal exists. All three policies use the same
+entries, allocations and expiry within a delay scenario.
+
+Each episode receives fixed entry notional `0.5 * C0 / N`, where C0 is reference
+capital and N is the predeclared stock count. The pilot uses C0 = INR 100,000 and
+N = 5, hence INR 10,000 per stock episode. Fractional positions are a research
+assumption. Entries are not enlarged when another stock has no signal or missing
+data, and the index is a signal benchmark rather than a traded hedge.
+
+## Session accounting and common evaluability
+
+The research layer debits each common entry batch's notionals and entry fees,
+reserves the allocation through its common scheduled expiry, then releases net
+exit proceeds. Early exits create no extra entry or reusable allocation within
+the holding window. It checks available cash before entry, rejects insufficient
+cash and verifies that closing cash equals opening cash plus summed net P&L.
+Stop slippage is included once, through the effective exit price.
+
+The M4 runner uses **independent session accounts initialized at C0**. Daily
+return is net session P&L divided by C0. This is not a continuously funded
+multi-day wealth process: it does not prove that losses can be carried across
+all days while maintaining the common allocation. Do not compound these returns
+or label their cumulative sum a self-financing portfolio equity curve. Although
+`ResearchState` can accept six known opening-cash values, the pilot does not
+orchestrate funded segments after missing account values.
+
+A day is evaluable only when candidate windows, required histories and all six
+policy/path accounts meet the declared rules. Invalid candidate coverage,
+unresolved positions or insufficient common capital withhold numeric daily
+returns for every scenario. A valid day with no signals has zero return; a day
+with unknown signals is not a zero-trade day. Episode diagnostics remain
+available even when the portfolio-day comparison is withheld. Exclusions and
+resulting selection limits must be reported.
+
+The code does not build minute-close marked-to-market equity, observed
+within-minute equity, or a continuous drawdown series across unknown intervals.
+Those are separate remaining tasks. Independent session cash checks do not
+substitute for them.
+
+## Frozen development protocol and remaining inference
+
+`config/m4_pilot.json` is the declared M4 development configuration. It selects
+January–March 2021 and the fixed five-stock universe before strategy outcomes,
+with .NSEI as benchmark. Its calendar cites an official 2021 holiday source.
+24 February is retained as a missing-history session and excluded from trading
+because of the documented nonstandard session. This retrospective exclusion is
+known before the pilot replay but not before the historical outage; outage-day
+losses remain outside these estimates.
+
+The protocol evaluates assumed start/end labels, both candle paths and seven
+one-at-a-time cost/slippage/delay settings. It does not search thresholds or
+select stocks by returns. Preserve the JSON and its recorded hash with each run;
+a later change requires a dated version and a reason. The earlier
+`reference_protocol.json` remains the M3 study record, including its historical
+implementation-status fields.
+
+The primary eventual contrast is combined-minus-time mean net daily return
+under reference cost/delay and stop-first assumptions. Secondary contrasts are
+stop-minus-time and combined-minus-stop. The latter measures adding this target
+to this stop; it does not identify a target-only strategy or a complete
+stop-target interaction.
+
+`expected_shortfall` calculates the mean of exactly the worst 2.5% empirical
+loss mass at 97.5% confidence, using fractional weighting at the boundary. It
+expects losses, not returns. It is a descriptive sample calculation, not a claim
+that a short tail is reliable. Calculate each policy's ES and then difference
+them; ES of the paired differences answers a different question.
+
+The full study still requires audited sample definition, resolved source
+metadata, a funded portfolio/marked-equity design, sufficient evaluable history,
+and the declared chronological development/validation/final-test process.
+The 60/20/20 split and day-block inference belong to that later frozen evaluation,
+not this short development replay. Do not inspect final-test strategy outcomes
+before the final protocol freeze or report pilot contrasts as holdout inference.

@@ -1,0 +1,339 @@
+{
+  "protocol_sha256": "d0733568eb81f6ce4487f4d096cd044c040040def7a17bb03bca8763498120b9",
+  "input_files": [
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data January 2021.rar",
+      "nested_archive_sha256": "ad69dbfef81c6ea7cb644cd550a9b1b9c09c001cd9e7746d10e6f54e45b99bc0",
+      "outer_crc_checked": true,
+      "archive": "Cash Data January 2021.rar",
+      "member": "Cash Data January 2021/RELIANCE.csv",
+      "symbol": "RELIANCE",
+      "rows": 7548,
+      "first_label": "2021-01-01T09:15:00",
+      "last_label": "2021-01-29T15:40:00",
+      "parsed_ohlcv_sha256": "dd987b7ba6034fc8b5ff36e76fa394ffd613f1f53a68df66addffd915561fb54"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data January 2021.rar",
+      "nested_archive_sha256": "ad69dbfef81c6ea7cb644cd550a9b1b9c09c001cd9e7746d10e6f54e45b99bc0",
+      "outer_crc_checked": true,
+      "archive": "Cash Data January 2021.rar",
+      "member": "Cash Data January 2021/HDFCBANK.csv",
+      "symbol": "HDFCBANK",
+      "rows": 7542,
+      "first_label": "2021-01-01T09:15:00",
+      "last_label": "2021-01-29T15:40:00",
+      "parsed_ohlcv_sha256": "6d6fda796cdee364aa0f85b170b902d566e737fe231a86af91a7a28bfb63fa8b"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data January 2021.rar",
+      "nested_archive_sha256": "ad69dbfef81c6ea7cb644cd550a9b1b9c09c001cd9e7746d10e6f54e45b99bc0",
+      "outer_crc_checked": true,
+      "archive": "Cash Data January 2021.rar",
+      "member": "Cash Data January 2021/INFY.csv",
+      "symbol": "INFY",
+      "rows": 7544,
+      "first_label": "2021-01-01T09:15:00",
+      "last_label": "2021-01-29T15:40:00",
+      "parsed_ohlcv_sha256": "c1b3bb4dd9219016786167b6dd6b5569ae9c0b70502b24dba747cce4de642b8d"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data January 2021.rar",
+      "nested_archive_sha256": "ad69dbfef81c6ea7cb644cd550a9b1b9c09c001cd9e7746d10e6f54e45b99bc0",
+      "outer_crc_checked": true,
+      "archive": "Cash Data January 2021.rar",
+      "member": "Cash Data January 2021/TCS.csv",
+      "symbol": "TCS",
+      "rows": 7547,
+      "first_label": "2021-01-01T09:15:00",
+      "last_label": "2021-01-29T15:40:00",
+      "parsed_ohlcv_sha256": "00068a2cbed0d0a012372f79649f08d8ffa87ae633582f2df0d0497be38f08fb"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data January 2021.rar",
+      "nested_archive_sha256": "ad69dbfef81c6ea7cb644cd550a9b1b9c09c001cd9e7746d10e6f54e45b99bc0",
+      "outer_crc_checked": true,
+      "archive": "Cash Data January 2021.rar",
+      "member": "Cash Data January 2021/ITC.csv",
+      "symbol": "ITC",
+      "rows": 7547,
+      "first_label": "2021-01-01T09:15:00",
+      "last_label": "2021-01-29T15:40:00",
+      "parsed_ohlcv_sha256": "ae1461b162c322c7ab00d9f2d5d744aec62264fbd04d9c80348f80c960aab9db"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data February 2021.rar",
+      "nested_archive_sha256": "b8bff8c0ff4484cc96738145390902a4726ca30ed05261073b9b9429e3c6e53f",
+      "outer_crc_checked": true,
+      "archive": "Cash Data February 2021.rar",
+      "member": "Cash Data February 2021/RELIANCE.csv",
+      "symbol": "RELIANCE",
+      "rows": 7397,
+      "first_label": "2021-02-01T09:15:00",
+      "last_label": "2021-02-26T15:40:00",
+      "parsed_ohlcv_sha256": "e781b93764564cffcf6452bb9e31d65d7289c34ae5d20baff38ab27735817a55"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data February 2021.rar",
+      "nested_archive_sha256": "b8bff8c0ff4484cc96738145390902a4726ca30ed05261073b9b9429e3c6e53f",
+      "outer_crc_checked": true,
+      "archive": "Cash Data February 2021.rar",
+      "member": "Cash Data February 2021/HDFCBANK.csv",
+      "symbol": "HDFCBANK",
+      "rows": 7390,
+      "first_label": "2021-02-01T09:15:00",
+      "last_label": "2021-02-26T16:00:00",
+      "parsed_ohlcv_sha256": "a23a819b2a49c199838a2f587dbf9f5f2e9c35d63dad1efd74eb41b18df935b5"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data February 2021.rar",
+      "nested_archive_sha256": "b8bff8c0ff4484cc96738145390902a4726ca30ed05261073b9b9429e3c6e53f",
+      "outer_crc_checked": true,
+      "archive": "Cash Data February 2021.rar",
+      "member": "Cash Data February 2021/INFY.csv",
+      "symbol": "INFY",
+      "rows": 7395,
+      "first_label": "2021-02-01T09:15:00",
+      "last_label": "2021-02-26T15:40:00",
+      "parsed_ohlcv_sha256": "21385ccc6e0548fd51a3f561d35336298a0ba6a74f74ba9440ac7edaf43a080f"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data February 2021.rar",
+      "nested_archive_sha256": "b8bff8c0ff4484cc96738145390902a4726ca30ed05261073b9b9429e3c6e53f",
+      "outer_crc_checked": true,
+      "archive": "Cash Data February 2021.rar",
+      "member": "Cash Data February 2021/TCS.csv",
+      "symbol": "TCS",
+      "rows": 7387,
+      "first_label": "2021-02-01T09:15:00",
+      "last_label": "2021-02-26T15:40:00",
+      "parsed_ohlcv_sha256": "26b012689844691bae3d3b4d6794ad23e2efb552d3793bad94e9fe85a1950298"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data February 2021.rar",
+      "nested_archive_sha256": "b8bff8c0ff4484cc96738145390902a4726ca30ed05261073b9b9429e3c6e53f",
+      "outer_crc_checked": true,
+      "archive": "Cash Data February 2021.rar",
+      "member": "Cash Data February 2021/ITC.csv",
+      "symbol": "ITC",
+      "rows": 7393,
+      "first_label": "2021-02-01T09:15:00",
+      "last_label": "2021-02-26T15:40:00",
+      "parsed_ohlcv_sha256": "18ad40487134798f57421cf4b0bad89b9b842b47e660829cfa9c6f3d19cc9c90"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data March 2021.rar",
+      "nested_archive_sha256": "0bbec1b77b898a90bacebd2b8558038bd2e5282990496079eb69e2902c9df112",
+      "outer_crc_checked": true,
+      "archive": "Cash Data March 2021.rar",
+      "member": "Cash Data March 2021/RELIANCE.csv",
+      "symbol": "RELIANCE",
+      "rows": 7915,
+      "first_label": "2021-03-01T09:15:00",
+      "last_label": "2021-03-31T15:40:00",
+      "parsed_ohlcv_sha256": "8dc303ccabe9bd31ef35757e0385a8da5f5d1f1eed475583fd5805094d6b2358"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data March 2021.rar",
+      "nested_archive_sha256": "0bbec1b77b898a90bacebd2b8558038bd2e5282990496079eb69e2902c9df112",
+      "outer_crc_checked": true,
+      "archive": "Cash Data March 2021.rar",
+      "member": "Cash Data March 2021/HDFCBANK.csv",
+      "symbol": "HDFCBANK",
+      "rows": 7918,
+      "first_label": "2021-03-01T09:15:00",
+      "last_label": "2021-03-31T15:40:00",
+      "parsed_ohlcv_sha256": "740626acc454089a65c5b5b53cff4dc76e204614f061eec0b0bb776d0f29a387"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data March 2021.rar",
+      "nested_archive_sha256": "0bbec1b77b898a90bacebd2b8558038bd2e5282990496079eb69e2902c9df112",
+      "outer_crc_checked": true,
+      "archive": "Cash Data March 2021.rar",
+      "member": "Cash Data March 2021/INFY.csv",
+      "symbol": "INFY",
+      "rows": 7915,
+      "first_label": "2021-03-01T09:15:00",
+      "last_label": "2021-03-31T15:40:00",
+      "parsed_ohlcv_sha256": "9df71d699b06e4c5ed8cdbaf7f8eb1974c09bd6fd7162e016bd50be15b8a76cf"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data March 2021.rar",
+      "nested_archive_sha256": "0bbec1b77b898a90bacebd2b8558038bd2e5282990496079eb69e2902c9df112",
+      "outer_crc_checked": true,
+      "archive": "Cash Data March 2021.rar",
+      "member": "Cash Data March 2021/TCS.csv",
+      "symbol": "TCS",
+      "rows": 7914,
+      "first_label": "2021-03-01T09:15:00",
+      "last_label": "2021-03-31T15:40:00",
+      "parsed_ohlcv_sha256": "6a972eb3de287e3ee07953f28c29e445a5c4ebe1239d6e436966869542ef4646"
+    },
+    {
+      "outer_zip": "NSE Cash Stocks Data-20260928T165756Z-1-001.zip",
+      "outer_member": "NSE Cash Stocks Data/2021/Cash Data March 2021.rar",
+      "nested_archive_sha256": "0bbec1b77b898a90bacebd2b8558038bd2e5282990496079eb69e2902c9df112",
+      "outer_crc_checked": true,
+      "archive": "Cash Data March 2021.rar",
+      "member": "Cash Data March 2021/ITC.csv",
+      "symbol": "ITC",
+      "rows": 7919,
+      "first_label": "2021-03-01T09:15:00",
+      "last_label": "2021-03-31T15:40:00",
+      "parsed_ohlcv_sha256": "a300b237b6ebaff9697ecd577b2aa725cb75aeb05179ea3d76324dae927e9e21"
+    },
+    {
+      "outer_zip": "NSE Index Data-20260928T170149Z-1-001.zip",
+      "outer_member": "NSE Index Data/NSE-Index-2021.7z",
+      "nested_archive_sha256": "5173a8ee1d7b887fd92d75520ad81c6984beb086ccc4b3c7a35e54e3a082549c",
+      "outer_crc_checked": true,
+      "year_container_member": "NSE-Index-2021/NSE Indices-January 2021.rar",
+      "monthly_archive_sha256": "076a96f63c1e18fb199de92485ccde8aa1755c213becadcd6f89853d841e2315",
+      "archive": "NSE Indices-January 2021.rar",
+      "member": "NSE Indices - 2101/.NSEI.csv",
+      "symbol": ".NSEI",
+      "rows": 7543,
+      "first_label": "2021-01-01T09:07:00",
+      "last_label": "2021-01-29T15:31:00",
+      "parsed_ohlcv_sha256": "3c91fe36d85e50b2314fa749168fd4e5f026d0aff9916b641cb716ce69915259"
+    },
+    {
+      "outer_zip": "NSE Index Data-20260928T170149Z-1-001.zip",
+      "outer_member": "NSE Index Data/NSE-Index-2021.7z",
+      "nested_archive_sha256": "5173a8ee1d7b887fd92d75520ad81c6984beb086ccc4b3c7a35e54e3a082549c",
+      "outer_crc_checked": true,
+      "year_container_member": "NSE-Index-2021/NSE Indices-February 2021.rar",
+      "monthly_archive_sha256": "c571f2c049a614b346a009d96339aae0956e0de6af51140a7ff4ff8280906c55",
+      "archive": "NSE Indices-February 2021.rar",
+      "member": "NSE Indices - 2102/.NSEI.csv",
+      "symbol": ".NSEI",
+      "rows": 7304,
+      "first_label": "2021-02-01T09:07:00",
+      "last_label": "2021-02-26T15:30:00",
+      "parsed_ohlcv_sha256": "c798eee0dc441e4379c31de5414ccee86b9556793e677f16efa85b6bc6b210cf"
+    },
+    {
+      "outer_zip": "NSE Index Data-20260928T170149Z-1-001.zip",
+      "outer_member": "NSE Index Data/NSE-Index-2021.7z",
+      "nested_archive_sha256": "5173a8ee1d7b887fd92d75520ad81c6984beb086ccc4b3c7a35e54e3a082549c",
+      "outer_crc_checked": true,
+      "year_container_member": "NSE-Index-2021/NSE Indices-March 2021.rar",
+      "monthly_archive_sha256": "27a02ddd79caba322c9ffda66afc286b8b3663d3de457b4dacb9091cde400278",
+      "archive": "NSE Indices-March 2021.rar",
+      "member": "NSE Indices - 2103/.NSEI.csv",
+      "symbol": ".NSEI",
+      "rows": 7918,
+      "first_label": "2021-03-01T09:07:00",
+      "last_label": "2021-03-31T15:29:00",
+      "parsed_ohlcv_sha256": "bf7b3984295809c094973affb294538ed35c3ab531300f0e7693e072381b0293"
+    }
+  ],
+  "row_diagnostics": [
+    {
+      "symbol": "RELIANCE",
+      "days": 61,
+      "rows": 22860,
+      "regular_label_rows": 22649,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          226,
+          149,
+          "09:15:00",
+          "17:10:00"
+        ]
+      ]
+    },
+    {
+      "symbol": "HDFCBANK",
+      "days": 61,
+      "rows": 22850,
+      "regular_label_rows": 22649,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          225,
+          149,
+          "09:15:00",
+          "17:10:00"
+        ]
+      ]
+    },
+    {
+      "symbol": "INFY",
+      "days": 61,
+      "rows": 22854,
+      "regular_label_rows": 22649,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          226,
+          149,
+          "09:15:00",
+          "17:10:00"
+        ]
+      ]
+    },
+    {
+      "symbol": "TCS",
+      "days": 61,
+      "rows": 22848,
+      "regular_label_rows": 22649,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          226,
+          149,
+          "09:15:00",
+          "17:10:00"
+        ]
+      ]
+    },
+    {
+      "symbol": "ITC",
+      "days": 61,
+      "rows": 22859,
+      "regular_label_rows": 22649,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          226,
+          149,
+          "09:15:00",
+          "17:10:00"
+        ]
+      ]
+    },
+    {
+      "symbol": ".NSEI",
+      "days": 61,
+      "rows": 22765,
+      "regular_label_rows": 22554,
+      "non_375_label_days": [
+        [
+          "2021-02-24",
+          139,
+          54,
+          "09:07:00",
+          "17:01:00"
+        ]
+      ]
+    }
+  ],
+  "database_prices_private": true,
+  "assumptions": "raw labels retained; time zone and interval meaning unverified"
+}

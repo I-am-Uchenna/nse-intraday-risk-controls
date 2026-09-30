@@ -20,7 +20,7 @@ def main():
         "tests_run": result.testsRun, "failures": len(result.failures),
         "errors": len(result.errors), "skipped": len(result.skipped),
         "successful": result.wasSuccessful(),
-        "scope": "Execution and input-validation tests only; no empirical validation.",
+        "scope": "Synthetic execution, input-validation, past-only signal, fixed-capital account and sample-risk tests; no empirical validation.",
     }, indent=2) + "\n", encoding="utf-8")
     if not result.wasSuccessful():
         return 1

@@ -1,0 +1,55 @@
+{
+  "manifest_version": 1,
+  "capture_utc": "2026-09-30T09:56:26.747376+00:00",
+  "capture_timing": "Post-run source/config fingerprints; captured after successful replay, not an independently recorded pre-execution source attestation.",
+  "run_status": "completed",
+  "run_exit_code": 0,
+  "run_completion_file_mtime_utc": "2026-09-30T09:54:02.060041+00:00",
+  "completion_time_source": "Filesystem modification time of completed summary.json; exact process start time was not recorded.",
+  "python_version": "3.12.14",
+  "python_implementation": "CPython",
+  "platform": {
+    "system": "Windows",
+    "machine": "AMD64"
+  },
+  "protocol_sha256": "d0733568eb81f6ce4487f4d096cd044c040040def7a17bb03bca8763498120b9",
+  "input_audit_sha256": "e11c73842332c66b3ded3e527547513fb8dc6be57700feb1d2e5fc4d7c2d4430",
+  "private_database_sha256": "2047b6b196c22427f45d19a197f110a3956dc46528ad3ee14dee243b13cae9e1",
+  "input_checks": {
+    "audited_files": 18,
+    "audited_rows": 137036,
+    "all_source_row_hashes_verified": true,
+    "protocol_hash_matched_input_audit": true
+  },
+  "source_config_test_sha256": {
+    "config/m4_pilot.json": "d0733568eb81f6ce4487f4d096cd044c040040def7a17bb03bca8763498120b9",
+    "requirements.txt": "569ac47d6967c27fc175141b1b72c2849c95f52ef5f0f7d63284d0eff7fd3377",
+    "scripts/prepare_pilot.py": "d6ec997d82db251a90a313b2684fc48d4d74c5aac08409164831473add361cbd",
+    "scripts/run_checks.py": "ab9d6b201d5dff8b968aa4acfab0e5b03746d12afba06aed306851322c7f275b",
+    "scripts/run_examples.py": "cfb1fda71be850aa952f1f5c8e1f0eb46fd585dffc5b97d7b9c2f8725fd2aea2",
+    "scripts/run_limited.py": "a5aaac3a32a54a3f296ca3d4e6f20030be71285c2a3f57075ad09b0537ce6c78",
+    "scripts/run_pilot.py": "d5ee7e8271892f7eaee0ef1597329537368d37c9e47b8098b12b57274c3e817e",
+    "src/path_robust/__init__.py": "5f9b5d439dd1aa284813ef5c1b4aeb9807c5384eca196407afbc960d870c1609",
+    "src/path_robust/data.py": "08249ad7641024fec5bab622cd4253741289f0f47c3289bd2ce3fbab37d824fc",
+    "src/path_robust/engine.py": "33df440abc9fc1e1bc681b5c4aeb97247ff98f703179b284e7b9461a5c71d927",
+    "src/path_robust/fixtures.py": "3183edf8bd18d849ccab49c83a1c282d8a51efd5793b8bb4a96ed1aa6d3cd445",
+    "src/path_robust/research.py": "c95052d461bfe2b870a436f8a2664411ba19bb14c82451a8eb5438d085126f85",
+    "src/path_robust/vendor.py": "bb6e15483517cf777b467e1be56db53501ca75af14928a2a32d3ff89477894d1",
+    "tests/test_data.py": "8a3fab13d5a29b51f8f4fad97fb8d77993de756d10da4eb22f3863944257e8e2",
+    "tests/test_engine.py": "ac46b670612658dbb01e8d7d127264e3b57cbde471627c6b64f3d619b433b6b0",
+    "tests/test_pilot.py": "817bc64b6bf5e8697cef4b114d0966c64f732d97a0b9f97ee86391761cc246cc",
+    "tests/test_research.py": "0c0ffc4261dcc90f66f505bd55da6ca9edbded12dfa8f296b705c60c0645da58",
+    "tests/test_vendor.py": "0f0fa7b8fd89bbd8ec61d055695e36703526bf1b735176711d6600e850ff161d"
+  },
+  "public_result_sha256": {
+    "paired_contrasts.csv": "aee45332921f9b00ad36272b268c4910a4cc903538578896451b58bae0fa4b9e",
+    "run_diagnostics.csv": "ae191e298a42813bdc98a5cb620f6ffc271d767525db5541d149a86307a56922",
+    "scenario_means.csv": "407125c9064cf0ce45c62fc89acf14841074a4f0bd0868a54f13be518f3b72b2",
+    "sensitivity_comparisons.csv": "2df3eef8695d69c49c5faf2b7facd42368d86564d5086d96d9f5fdb5ed8885ac",
+    "summary.json": "4a486315c21afbdce558c8c6cd6940da7e010444eb79f230c65324daf49df461"
+  },
+  "scope": "Frozen 14-scenario development replay; private prices and detailed ledgers excluded.",
+  "protocol_freeze_commit": "ab238832771c1283f933252fa984e20dc98d5c6f",
+  "protocol_semantics_equal_to_freeze": true,
+  "byte_preservation_note": "Git text normalization changed the freeze commit line endings only; .gitattributes now preserves the exact executed protocol/source/result bytes. The executed protocol JSON values equal the earlier freeze commit."
+}

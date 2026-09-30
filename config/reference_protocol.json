@@ -1,6 +1,6 @@
 {
   "title": "Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities",
-  "status": "Provisional study specification; market-data audit and integration pending",
+  "status": "Full-study specification; bounded M4 development pilot is frozen separately in m4_pilot.json",
   "policies": ["time_only", "stop_only", "stop_and_target"],
   "direction": "long_only",
   "bar_timestamp_convention": "minute_start",
@@ -12,7 +12,7 @@
   "entry_z_threshold": -2.0,
   "entry_delay_minutes": 1,
   "holding_cap_minutes": 15,
-  "empirical_stop_multiplier": "exp(-v), with v computed only from prior sessions",
+  "empirical_stop_multiplier": "exp(-v), where v is sample SD of the stock's own 15-minute same-clock log returns over exactly the prior 20 sessions",
   "empirical_target_multiplier": "exp(1.5 * v)",
   "fixture_stop_multiplier": 0.99,
   "fixture_target_multiplier": 1.01,
@@ -30,6 +30,6 @@
   "initial_mean_difference_block_days": 5,
   "block_sensitivity_days": [10, 20],
   "planned_daily_expected_shortfall_confidence": 0.975,
-  "implemented": ["single-instrument OHLC validation", "caller-supplied episodes", "three-policy execution", "synthetic cases", "unit tests"],
-  "not_implemented": ["market-data audit and adapter", "past-only signal generation", "portfolio accounting", "empirical return/risk inference"]
+  "implemented": ["strict vendor parser", "streamed selected-file preparation", "past-only signals", "three-policy execution", "independent session cash accounts", "conditional M4 development replay", "synthetic cases", "unit tests"],
+  "not_implemented": ["confirmed supplier timestamp semantics", "full-sample audit and source precedence", "funded multi-day equity and sampled drawdown", "final holdout return/risk inference"]
 }

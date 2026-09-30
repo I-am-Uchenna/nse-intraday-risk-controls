@@ -1,0 +1,1920 @@
+{
+  "protocol_id": "M4-Q1-2021-v1",
+  "protocol_sha256": "d0733568eb81f6ce4487f4d096cd044c040040def7a17bb03bca8763498120b9",
+  "input_files": 18,
+  "input_rows": 137036,
+  "all_source_row_hashes_verified": true,
+  "input_audit_sha256": "e11c73842332c66b3ded3e527547513fb8dc6be57700feb1d2e5fc4d7c2d4430",
+  "private_database_sha256": "2047b6b196c22427f45d19a197f110a3956dc46528ad3ee14dee243b13cae9e1",
+  "evidence_label": "INSTRUCTOR MARKET DATA; CONDITIONAL DEVELOPMENT REPLAY; NOT FINAL HOLDOUT",
+  "capital_model": "Independent session replay; not a funded multi-day wealth process",
+  "reference_capital_inr": 100000.0,
+  "universe": [
+    "RELIANCE",
+    "HDFCBANK",
+    "INFY",
+    "TCS",
+    "ITC"
+  ],
+  "calendar_session_count": 61,
+  "warmup_dates": [
+    "2021-01-01",
+    "2021-01-04",
+    "2021-01-05",
+    "2021-01-06",
+    "2021-01-07",
+    "2021-01-08",
+    "2021-01-11",
+    "2021-01-12",
+    "2021-01-13",
+    "2021-01-14",
+    "2021-01-15",
+    "2021-01-18",
+    "2021-01-19",
+    "2021-01-20",
+    "2021-01-21",
+    "2021-01-22",
+    "2021-01-25",
+    "2021-01-27",
+    "2021-01-28",
+    "2021-01-29"
+  ],
+  "excluded_nonstandard_sessions": [
+    "2021-02-24"
+  ],
+  "runs": [
+    {
+      "timestamp_assumption": "start",
+      "setting": "reference",
+      "execution_settings": {
+        "name": "reference",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79951.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.7341196209347283
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.475808600063003
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.7341196209347283
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.475808600063003
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421938
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.18008207578608065
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421938
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.18008207578608065
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "cost_5",
+      "execution_settings": {
+        "name": "cost_5",
+        "cost_bp": 5.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79971.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.2642016967208092
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.0841196209347281
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.8258086000630023
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.2642016967208092
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.0841196209347281
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.8258086000630023
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421933
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.180082075786081
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421933
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.180082075786081
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "cost_25",
+      "execution_settings": {
+        "name": "cost_25",
+        "cost_bp": 25.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79931.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.56420169672081
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.384119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -5.125808600063002
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.56420169672081
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.384119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -5.125808600063002
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421932
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.1800820757860812
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282746
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5616069033421932
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.1800820757860812
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282746
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "stop_slippage_5",
+      "execution_settings": {
+        "name": "stop_slippage_5",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 5.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79946.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.134119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.875808600063002
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.134119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.875808600063002
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.9616069033421937
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.21991792421391926
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282741
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.9616069033421937
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.21991792421391926
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282741
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "stop_slippage_10",
+      "execution_settings": {
+        "name": "stop_slippage_10",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 10.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79941.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.534119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.275808600063003
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.914201696720809
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.534119620934728
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -4.275808600063003
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.3616069033421938
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6199179242139194
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.3616069033421938
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6199179242139194
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7416889791282744
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "delay_2",
+      "execution_settings": {
+        "name": "delay_2",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 2
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79951.49393818434
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.77380469550791
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.297508393777238
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.8447548500408777
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.77380469550791
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.297508393777238
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.8447548500408777
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.07095015453296764
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.4762963017306717
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5472464562636394
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.07095015453296764
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.4762963017306717
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5472464562636394
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "delay_5",
+      "execution_settings": {
+        "name": "delay_5",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 5
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1067,
+          "SIGNAL": 33
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 4,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 33,
+        "planned_unique_episodes_evaluable_days": 33,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79985.0
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.823008071136102
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.7960733248082246
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.8197771129199873
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.823008071136102
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.7960733248082246
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.8197771129199873
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.996769041783885
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.026934746327877596
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0237037881117628
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.996769041783885
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": 0.026934746327877596
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0237037881117628
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "reference",
+      "execution_settings": {
+        "name": "reference",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80000.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.3589651596703982
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.95741387366649
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.3589651596703982
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.95741387366649
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583704
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583704
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "cost_5",
+      "execution_settings": {
+        "name": "cost_5",
+        "cost_bp": 5.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80020.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": 0.31410712747543873
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.15896515967039831
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.7574138736664898
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": 0.31410712747543873
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.15896515967039831
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.7574138736664898
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583704
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583704
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "cost_25",
+      "execution_settings": {
+        "name": "cost_25",
+        "cost_bp": 25.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 79980.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.0858928725245613
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.5589651596703984
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.15741387366649
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.0858928725245613
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.5589651596703984
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -3.15741387366649
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419287
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583716
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960915
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.0715210011419287
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.47307228714583716
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960915
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "stop_slippage_5",
+      "execution_settings": {
+        "name": "stop_slippage_5",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 5.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80000.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.5839651596703983
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.1824138736664898
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.5839651596703983
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.1824138736664898
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.2965210011419288
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6980722871458372
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.2965210011419288
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6980722871458372
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "stop_slippage_10",
+      "execution_settings": {
+        "name": "stop_slippage_10",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 10.0,
+        "delay_minutes": 1
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80000.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.8089651596703984
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.40741387366649
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8858928725245614
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.8089651596703984
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -2.40741387366649
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.5215210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.923072287145837
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.5215210011419285
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.923072287145837
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.5984487139960916
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "delay_2",
+      "execution_settings": {
+        "name": "delay_2",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 2
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80000.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.25539394999837667
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8962813136161302
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.4596507751529084
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.25539394999837667
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.8962813136161302
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.4596507751529084
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.2042568251545318
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6408873636177536
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.563369461536778
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.2042568251545318
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6408873636177536
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.563369461536778
+        }
+      ]
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "delay_5",
+      "execution_settings": {
+        "name": "delay_5",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 5
+      },
+      "diagnostics": {
+        "calendar_sessions": 61,
+        "role_counts": {
+          "warmup": 20,
+          "evaluation": 40,
+          "excluded_nonstandard": 1
+        },
+        "evaluation_status_counts": {
+          "EVALUABLE": 20,
+          "INCOMPLETE_CANDIDATE_COVERAGE": 20
+        },
+        "evaluation_candidate_counts": {
+          "MISSING_HISTORY_WINDOW": 1100,
+          "NO_SIGNAL": 1076,
+          "SIGNAL": 24
+        },
+        "common_evaluable_days": 20,
+        "evaluable_zero_trade_days": 7,
+        "evaluable_dates": [
+          "2021-02-01",
+          "2021-02-02",
+          "2021-02-03",
+          "2021-02-04",
+          "2021-02-05",
+          "2021-02-08",
+          "2021-02-09",
+          "2021-02-10",
+          "2021-02-11",
+          "2021-02-12",
+          "2021-02-15",
+          "2021-02-16",
+          "2021-02-17",
+          "2021-02-18",
+          "2021-02-19",
+          "2021-02-22",
+          "2021-02-23",
+          "2021-03-26",
+          "2021-03-30",
+          "2021-03-31"
+        ],
+        "planned_unique_episodes_all_evaluation_days": 24,
+        "planned_unique_episodes_evaluable_days": 24,
+        "ambiguous_unique_episodes_all_evaluation_days": 0,
+        "ambiguous_unique_episodes_evaluable_days": 0,
+        "unresolved_unique_episodes_all_evaluation_days": 0,
+        "minimum_available_cash_on_evaluable_days": 80000.06850575565
+      },
+      "scenario_means": [
+        {
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": 0.1459566456105858
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.5206992242079418
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.320408350331313
+        },
+        {
+          "policy": "time_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": 0.1459566456105858
+        },
+        {
+          "policy": "stop_only",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -0.5206992242079418
+        },
+        {
+          "policy": "stop_and_target",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_net_daily_return_bp": -1.320408350331313
+        }
+      ],
+      "paired_contrasts": [
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.466364995941899
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6666558698185275
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-L-H-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7997091261233713
+        },
+        {
+          "contrast": "combined_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -1.466364995941899
+        },
+        {
+          "contrast": "stop_minus_time",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.6666558698185275
+        },
+        {
+          "contrast": "combined_minus_stop",
+          "path": "O-H-L-C",
+          "common_days": 20,
+          "mean_paired_difference_bp": -0.7997091261233713
+        }
+      ]
+    }
+  ],
+  "interpretation_limits": [
+    "Minute-start/minute-end labels and IST are assumptions, not supplier-confirmed facts.",
+    "Per-day independent K accounts; no continuously funded wealth, compounding or cumulative drawdown claim.",
+    "Three submitted policies share entries and the same common six-scenario evaluable-day mask within each run.",
+    "Excluded 24 February remains an empty history session, so subsequent incomplete 20-session windows are ineligible.",
+    "Ambiguity and episode counts are unique within each run and are not multiplied by six execution scenarios.",
+    "Cost/slippage comparisons use the intersection of evaluable dates; delays and timestamp assumptions can change entries.",
+    "The 15 bp reference and stress costs are declared scenarios, not reconstructed historical transaction fees.",
+    "Five predeclared named examples are not a representative or historically constituent-selected universe.",
+    "No final holdout, parameter search, empirical ES/CI/Sharpe or drawdown result is reported in this short pilot."
+  ]
+}

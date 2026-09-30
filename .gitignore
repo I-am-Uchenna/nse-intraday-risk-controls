@@ -18,9 +18,16 @@ data/*
 *.xlsx
 *.xls
 *.zip
+*.rar
+*.7z
+*.sqlite
 *.pdf
 *.docx
 *.csv
 !examples/synthetic_bars.csv
 !results/synthetic_examples.csv
 !results/synthetic_comparisons.csv
+!results/m4_pilot/scenario_means.csv
+!results/m4_pilot/paired_contrasts.csv
+!results/m4_pilot/sensitivity_comparisons.csv
+!results/m4_pilot/run_diagnostics.csv

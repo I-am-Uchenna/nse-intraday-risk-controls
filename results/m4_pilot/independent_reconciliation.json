@@ -1,0 +1,251 @@
+{
+  "audit_date": "2026-09-30",
+  "method": "Independent standard-library calculations from private SQLite and JSONL; no production research or execution functions imported. All published runs reconciled, not a new market backtest.",
+  "checks": {
+    "verified_input_rows": 137036,
+    "verified_input_files": 18,
+    "ledger_session_records": 854,
+    "reference_candidates_recomputed": 6710,
+    "daily_scenarios_inspected": 5124,
+    "real_signal_candidates_recomputed": 57,
+    "real_policy_path_executions_recomputed": 2394,
+    "daily_accounts_reconciled": 1680,
+    "unique_label_setting_episodes_recomputed": 399,
+    "runs_reconciled": 14,
+    "errors": 0
+  },
+  "maximum_absolute_differences": {
+    "signal_stock_return": 0.0,
+    "signal_residual_return": 0.0,
+    "signal_prior_mean": 2.168404344971009e-19,
+    "signal_prior_residual_sd": 8.673617379884035e-19,
+    "signal_stock_volatility": 8.673617379884035e-19,
+    "signal_z": 8.881784197001252e-16,
+    "stop_from_stock_volatility": 0.0,
+    "target_from_stock_volatility": 0.0,
+    "fixed_notional": 0.0,
+    "episode_net_pnl": 1.0871303857129533e-12,
+    "episode_net_return_bp": 1.0871303857129533e-12,
+    "episode_entry_price": 0.0,
+    "episode_stop_price": 0.0,
+    "episode_target_price": 0.0,
+    "episode_raw_exit_price": 0.0,
+    "episode_effective_exit_price": 0.0,
+    "declared_cost": 0.0,
+    "declared_stop_slippage": 0.0,
+    "entry_fee_half": 0.0,
+    "exit_fee_half": 0.0,
+    "daily_net_pnl": 2.374989094278135e-12,
+    "daily_return_fraction": 2.3744027577432547e-17,
+    "closing_cash": 2.9103830456733704e-11,
+    "minimum_cash": 2.9103830456733704e-11,
+    "cash_conservation": 1.829114637530438e-11,
+    "independent_session_opening_cash": 0.0,
+    "cash_event_amount": 3.637978807091713e-12,
+    "cash_event_available_cash": 2.9103830456733704e-11,
+    "cash_event_reserved_notional": 0.0,
+    "valid_zero_day_pnl": 0.0,
+    "public_daily_mean_bp": 3.019806626980426e-14,
+    "public_paired_mean_bp": 2.3314683517128287e-14
+  },
+  "failure_labels": {},
+  "nonprice_examples": [
+    {
+      "timestamp_assumption": "start",
+      "setting": "reference",
+      "session_date": "2021-02-01",
+      "episode_ids": [
+        "2021-02-01_INFY_1215",
+        "2021-02-01_INFY_1315",
+        "2021-02-01_ITC_1315",
+        "2021-02-01_ITC_1445"
+      ],
+      "policies_reconciled": [
+        "time_only",
+        "stop_only",
+        "stop_and_target"
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "reference",
+      "session_date": "2021-02-02",
+      "episode_ids": [
+        "2021-02-02_INFY_0945",
+        "2021-02-02_TCS_0945",
+        "2021-02-02_TCS_1315"
+      ],
+      "policies_reconciled": [
+        "time_only",
+        "stop_only",
+        "stop_and_target"
+      ]
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "reference",
+      "session_date": "2021-02-03",
+      "episode_ids": [
+        "2021-02-03_ITC_0945"
+      ],
+      "policies_reconciled": [
+        "time_only",
+        "stop_only",
+        "stop_and_target"
+      ]
+    }
+  ],
+  "common_denominators": [
+    {
+      "timestamp_assumption": "start",
+      "setting": "reference",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "cost_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "cost_25",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "stop_slippage_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "stop_slippage_10",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "delay_2",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "start",
+      "setting": "delay_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 4,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "reference",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "cost_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "cost_25",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "stop_slippage_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "stop_slippage_10",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "delay_2",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    },
+    {
+      "timestamp_assumption": "end",
+      "setting": "delay_5",
+      "evaluable_days": 20,
+      "valid_zero_trade_days": 7,
+      "evaluation_status_counts": {
+        "EVALUABLE": 20,
+        "INCOMPLETE_CANDIDATE_COVERAGE": 20
+      }
+    }
+  ],
+  "protocol_sha256": "d0733568eb81f6ce4487f4d096cd044c040040def7a17bb03bca8763498120b9",
+  "summary_sha256": "4a486315c21afbdce558c8c6cd6940da7e010444eb79f230c65324daf49df461",
+  "private_ledger_sha256": "9aa0416bea2101a6dab8e2ed64eda499dd8499442295873f447bc684e428e673",
+  "limits": [
+    "No price data or actual P&L levels exported by this audit.",
+    "Source timezone/interval semantics and redistribution permissions are not verified.",
+    "Calendar configuration is taken as declared; its external citations were not independently re-reviewed here.",
+    "Independent session accounts are not a funded multi-day wealth process and do not establish marked-to-market drawdown.",
+    "The pilot contains no both-barriers-hit market episodes, so the market reconciliation cannot exercise that ambiguity branch.",
+    "No final holdout, empirical profitability inference or full source-archive audit is claimed."
+  ]
+}
