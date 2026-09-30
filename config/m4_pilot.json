@@ -1,0 +1,102 @@
+{
+  "protocol_id": "M4-Q1-2021-v1",
+  "declared_before_first_strategy_replay_utc": "2026-09-30T09:46:56.837703+00:00",
+  "study_title": "Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities",
+  "status": "Development replay only; source timestamp conventions remain unverified",
+  "universe": [
+    "RELIANCE",
+    "HDFCBANK",
+    "INFY",
+    "TCS",
+    "ITC"
+  ],
+  "selection_rule": "Fixed named examples chosen before strategy outcomes, extending the earlier two-stock data audit; not a performance ranking, representative sample or historical index-membership claim",
+  "index_symbol": ".NSEI",
+  "start_date": "2021-01-01",
+  "end_date": "2021-03-31",
+  "warmup_sessions": 20,
+  "holidays": [
+    "2021-01-26",
+    "2021-03-11",
+    "2021-03-29"
+  ],
+  "holiday_source": "https://archives.nseindia.com/content/circulars/CMTR46623.pdf",
+  "excluded_nonstandard_sessions": [
+    "2021-02-24"
+  ],
+  "excluded_session_rule": "Retain this date in the session history as missing; do not simulate it or substitute older history",
+  "normal_session_open": "09:15",
+  "normal_session_close": "15:30",
+  "timestamp_assumptions": [
+    "start",
+    "end"
+  ],
+  "timezone_assumption": "Asia/Kolkata; not supplier-confirmed",
+  "reference_capital_inr": 100000.0,
+  "allocation_fraction": 0.5,
+  "capital_model": "Independent session replay; not a funded multi-day wealth process",
+  "signal_window_minutes": 15,
+  "prior_sessions": 20,
+  "z_threshold": -2.0,
+  "barrier_volatility": "Sample SD of stock 15-minute same-clock log returns over exactly the previous 20 calendar sessions; not residual SD",
+  "stop_multiplier": "exp(-v)",
+  "target_multiplier": "exp(1.5*v)",
+  "decision_minutes_after_open": 30,
+  "decision_interval_minutes": 30,
+  "holding_minutes": 15,
+  "scenario_settings": [
+    {
+      "name": "reference",
+      "cost_bp": 15.0,
+      "stop_slippage_bp": 0.0,
+      "delay_minutes": 1
+    },
+    {
+      "name": "cost_5",
+      "cost_bp": 5.0,
+      "stop_slippage_bp": 0.0,
+      "delay_minutes": 1
+    },
+    {
+      "name": "cost_25",
+      "cost_bp": 25.0,
+      "stop_slippage_bp": 0.0,
+      "delay_minutes": 1
+    },
+    {
+      "name": "stop_slippage_5",
+      "cost_bp": 15.0,
+      "stop_slippage_bp": 5.0,
+      "delay_minutes": 1
+    },
+    {
+      "name": "stop_slippage_10",
+      "cost_bp": 15.0,
+      "stop_slippage_bp": 10.0,
+      "delay_minutes": 1
+    },
+    {
+      "name": "delay_2",
+      "cost_bp": 15.0,
+      "stop_slippage_bp": 0.0,
+      "delay_minutes": 2
+    },
+    {
+      "name": "delay_5",
+      "cost_bp": 15.0,
+      "stop_slippage_bp": 0.0,
+      "delay_minutes": 5
+    }
+  ],
+  "raw_delivery_glob": "NSE * Data-20260928*.zip",
+  "pilot_months": [
+    "January",
+    "February",
+    "March"
+  ],
+  "data_supplements_used": false,
+  "final_holdout_evaluated": false,
+  "parameter_search": false,
+  "nonstandard_session_source": "https://www.sebi.gov.in/sebi_data/attachdocs/jun-2023/1687270559560.pdf",
+  "excluded_session_limitation": "This retrospective design exclusion is known before pilot P&L inspection but was not known before the historical outage; outage-day losses are not estimated."
+}
