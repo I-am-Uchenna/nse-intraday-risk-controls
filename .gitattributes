@@ -2,5 +2,6 @@
 # These remain ordinary text files; disable automatic line-ending conversion.
 *.py -text
 *.json -text
+*.ipynb -text
 *.csv -text
 requirements.txt -text

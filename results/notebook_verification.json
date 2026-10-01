@@ -1,15 +1,17 @@
 {
   "verified_at_utc": "2026-10-01",
   "scope": "Cached Q1 2021 development pilot only; not full-study or mounted-Drive execution",
-  "notebook_sha256": "9054de729bd1880b189bf5dba5e194bfd3c4457ba5e572357762393380de70b4",
+  "notebook_sha256": "0c4bfa9a55f2de2a31604b2dd2add76abee0344208ae124cbd8149e4d5a03eaf",
   "code_cells_executed": 24,
   "execution_errors": 0,
   "repeat_export_passed": true,
-  "repository_unit_tests_passed": 102,
+  "repository_unit_tests_passed": 103,
   "matching_policy_scenario_means": 84,
   "max_mean_error_bp": 2.5712765250318625e-13,
   "evaluable_days_per_comparison": 20,
-  "peak_aggregate_committed_memory_bytes": 349237248,
+  "peak_aggregate_committed_memory_bytes": 348819456,
   "memory_measure": "aggregate committed memory; not RSS",
-  "final_test_accessed": false
+  "final_test_accessed": false,
+  "daily_close_drawdown_verified": true,
+  "bootstrap_diagnostic": "Separate synthetic fixture equivalence check; actual development-mask results recorded with the cloud run"
 }

@@ -1,6 +1,8 @@
 """Check the deliverable's actual visible core, without scientific plotting packages."""
 import ast
 import contextlib
+from copy import deepcopy
+from datetime import date
 import io
 import json
 from pathlib import Path
@@ -12,6 +14,32 @@ NOTEBOOK = Path(__file__).resolve().parents[1] / 'NSE_Intraday_Research.ipynb'
 
 
 class ResearchNotebookTests(unittest.TestCase):
+    def test_freeze_rejects_rebound_settings_and_calendar(self):
+        notebook = json.loads(NOTEBOOK.read_text(encoding='utf-8'))
+        source = next(c['source'] for c in notebook['cells'] if 'export' in c['metadata'].get('tags', []))
+        freeze = next(n for n in ast.parse(''.join(source)).body
+                      if isinstance(n, ast.If) and isinstance(n.test, ast.Name) and n.test.id == 'READY_TO_FREEZE')
+        index = next(i for i, n in enumerate(freeze.body)
+                     if isinstance(n, ast.Assign) and n.targets[0].id == 'current_settings')
+        guard = compile(ast.Module(body=freeze.body[index:index+2], type_ignores=[]), '<freeze guard>', 'exec')
+        days = [date(2021, 1, 4), date(2021, 1, 5)]
+        scope = dict(CFG={'threshold': -2}, SETTINGS=[{'cost': 15}], INFERENCE={'seed': 17838},
+                     DIAGNOSTIC_SPEC={'replications': 200}, CALENDAR=days,
+                     PARTITIONS={'validation': days}, EVALUATION_DATES=days)
+        scope['SCIENCE_PAYLOAD'] = dict(configuration=deepcopy(scope['CFG']), settings=deepcopy(scope['SETTINGS']),
+            inference=deepcopy(scope['INFERENCE']), bootstrap_diagnostic=deepcopy(scope['DIAGNOSTIC_SPEC']),
+            calendar=[d.isoformat() for d in days],
+            splits=[dict(stage='validation',start=str(days[0]),end=str(days[-1]),scheduled_sessions='2')])
+        exec(guard, deepcopy(scope))
+        for key, value in [('CFG', {'threshold': -1}), ('SETTINGS', [{'cost': 5}]),
+                           ('INFERENCE', {'seed': 1}), ('DIAGNOSTIC_SPEC', {'replications': 10}),
+                           ('CALENDAR', days[:1]), ('PARTITIONS', {'validation': days[:1]}),
+                           ('EVALUATION_DATES', days[:1])]:
+            altered = deepcopy(scope)
+            altered[key] = value
+            with self.subTest(rebound=key), self.assertRaisesRegex(RuntimeError, 'differ from the executed protocol'):
+                exec(guard, altered)
+
     def test_visible_core_and_synthetic_failure_cases(self):
         notebook = json.loads(NOTEBOOK.read_text(encoding='utf-8'))
         namespace = {'__name__': '__main__'}

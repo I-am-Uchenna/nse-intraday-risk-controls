@@ -1,4 +1,13 @@
-# Research pipeline and remaining work
+# Historical pilot pipeline and subsequent notebook
+
+The tables below document the original M4 command-line pilot and its remaining
+work at that version. The subsequent `NSE_Intraday_Research.ipynb` implements
+funded cash accounting, separate minute/daily-close drawdown, ES, paired
+moving-block intervals and synthetic reliability diagnostics. Its visible
+cells and saved run manifests are the current implementation record.
+Source metadata review, chronological validation, final protocol freeze and
+final evaluation remain pending; implementation is not completion of those
+research gates.
 
 The project retains the submitted title and exactly three exit policies. The
 M4 development pilot integrates the existing execution engine with supplied

@@ -23,7 +23,7 @@ predeclared examples are RELIANCE, HDFCBANK, INFY, TCS and ITC, with .NSEI as th
 signal benchmark. They are not a performance-selected or representative NSE
 universe, and the index is not traded as a hedge.
 
-The development replay is conditional on timestamp and fill assumptions. It is
+The historical command-line pilot is conditional on timestamp and fill assumptions. It is
 not an out-of-sample test, a parameter search or a continuously funded portfolio.
 It does not construct minute-by-minute marked-to-market equity, establish
 maximum drawdown, validate real fills or demonstrate a deployable trading edge.
@@ -34,8 +34,9 @@ See [methods](METHODS.md) and the [remaining work](PIPELINE.md).
 [Open the research notebook in Colab](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Intraday_Research.ipynb).
 Save a copy in Drive and run in a fresh hosted CPU runtime. All research code is
 visible in the notebook: archive validation, chronological partitions, signals,
-three-policy execution, cash ledgers, funded minute-close equity, drawdown,
-expected shortfall, paired block intervals, sensitivity analysis and exports.
+three-policy execution, cash ledgers, funded minute-close equity, separate
+minute/daily-close drawdown, expected shortfall, paired block intervals,
+synthetic coverage/width diagnostics, sensitivity analysis and exports.
 It does not clone this repository or invoke external research scripts.
 
 The default stage is development on the planned 2021–2023 five-stock study.
@@ -44,12 +45,30 @@ instructor archives remain private and are accessed through Drive shortcuts.
 Only selected CSVs are streamed, equity is streamed to disk, and original files
 are never overwritten. Google Drive authorization must complete before ingestion.
 
-The notebook was executed from a clean local kernel on the previously audited
-Q1 2021 pilot: all 24 code cells completed, all 84 policy/scenario means matched
-the published pilot, and the new accounting checks passed. This is verification
-of the complete pipeline on development data, **not evidence that the full
-2021–2023 study or mounted-Drive run has completed**. New funded/risk outputs are
-separate diagnostics; the historical M4 reports remain unchanged.
+The notebook's local verification uses the previously audited Q1 2021 pilot:
+all 24 code cells complete, all 84 policy/scenario means match the published
+pilot, and repeat export succeeds. See `results/notebook_verification.json`.
+This small local check does not substitute for a hosted raw-data run. New
+funded/risk outputs are separate diagnostics; the historical pilot tables
+remain unchanged.
+
+The hosted development run also completed all 24 cells and 14 scenarios after
+reading the original Drive sources: 216 selected symbol-month entries and
+1,669,406 retained rows, with 1,883 verified copied rows excluded. The evaluated
+partition is 1 January 2021–17 October 2022. Source preparation covers the declared
+2021–2023 six-series window; it does not evaluate later strategy outcomes or
+certify every delivered instrument. See
+`results/development_notebook_verification.json`. Validation and the final test
+remain unevaluated.
+
+The five-day interval also receives a bounded synthetic reliability check:
+200 Gaussian histories at each of three fixed dependence levels, using the
+actual development eligibility masks and 2,000 resamples per interval.
+Coverage, Monte Carlo error and widths are reported without treating the
+simulation as proof of market coverage. The final-test lock checks current
+settings, dates, source data and function identity before a validation freeze.
+Observed simulation coverage ranged from 78.5% to 94.5%; the nominal 95%
+procedure can undercover, especially with stronger serial dependence.
 
 The scientific Python packages used for tables and plots are preinstalled in
 Colab. For local reproduction see `requirements-notebook.txt`. The underlying

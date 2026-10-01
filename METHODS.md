@@ -2,10 +2,11 @@
 
 This file documents the historical M3/M4 script implementation and its pilot
 limits. `NSE_Intraday_Research.ipynb` is the subsequent standalone implementation:
-its visible cells additionally implement funded marked equity, sampled drawdown,
-ES, paired inference and a final-test gate. Its completed verification is on the
-same Q1 development data; a completed full-study result is not implied. The
-notebook records its own code, configuration, data fingerprints and assumptions.
+its visible cells additionally implement funded marked equity, minute/daily-close
+drawdown, ES, paired inference, synthetic reliability diagnostics and a final-test
+gate. The notebook records its own code, configuration, data fingerprints,
+executed stage and assumptions. A completed development run does not establish
+validation or final-test performance.
 
 These rules describe **Path-Robust Risk Controls for Intraday Mean Reversion in
 NSE Equities**. The M3 episode engine and M4 development pipeline retain exactly
