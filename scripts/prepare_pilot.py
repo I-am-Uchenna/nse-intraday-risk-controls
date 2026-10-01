@@ -1,6 +1,7 @@
 """Stage selected instructor CSVs into a private SQLite database, one row at a time.
 
-Requires the original instructor ZIP downloads and Windows bsdtar (tar).
+Accepts original instructor ZIP downloads or the RAR/7z files in mounted Drive folders.
+Requires bsdtar (libarchive-tools on Colab) or Windows tar.
 Never extracts CSV files wholesale or includes their prices in public outputs.
 """
 import argparse
@@ -9,6 +10,7 @@ from datetime import date
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -20,9 +22,16 @@ sys.path.insert(0, str(ROOT/'src'))
 from path_robust.vendor import iter_vendor_rows
 
 
+def archive_command(*arguments):
+    executable = shutil.which('bsdtar') or (shutil.which('tar') if sys.platform == 'win32' else None)
+    if executable is None:
+        raise RuntimeError('Install libarchive-tools (bsdtar) on Colab/Linux, or use Windows tar.')
+    return [executable, *map(str, arguments)]
+
+
 @contextmanager
 def native_lines(archive, member=None):
-    command = ['tar', '-tf', str(archive)] if member is None else ['tar', '-xOf', str(archive), member]
+    command = archive_command('-tf', archive) if member is None else archive_command('-xOf', archive, member)
     with tempfile.TemporaryFile(mode='w+t', encoding='utf-8') as errors:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=errors,
                                    text=True, encoding='utf-8-sig')
@@ -48,16 +57,27 @@ def hash_file(path):
 
 
 def stage_outer(downloads, pattern, basename, cache):
+    """Stage exactly one direct archive or matching member of a delivery ZIP."""
     matches = []
-    for path in sorted(downloads.glob(pattern)):
-        with zipfile.ZipFile(path) as archive:
-            for entry in archive.infolist():
-                if Path(entry.filename).name == basename:
-                    matches.append((path, entry.filename))
+    folders = [downloads] if isinstance(downloads, Path) else downloads
+    for folder in dict.fromkeys(path.resolve() for path in folders):
+        if not folder.is_dir():
+            raise NotADirectoryError(folder)
+        direct = folder/basename
+        if direct.is_file():
+            matches.append((direct, None))
+        for path in sorted(folder.glob(pattern)):
+            with zipfile.ZipFile(path) as archive:
+                for entry in archive.infolist():
+                    if Path(entry.filename).name == basename:
+                        matches.append((path, entry.filename))
     if len(matches) != 1:
         raise ValueError(f'Expected one source for {basename}; found {len(matches)}')
     outer, member = matches[0]
     target = cache/basename
+    if member is None:
+        shutil.copyfile(outer, target)
+        return target, {'source_archive':outer.name, 'nested_archive_sha256':hash_file(target)}
     digest = hashlib.sha256()
     with zipfile.ZipFile(outer) as archive, archive.open(member) as source, target.open('wb') as output:
         while block := source.read(1024*1024):
@@ -81,7 +101,8 @@ def find_member(archive, basename):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--downloads',type=Path,required=True)
+    parser.add_argument('--downloads',type=Path,action='append',required=True,
+                        help='Source folder; repeat for separate cash and index folders.')
     parser.add_argument('--work-dir',type=Path,default=ROOT/'data/m4_pilot')
     parser.add_argument('--config',type=Path,default=ROOT/'config/m4_pilot.json')
     args=parser.parse_args()
@@ -124,7 +145,7 @@ def main():
             nested=find_member(year,f'NSE Indices-{month} 2021.rar')
             target=cache/Path(nested).name
             with target.open('wb') as out,tempfile.TemporaryFile(mode='w+t') as err:
-                result=subprocess.run(['tar','-xOf',str(year),nested],stdout=out,stderr=err)
+                result=subprocess.run(archive_command('-xOf',year,nested),stdout=out,stderr=err)
                 if result.returncode:
                     err.seek(0);raise RuntimeError(err.read(2000))
             child_provenance={**provenance,'year_container_member':nested,'monthly_archive_sha256':hash_file(target)}

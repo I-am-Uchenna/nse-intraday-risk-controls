@@ -29,11 +29,26 @@ It does not construct minute-by-minute marked-to-market equity, establish
 maximum drawdown, validate real fills or demonstrate a deployable trading edge.
 See [methods](METHODS.md) and the [remaining work](PIPELINE.md).
 
+## Run in Google Colab (recommended)
+
+[Open the notebook](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Capstone_Colab.ipynb), save a copy in Drive, then run its five steps.
+It connects to the instructor folders through My Drive shortcuts, runs the checks
+and frozen Q1 2021 pilot on Colab, displays tables and a labelled chart, and saves
+aggregate outputs back to Drive. Only the two data-folder paths need configuring.
+Use a CPU runtime; no local Python installation or Windows memory wrapper is needed.
+
+The notebook pins `colab-v1` and records the executed commit. It reuses the tested
+research modules rather than maintaining a second implementation. Source prices
+stay private; temporary database/ledgers remain on the Colab VM. This is the
+existing development pilot, not a completed full-period or final holdout study.
+If the repository becomes private, its authentication must also be configured in
+Colab. See [Google's runtime and Drive guidance](https://research.google.com/colaboratory/faq.html).
+
 ## Requirements
 
 - Python **3.10 or newer**; the Python code uses only the standard library.
-- Windows for `run_limited.py` and the supplied archive-preparation workflow.
-- Windows `tar` / bsdtar with support for the instructor's RAR and 7z containers.
+- Windows only for the optional `run_limited.py` memory wrapper.
+- `bsdtar` (`libarchive-tools` on Colab/Linux) or Windows `tar`, with RAR/7z support.
   Python's standard-library `zipfile` reads the outer ZIP files.
 - The separately supplied instructor archives and enough local disk space for
   selected archive containers and the private SQLite database.
@@ -84,7 +99,9 @@ it does not unpack the entire archive collection or load it into memory.
 python scripts/run_limited.py --memory-mib 384 --report data/m4_pilot/prepare_memory.json -- python scripts/prepare_pilot.py --downloads "C:\path\to\downloaded_archives" --work-dir data/m4_pilot --config config/m4_pilot.json
 ```
 
-The delivery filenames must match the frozen configuration's `raw_delivery_glob`.
+Outer ZIP delivery filenames must match the frozen configuration's `raw_delivery_glob`.
+Direct instructor RAR/7z files are also accepted. Repeat `--downloads` for separate
+cash and index folders. The loader rejects duplicate matching sources.
 The script creates `data/m4_pilot/pilot.sqlite` and
 `data/m4_pilot/input_audit.json`. It refuses to overwrite an existing database;
 use a new work directory for a new preparation run. The database and staged
@@ -152,7 +169,7 @@ See the [complete scenario summary](results/m4_pilot/summary.json),
 [paired contrasts](results/m4_pilot/paired_contrasts.csv),
 [source fingerprints](results/m4_pilot/run_manifest.json) and
 [independent reconciliation](results/m4_pilot/independent_reconciliation.json).
-All 99 software checks pass. The market replay peaked at 39.70 MiB of aggregate
+The original M4 run passed 99 software checks; Colab support adds a source-staging check. The market replay peaked at 39.70 MiB of aggregate
 child-process committed memory; this excludes its supervisor and OS file cache.
 
 ## Synthetic illustration from M3
