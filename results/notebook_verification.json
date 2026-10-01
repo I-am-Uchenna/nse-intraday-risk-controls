@@ -1,15 +1,15 @@
 {
   "verified_at_utc": "2026-10-01",
   "scope": "Cached Q1 2021 development pilot only; not full-study or mounted-Drive execution",
-  "notebook_sha256": "e782f60619ea55c20dd40b2bbc207009c50ca31c88c0c2ec00b7a4489f06e6b2",
+  "notebook_sha256": "9054de729bd1880b189bf5dba5e194bfd3c4457ba5e572357762393380de70b4",
   "code_cells_executed": 24,
   "execution_errors": 0,
   "repeat_export_passed": true,
-  "repository_unit_tests_passed": 101,
+  "repository_unit_tests_passed": 102,
   "matching_policy_scenario_means": 84,
   "max_mean_error_bp": 2.5712765250318625e-13,
   "evaluable_days_per_comparison": 20,
-  "peak_aggregate_committed_memory_bytes": 348524544,
+  "peak_aggregate_committed_memory_bytes": 349237248,
   "memory_measure": "aggregate committed memory; not RSS",
   "final_test_accessed": false
 }
