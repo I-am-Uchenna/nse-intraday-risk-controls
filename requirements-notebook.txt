@@ -1,0 +1,12 @@
+# Research notebook runtime; Colab supplies these packages.
+# Exact executed versions are written into each run manifest.
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+ipython>=8
+# For local clean-kernel execution and HTML export:
+nbformat>=5.10
+nbclient>=0.10
+ipykernel>=6.29
+nbconvert>=7.16
+# Archive ingestion also requires system libarchive-tools (bsdtar), or Windows tar.

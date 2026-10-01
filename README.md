@@ -29,7 +29,35 @@ It does not construct minute-by-minute marked-to-market equity, establish
 maximum drawdown, validate real fills or demonstrate a deployable trading edge.
 See [methods](METHODS.md) and the [remaining work](PIPELINE.md).
 
-## Run in Google Colab (recommended)
+## Complete research notebook (recommended)
+
+[Open the research notebook in Colab](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Intraday_Research.ipynb).
+Save a copy in Drive and run in a fresh hosted CPU runtime. All research code is
+visible in the notebook: archive validation, chronological partitions, signals,
+three-policy execution, cash ledgers, funded minute-close equity, drawdown,
+expected shortfall, paired block intervals, sensitivity analysis and exports.
+It does not clone this repository or invoke external research scripts.
+
+The default stage is development on the planned 2021–2023 five-stock study.
+The final stage requires a matching saved validation freeze. The original
+instructor archives remain private and are accessed through Drive shortcuts.
+Only selected CSVs are streamed, equity is streamed to disk, and original files
+are never overwritten. Google Drive authorization must complete before ingestion.
+
+The notebook was executed from a clean local kernel on the previously audited
+Q1 2021 pilot: all 24 code cells completed, all 84 policy/scenario means matched
+the published pilot, and the new accounting checks passed. This is verification
+of the complete pipeline on development data, **not evidence that the full
+2021–2023 study or mounted-Drive run has completed**. New funded/risk outputs are
+separate diagnostics; the historical M4 reports remain unchanged.
+
+The scientific Python packages used for tables and plots are preinstalled in
+Colab. For local reproduction see `requirements-notebook.txt`. The underlying
+historical M3/M4 command-line code below continues to use the standard library.
+The earlier five-step launcher is retained as a historical convenience; it is
+not the complete research deliverable.
+
+## Earlier pilot launcher
 
 [Open the notebook](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Capstone_Colab.ipynb), save a copy in Drive, then run its five steps.
 It connects to the instructor folders through My Drive shortcuts, runs the checks
@@ -53,7 +81,8 @@ Colab. See [Google's runtime and Drive guidance](https://research.google.com/col
 - The separately supplied instructor archives and enough local disk space for
   selected archive containers and the private SQLite database.
 
-`requirements.txt` documents the absence of third-party Python dependencies.
+`requirements.txt` describes the historical command-line implementation;
+`requirements-notebook.txt` lists the standalone notebook dependencies.
 Check that `python` resolves to an installed interpreter and `tar --version`
 identifies a suitable archive reader. No market data are included in this
 repository. Read [data handling](data/README.md) before preparing local inputs.
