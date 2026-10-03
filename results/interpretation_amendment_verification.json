@@ -1,0 +1,36 @@
+{
+  "amendment_date": "2026-10-03",
+  "verified_utc": "2026-10-03T14:03:48.112683+00:00",
+  "historical_run_id_preserved": "20261001T221531Z-th2hk303",
+  "historical_protocol_sha256": "c6363f28828d9ab3080556ff887ea6c58501a462883bc792a4272495518bc39b",
+  "historical_code_reference": "8b40cf6e4170a157095ecfc28d0579cf1299c99a",
+  "revised_notebook_sha256": "fae15929a5806d4d19fc0a6d5b6e8149d9e561552f96c0f00773ccb500ec0a5a",
+  "revised_notebook_bundle_sha256": "a3add234b43e6ba19fe0d5d0d1dbc82870ea03df09e3094a15b99fe1cb134834",
+  "focused_notebook_tests": {
+    "tests_run": 4,
+    "failures": 0,
+    "errors": 0,
+    "execution": "Included in the 104-test full run; also passed separately before narrative cleanup.",
+    "interval_interpretation_subcases": 12
+  },
+  "full_repository_checks": {
+    "tests_run": 104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "command": "python scripts/run_limited.py --memory-mib 384 --report data/checks_memory.json -- python scripts/run_checks.py",
+    "examples": "10 synthetic cases, 60 policy/path outcomes; not market data"
+  },
+  "changed_code_cells": [
+    "research-033",
+    "research-045"
+  ],
+  "code_change_scope": "Interpretation wording and hashed provenance policy only; research function definitions and market/execution/data/inference calculations unchanged.",
+  "narrative_cleanup": "25 markdown cells shortened; source citations, assumptions and historical-run amendment retained.",
+  "new_full_hosted_run_completed": false,
+  "market_replay_performed_for_amendment": false,
+  "validation_evaluated": false,
+  "final_test_evaluated": false,
+  "caveat": "Checks verify software behavior and source identity, not market coverage or profitability. Historical market outputs retain their original source and protocol identity."
+}

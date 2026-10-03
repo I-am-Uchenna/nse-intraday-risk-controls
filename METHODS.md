@@ -8,6 +8,14 @@ gate. The notebook records its own code, configuration, data fingerprints,
 executed stage and assumptions. A completed development run does not establish
 validation or final-test performance.
 
+Interpretation amendment, 3 October 2026: the current notebook's nominal
+bootstrap intervals are exploratory under every stage and sign. Excluding
+zero is not sufficient to establish an effect. Confirmatory claims require
+a separately documented, assessed amendment before final outcomes are opened;
+otherwise retain descriptive contrasts and exploratory intervals. The earlier
+development run keeps its original code/protocol identity. No market result
+was recomputed for this interpretation and narrative revision.
+
 These rules describe **Path-Robust Risk Controls for Intraday Mean Reversion in
 NSE Equities**. The M3 episode engine and M4 development pipeline retain exactly
 three policies: time-only, stop-only and stop plus target, all with the same time

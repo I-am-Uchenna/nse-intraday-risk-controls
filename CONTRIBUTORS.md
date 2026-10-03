@@ -4,8 +4,8 @@
 
 Student Group 17838, MScFE 690 Capstone:
 
-- Israel Olanrewaju Odeajo
 - Uchenna Splendor Ejike
+- Israel Olanrewaju Odeajo
 - Goodness Chibueze Kalu
 
 These names record group membership. This file does not assign completed code,
@@ -13,21 +13,24 @@ analysis or writing contributions to a member without a verified contribution
 record. Commit history, reviewed changes and the group's contribution log should
 provide the evidence for work performed.
 
-## Proposed workstreams
+## Assigned workstreams
 
-The group will agree individual owners and reviewers. The following division
-keeps the submitted research scope unchanged:
+The following responsibilities were assigned on 3 October 2026. Uchenna will
+submit the group files. These assignments cover remaining work; they do not
+claim that any member has already completed a contribution.
 
-| Workstream | Main deliverables | Peer review |
+| Owner | Workstream | Independent reviewer |
 | --- | --- | --- |
-| Data and signals | Input provenance, schema/calendar checks, missingness, past-only signals and sample definition. | A second group member checks input handling and chronology. |
-| Execution and testing | Three exit policies, matched episodes, event-order assumptions, cost/delay scenarios and deterministic checks. | A second group member reconciles selected episodes and edge cases. |
-| Evaluation and writing | Common evaluable days, accounting interpretation, final analysis, source verification and report preparation. | A second group member checks generated outputs, claims and citations. |
+| Uchenna Splendor Ejike | Analysis, writing, interpretation review and submission | Israel checks data claims; Goodness checks numerical/code claims. |
+| Israel Olanrewaju Odeajo | Data provenance, calendar, missingness and source conventions | Goodness Chibueze Kalu |
+| Goodness Chibueze Kalu | Code, tests, validation and frozen final execution | Israel checks chronology; Uchenna checks reported outputs. |
 
-These are proposed responsibilities, not claims that named members have already
-completed them. Record the agreed owner, reviewer, date and evidence when a task
-is assigned or completed. Keep meaningful commit messages and preserve dated
-protocol changes before their outcomes are examined.
+Record the owner, reviewer, completion date and evidence for each contribution.
+Relative targets after M4 submission are data decisions by working day 2,
+validation by day 4, interpretation review and freeze by day 5, and final
+evaluation/report by day 8. Confirm actual course deadlines in the learning
+platform and adjust the schedule before final access if less time is available.
+Preserve dated protocol changes before their outcomes are examined.
 
 ## Access status
 

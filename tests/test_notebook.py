@@ -8,12 +8,43 @@ import json
 from pathlib import Path
 import sqlite3
 import tempfile
+from types import SimpleNamespace
 import unittest
 
 NOTEBOOK = Path(__file__).resolve().parents[1] / 'NSE_Intraday_Research.ipynb'
 
 
 class ResearchNotebookTests(unittest.TestCase):
+    def test_interval_direction_never_becomes_confirmatory_evidence(self):
+        notebook = json.loads(NOTEBOOK.read_text(encoding='utf-8'))
+        source = next(c['source'] for c in notebook['cells'] if c['id'] == 'research-045')
+        tree = ast.parse(''.join(source))
+        loop = next(n for n in tree.body if isinstance(n, ast.For))
+        index = next(i for i, n in enumerate(loop.body)
+                     if isinstance(n, ast.Assign) and isinstance(n.targets[0], ast.Name)
+                     and n.targets[0].id == 'line')
+        # Execute the delivered introduction and interval-interpretation branch, without market data or pandas.
+        wording = compile(ast.Module(body=[tree.body[0], *loop.body[index:]], type_ignores=[]),
+                          '<notebook interval interpretation>', 'exec')
+        for stage in ['development', 'final']:
+            for lower, upper, direction in [(1., 2., 'above zero'), (-2., -1., 'below zero'),
+                                            (-1., 1., 'contains zero'), (0., 1., 'contains zero'),
+                                            (-1., 0., 'contains zero'),
+                                            (float('nan'), float('nan'), 'unavailable')]:
+                with self.subTest(stage=stage, interval=(lower, upper)):
+                    scope = dict(RUN_STAGE=stage, CFG={'start_date': '2021-01-01', 'end_date': '2023-12-29'},
+                                 label='start', pd=SimpleNamespace(isna=lambda x: x != x),
+                                 row=SimpleNamespace(mean_difference_bp=.1, n_days=100,
+                                                     lower_bp=lower, upper_bp=upper))
+                    exec(wording, scope)
+                    text = '\n'.join(scope['conclusion_lines'])
+                    self.assertIn(direction, text)
+                    self.assertIn('All nominal bootstrap intervals are exploratory', text)
+                    self.assertIn('They do not establish a confirmatory effect or superiority.', text)
+                    self.assertIn('before final-test outcomes are accessed', text)
+                    if direction != 'unavailable':
+                        self.assertIn('exploratory nominal 95% interval', text)
+
     def test_freeze_rejects_rebound_settings_and_calendar(self):
         notebook = json.loads(NOTEBOOK.read_text(encoding='utf-8'))
         source = next(c['source'] for c in notebook['cells'] if 'export' in c['metadata'].get('tags', []))

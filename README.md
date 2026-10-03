@@ -70,6 +70,16 @@ settings, dates, source data and function identity before a validation freeze.
 Observed simulation coverage ranged from 78.5% to 94.5%; the nominal 95%
 procedure can undercover, especially with stronger serial dependence.
 
+The 3 October revision therefore treats all intervals from this procedure as
+exploratory, including intervals excluding zero and final-stage outputs.
+Confirmatory inference would require a separately documented and assessed
+method amendment before final outcomes are opened. A saved freeze or passing
+software checks does not establish statistical reliability. The revision also
+shortens the notebook explanations and places Uchenna first in the author list.
+The saved development outputs retain their original source/run identity; the
+revised source has not completed a new full hosted run. See
+`results/interpretation_amendment_verification.json` for the revision checks.
+
 The scientific Python packages used for tables and plots are preinstalled in
 Colab. For local reproduction see `requirements-notebook.txt`. The underlying
 historical M3/M4 command-line code below continues to use the standard library.
