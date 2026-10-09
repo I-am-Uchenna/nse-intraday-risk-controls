@@ -5,3 +5,5 @@
 *.ipynb -text
 *.csv -text
 requirements.txt -text
+# Keep the archived development snapshot identical to its checksum manifest.
+results/development_20261001/** -text

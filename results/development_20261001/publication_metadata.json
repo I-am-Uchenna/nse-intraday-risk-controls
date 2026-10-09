@@ -1,0 +1,42 @@
+{
+  "snapshot_id": "development_20261001",
+  "packaged_utc": "2026-10-09T23:24:36.995230+00:00",
+  "run_id": "20261001T221531Z-th2hk303",
+  "stage": "development",
+  "run_completed_utc": "2026-10-01T22:22:29.841372+00:00",
+  "executed_code_commit": "8b40cf6e4170a157095ecfc28d0579cf1299c99a",
+  "executed_notebook_source_sha256": "0c4bfa9a55f2de2a31604b2dd2add76abee0344208ae124cbd8149e4d5a03eaf",
+  "historical_protocol_sha256": "c6363f28828d9ab3080556ff887ea6c58501a462883bc792a4272495518bc39b",
+  "revised_source_commit": "8d710c9e9fb1d6e1bb16dcdbcf08c6306911dddf",
+  "revised_notebook_source_sha256": "fae15929a5806d4d19fc0a6d5b6e8149d9e561552f96c0f00773ccb500ec0a5a",
+  "revised_source_has_new_full_hosted_run": false,
+  "validation_evaluated": false,
+  "final_test_evaluated": false,
+  "source_artifacts_copied_without_modification": 23,
+  "interpretation": "All nominal bootstrap intervals are exploratory, including intervals that exclude zero. The source revision changes interpretation and presentation; these market outputs retain their original run identity.",
+  "checks": {
+    "verified_utc": "2026-10-09T23:21:36.093204+00:00",
+    "tested_commit": "8d710c9e9fb1d6e1bb16dcdbcf08c6306911dddf",
+    "tests_run": 104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "scope": "Existing repository tests and synthetic notebook cases; no market replay, validation or final-test evaluation.",
+    "command": "python -B -c \"import sys,unittest;sys.path.insert(0,'src');suite=unittest.defaultTestLoader.discover('tests');result=unittest.TextTestRunner(verbosity=1).run(suite);raise SystemExit(not result.wasSuccessful())\"",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "aggregate_committed_memory_limit_bytes": 402653184,
+    "peak_aggregate_committed_memory_bytes": 30441472,
+    "memory_measure": "aggregate committed memory; not RSS",
+    "elapsed_seconds_including_supervisor": 1.5,
+    "exit_code": 0
+  },
+  "publication_exclusions": [
+    "Instructor price rows and source archives",
+    "Private price databases and trade/cash ledgers",
+    "Private paths, credentials and sharing links",
+    "Historical HTML and conclusions with pre-amendment interpretation",
+    "Executed and amended-output notebooks"
+  ],
+  "reproduction_note": "requirements-notebook.txt declares dependency ranges. The original run_manifest.json records Python, NumPy and pandas versions; it does not record an exact Matplotlib version. No missing historical version has been inferred."
+}

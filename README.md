@@ -61,6 +61,12 @@ certify every delivered instrument. See
 `results/development_notebook_verification.json`. Validation and the final test
 remain unevaluated.
 
+The [saved development results](results/development_20261001/README.md) contain
+the aggregate tables, figures and original provenance for run
+`20261001T221531Z-th2hk303`, executed at commit `8b40cf6`. The snapshot includes
+checksums and distinguishes that executed source from the later `8d710c9`
+revision. Publishing these files does not constitute another market run.
+
 The five-day interval also receives a bounded synthetic reliability check:
 200 Gaussian histories at each of three fixed dependence levels, using the
 actual development eligibility masks and 2,000 resamples per interval.
@@ -79,6 +85,9 @@ shortens the notebook explanations and places Uchenna first in the author list.
 The saved development outputs retain their original source/run identity; the
 revised source has not completed a new full hosted run. See
 `results/interpretation_amendment_verification.json` for the revision checks.
+
+The 10 October language revision updates the notebook explanations only. Its code cells are unchanged from the 3 October source. Software checks and source comparisons verify that boundary; no market replay was performed. The retained development outputs still belong to their original run, and the revised notebook does not claim a new full hosted execution.
+See `results/editorial_revision_verification.json` for the source comparison and 104 passing software checks.
 
 The scientific Python packages used for tables and plots are preinstalled in
 Colab. For local reproduction see `requirements-notebook.txt`. The underlying
@@ -263,6 +272,7 @@ NSE stocks or the preferred exit policy. See the [synthetic findings](results/in
 | `examples/` | Synthetic inputs only. |
 | `results/` | Labelled M3 synthetic outputs and current deterministic checks. |
 | `results/m4_pilot/` | Aggregated M4 market development outputs, separately labelled from synthetic results. |
+| `results/development_20261001/` | Preserved expanded development aggregates, source audit, original run manifest and checksums. |
 | `config/m4_pilot.json` | Versioned, predeclared development-pilot specification. |
 | `METHODS.md` | Implemented rules and interpretation limits. |
 | `PIPELINE.md` | Completed components, remaining validation and final evaluation. |

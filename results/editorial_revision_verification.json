@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-10",
+  "baseline_commit": "8d710c9e9fb1d6e1bb16dcdbcf08c6306911dddf",
+  "notebook_sha256": "6328e3da83c6bd77bd4be61e686d70d02917ef0ecedd95a5ed9814e4c63aecbd",
+  "code_cells_unchanged": true,
+  "code_cells": 24,
+  "historical_output_cells_unchanged": true,
+  "notebook_paragraphs_processed_and_reviewed": 46,
+  "report_paragraphs_processed_and_reviewed_this_revision": 46,
+  "new_market_run": false,
+  "validation_or_final_outcomes_accessed": false,
+  "note": "Narrative-only source update. Recorded results retain their original run identity. Software verification is separate from market execution.",
+  "tests_run": 104,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "checks_successful": true,
+  "memory_limit_bytes": 402653184,
+  "peak_aggregate_committed_memory_bytes": 30801920,
+  "full_hosted_execution_of_revised_source": false
+}

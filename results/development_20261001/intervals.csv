@@ -1,0 +1,37 @@
+timestamp_label,path,contrast,n_days,mean_difference_bp,block_length,segment_lengths,support_blocks,lower_bp,upper_bp,status
+start,O-H-L-C,combined_minus_time,360,-0.23247870094142048,5,"[17, 232, 56, 55]",71,-0.4410433964072367,0.07695203068707196,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_time,360,-0.23247870094142048,10,"[17, 232, 56, 55]",34,-0.45871731919366104,0.05579909253205433,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_time,360,-0.23247870094142048,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+start,O-H-L-C,stop_minus_time,360,-0.2562488660620592,5,"[17, 232, 56, 55]",71,-0.47781935792187835,0.005616745180476363,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,stop_minus_time,360,-0.2562488660620592,10,"[17, 232, 56, 55]",34,-0.5340038833095551,-0.02073489962541572,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,stop_minus_time,360,-0.2562488660620592,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+start,O-H-L-C,combined_minus_stop,360,0.023770165120638738,5,"[17, 232, 56, 55]",71,-0.07194768521912713,0.17567156885154853,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_stop,360,0.023770165120638738,10,"[17, 232, 56, 55]",34,-0.050984101947774994,0.19020491754415356,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_stop,360,0.023770165120638738,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+start,O-L-H-C,combined_minus_time,360,-0.23247870094142048,5,"[17, 232, 56, 55]",71,-0.4410433964072367,0.07695203068707196,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_time,360,-0.23247870094142048,10,"[17, 232, 56, 55]",34,-0.45871731919366104,0.05579909253205433,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_time,360,-0.23247870094142048,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+start,O-L-H-C,stop_minus_time,360,-0.2562488660620592,5,"[17, 232, 56, 55]",71,-0.47781935792187835,0.005616745180476363,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,stop_minus_time,360,-0.2562488660620592,10,"[17, 232, 56, 55]",34,-0.5340038833095551,-0.02073489962541572,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,stop_minus_time,360,-0.2562488660620592,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+start,O-L-H-C,combined_minus_stop,360,0.023770165120638738,5,"[17, 232, 56, 55]",71,-0.07194768521912713,0.17567156885154853,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_stop,360,0.023770165120638738,10,"[17, 232, 56, 55]",34,-0.050984101947774994,0.19020491754415356,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_stop,360,0.023770165120638738,20,"[17, 232, 56, 55]",15,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-H-L-C,combined_minus_time,381,-0.12732863740261363,5,"[17, 232, 132]",75,-0.32693879352537025,0.1299272819321664,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_time,381,-0.12732863740261363,10,"[17, 232, 132]",37,-0.3197321119331247,0.11924217130391698,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_time,381,-0.12732863740261363,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-H-L-C,stop_minus_time,381,-0.10711997894179813,5,"[17, 232, 132]",75,-0.28658326136123097,0.09302858479232666,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,stop_minus_time,381,-0.10711997894179813,10,"[17, 232, 132]",37,-0.2871976516946209,0.08926159040476767,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,stop_minus_time,381,-0.10711997894179813,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-H-L-C,combined_minus_stop,381,-0.020208658460815487,5,"[17, 232, 132]",75,-0.12144860174845525,0.13064388432265536,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_stop,381,-0.020208658460815487,10,"[17, 232, 132]",37,-0.12688451617044613,0.11529845774058824,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_stop,381,-0.020208658460815487,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-L-H-C,combined_minus_time,381,-0.12732863740261363,5,"[17, 232, 132]",75,-0.32693879352537025,0.1299272819321664,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_time,381,-0.12732863740261363,10,"[17, 232, 132]",37,-0.3197321119331247,0.11924217130391698,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_time,381,-0.12732863740261363,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-L-H-C,stop_minus_time,381,-0.10711997894179813,5,"[17, 232, 132]",75,-0.28658326136123097,0.09302858479232666,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,stop_minus_time,381,-0.10711997894179813,10,"[17, 232, 132]",37,-0.2871976516946209,0.08926159040476767,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,stop_minus_time,381,-0.10711997894179813,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length
+end,O-L-H-C,combined_minus_stop,381,-0.020208658460815487,5,"[17, 232, 132]",75,-0.12144860174845525,0.13064388432265536,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_stop,381,-0.020208658460815487,10,"[17, 232, 132]",37,-0.12688451617044613,0.11529845774058824,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_stop,381,-0.020208658460815487,20,"[17, 232, 132]",17,,,UNAVAILABLE: a segment is shorter than the block length

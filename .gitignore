@@ -31,3 +31,4 @@ data/*
 !results/m4_pilot/paired_contrasts.csv
 !results/m4_pilot/sensitivity_comparisons.csv
 !results/m4_pilot/run_diagnostics.csv
+!results/development_20261001/*.csv
