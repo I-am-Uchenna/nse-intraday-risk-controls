@@ -1,5 +1,6 @@
 # Research notebook runtime; Colab supplies these packages.
-# Exact executed versions are written into each run manifest.
+# Run manifests record Python, NumPy and pandas versions.
+# Historical manifests do not record exact Matplotlib or notebook-tool versions.
 numpy>=1.26
 pandas>=2.2
 matplotlib>=3.8

@@ -41,9 +41,9 @@ It does not clone this repository or invoke external research scripts.
 
 The default stage is development on the planned 2021–2023 five-stock study.
 The final stage requires a matching saved validation freeze. The original
-instructor archives remain private and are accessed through Drive shortcuts.
+instructor archives are read through Drive shortcuts and are not redistributed.
 Only selected CSVs are streamed, equity is streamed to disk, and original files
-are never overwritten. Google Drive authorization must complete before ingestion.
+are never overwritten. Mount Google Drive before ingestion.
 
 The notebook's local verification uses the previously audited Q1 2021 pilot:
 all 24 code cells complete, all 84 policy/scenario means match the published
@@ -80,14 +80,13 @@ The 3 October revision therefore treats all intervals from this procedure as
 exploratory, including intervals excluding zero and final-stage outputs.
 Confirmatory inference would require a separately documented and assessed
 method amendment before final outcomes are opened. A saved freeze or passing
-software checks does not establish statistical reliability. The revision also
-shortens the notebook explanations and places Uchenna first in the author list.
+software checks does not establish statistical reliability.
 The saved development outputs retain their original source/run identity; the
 revised source has not completed a new full hosted run. See
 `results/interpretation_amendment_verification.json` for the revision checks.
 
-The 10 October language revision updates the notebook explanations only. Its code cells are unchanged from the 3 October source. Software checks and source comparisons verify that boundary; no market replay was performed. The retained development outputs still belong to their original run, and the revised notebook does not claim a new full hosted execution.
-See `results/editorial_revision_verification.json` for the source comparison and 104 passing software checks.
+The 10 October notebook retains the code cells from the 3 October source. Source comparisons and software checks confirm this. Retained development outputs belong to their original run; no new full hosted market run was performed.
+See `results/source_verification.json` for the source comparison and 104 passing software checks.
 
 The scientific Python packages used for tables and plots are preinstalled in
 Colab. For local reproduction see `requirements-notebook.txt`. The underlying
@@ -105,10 +104,9 @@ Use a CPU runtime; no local Python installation or Windows memory wrapper is nee
 
 The notebook pins `colab-v1` and records the executed commit. It reuses the tested
 research modules rather than maintaining a second implementation. Source prices
-stay private; temporary database/ledgers remain on the Colab VM. This is the
+are excluded from the repository; temporary databases and ledgers remain on the Colab VM. This is the
 existing development pilot, not a completed full-period or final holdout study.
-If the repository becomes private, its authentication must also be configured in
-Colab. See [Google's runtime and Drive guidance](https://research.google.com/colaboratory/faq.html).
+See [Google's runtime and Drive guidance](https://research.google.com/colaboratory/faq.html).
 
 ## Requirements
 
@@ -117,7 +115,7 @@ Colab. See [Google's runtime and Drive guidance](https://research.google.com/col
 - `bsdtar` (`libarchive-tools` on Colab/Linux) or Windows `tar`, with RAR/7z support.
   Python's standard-library `zipfile` reads the outer ZIP files.
 - The separately supplied instructor archives and enough local disk space for
-  selected archive containers and the private SQLite database.
+  selected archive containers and the working SQLite database.
 
 `requirements.txt` describes the historical command-line implementation;
 `requirements-notebook.txt` lists the standalone notebook dependencies.
@@ -148,14 +146,15 @@ This is not a strict resident-memory limit. The small supervising process is
 outside the cap. Its JSON report records the observed peak, exit status and any
 failure. A nonzero exit alone does not identify memory exhaustion.
 
-## Prepare the private development sample
+## Prepare the development sample
 
 `config/m4_pilot.json` records the frozen pilot universe, dates, calendar handling,
 source selection and execution scenarios. Keep this version intact; record any
 later design change in a new version before evaluating its outcomes.
-`config/reference_protocol.json` describes the full-study specification and its
-remaining implementation work; `results/m4_pilot/run_manifest.json` identifies
-the completed development replay.
+`config/reference_protocol.json` is the preserved M3 study record; its
+implementation-status list is historical. The standalone notebook defines its
+current rules in the configuration cells and records them in each run manifest.
+`results/m4_pilot/run_manifest.json` identifies the completed historical pilot.
 
 Replace the path below with the directory containing the original downloads.
 Preparation streams one selected CSV at a time into SQLite and records input
@@ -172,7 +171,7 @@ cash and index folders. The loader rejects duplicate matching sources.
 The script creates `data/m4_pilot/pilot.sqlite` and
 `data/m4_pilot/input_audit.json`. It refuses to overwrite an existing database;
 use a new work directory for a new preparation run. The database and staged
-archives remain private local files excluded from version control.
+archives remain local files excluded from version control.
 
 ## Run the conditional market development replay
 
@@ -183,8 +182,8 @@ python scripts/run_limited.py --memory-mib 384 --report data/m4_pilot/replay_mem
 ```
 
 The runner checks the configuration hash and stored data against the preparation
-audit, then reads the private database one session at a time. Aggregate outputs
-are written separately from the private market ledgers:
+audit, then reads the working database one session at a time. Aggregate outputs
+are written separately from the detailed market ledgers:
 
 | Location | Outputs |
 | --- | --- |
@@ -265,8 +264,8 @@ NSE stocks or the preferred exit policy. See the [synthetic findings](results/in
 | `src/path_robust/data.py` | Canonical single-instrument OHLC input validation. |
 | `src/path_robust/vendor.py` | Streaming parser for the declared instructor CSV schema. |
 | `src/path_robust/research.py` | Past-only features, matched episodes, session cash accounts and a descriptive expected-shortfall calculation. |
-| `scripts/prepare_pilot.py` | Selected-archive staging, SQLite ingestion and private input audit. |
-| `scripts/run_pilot.py` | Session-by-session development replay and separated aggregate/private outputs. |
+| `scripts/prepare_pilot.py` | Selected-archive staging, SQLite ingestion and input audit. |
+| `scripts/run_pilot.py` | Session-by-session development replay and separate aggregate and detailed outputs. |
 | `scripts/run_limited.py` | Windows process-tree memory limit and resource report. |
 | `tests/` | Deterministic execution, input, chronology and accounting checks. |
 | `examples/` | Synthetic inputs only. |
@@ -276,22 +275,13 @@ NSE stocks or the preferred exit policy. See the [synthetic findings](results/in
 | `config/m4_pilot.json` | Versioned, predeclared development-pilot specification. |
 | `METHODS.md` | Implemented rules and interpretation limits. |
 | `PIPELINE.md` | Completed components, remaining validation and final evaluation. |
-| `CONTRIBUTORS.md` | Group membership, proposed workstreams and access status. |
+| `CONTRIBUTORS.md` | Group membership and research workstreams. |
 
-## Collaboration and access
+## Data scope
 
-Repository: https://github.com/I-am-Uchenna/nse-intraday-risk-controls
-
-The course's source-code guideline requests a private repository. This existing
-repository remains public, and the visibility decision is deferred. Public
-readability does not establish the group members' collaboration permissions or
-confirm that instructor access has been checked. Those permissions and the
-private-repository requirement remain to be resolved; no compliance claim is
-made. See [CONTRIBUTORS.md](CONTRIBUTORS.md).
-
-Do not commit instructor data, derived price databases, course documents, contact
-details, credentials, access tokens or private sharing links. Public outputs must
-not disclose restricted prices or input records.
+The repository contains research code, synthetic fixtures and labelled aggregate
+results. Instructor market files, derived price databases and detailed market
+ledgers are excluded from version control. See [data handling](data/README.md).
 
 ## Research context
 

@@ -10,7 +10,7 @@
     "tests_run": 4,
     "failures": 0,
     "errors": 0,
-    "execution": "Included in the 104-test full run; also passed separately before narrative cleanup.",
+    "execution": "Included in the 104-test full run; also passed separately.",
     "interval_interpretation_subcases": 12
   },
   "full_repository_checks": {
@@ -27,7 +27,6 @@
     "research-045"
   ],
   "code_change_scope": "Interpretation wording and hashed provenance policy only; research function definitions and market/execution/data/inference calculations unchanged.",
-  "narrative_cleanup": "25 markdown cells shortened; source citations, assumptions and historical-run amendment retained.",
   "new_full_hosted_run_completed": false,
   "market_replay_performed_for_amendment": false,
   "validation_evaluated": false,

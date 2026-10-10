@@ -2,7 +2,7 @@
 
 Instructor market files are supplied separately and are not redistributed in
 this repository. Keep original archives immutable. Local staging, normalized
-prices, SQLite databases, detailed market ledgers and private account outputs
+prices, SQLite databases, detailed market ledgers and account outputs
 belong under an excluded work directory such as `data/m4_pilot/`.
 
 The M4 preparation script reads only the archive members named by the frozen
@@ -50,14 +50,12 @@ exclusion, so its losses are not estimated and it cannot be described as a
 historically available trading safeguard.
 
 Before final evaluation, resolve source timestamp semantics, adjustments,
-coverage, session exceptions, historical-universe claims and any permission
-limits. Report unresolved assumptions explicitly.
+coverage, session exceptions and historical-universe claims. Report unresolved
+assumptions explicitly.
 
-## Sharing
+## Repository contents
 
-The `.gitignore` excludes local data and general CSV/archive formats, with
-specific exceptions for the synthetic examples. Do not treat ignore rules as
-a permission check: inspect every proposed public file before committing.
-Only appropriately labelled aggregate diagnostics and results belong in public
-outputs. Keep raw prices, individual market trade records, private sharing links,
-contact details, credentials and tokens out of the repository.
+The repository contains code, synthetic fixtures and labelled aggregate
+findings. Instructor prices, normalized price databases and individual market
+trade records remain outside version control. File exclusions are defined in
+`.gitignore`.
