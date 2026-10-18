@@ -1,0 +1,1396 @@
+{
+  "reference_path": "O-L-H-C",
+  "stages": [
+    {
+      "stage": "development",
+      "run_id": "20261001T221531Z-th2hk303",
+      "protocol_sha256": "c6363f28828d9ab3080556ff887ea6c58501a462883bc792a4272495518bc39b",
+      "source_sha256": {
+        "run_manifest.json": "f34a95a26b27930cbfc11e6d1f579538346e48c01433efbaa0ab8df88a1ab9d9",
+        "policy_means.csv": "e34b1a2655a25894033e0294c6dedac1f2b502a85d5d535cbd0969ed070361a0",
+        "paired_effects.csv": "79e918e3d1830450b98e6ff3c8acb2e43a1caaa456c6e9cf02a963a76da914a0",
+        "expected_shortfall.csv": "ab7a9b04b4638e24a07180f63026bd4f7b6cc94e285ee5be320f6e71b3cc9939",
+        "exit_ambiguity.csv": "a4d43383c0fc4633a113a871e76bbdca2592047e59bbd4a6066d2698b410f9df",
+        "funded_drawdown.csv": "9d49d88a76f28259a027c678865aa32571cad1e490989653e735cc92ea12ab81",
+        "aligned_sensitivity.csv": "909b30fdb8c0a4fdb20cfa2433e703ae5583ff7a21bcd47ad0cd4fcff7895195"
+      },
+      "evaluation_window": {
+        "stage": "development",
+        "start": "2021-01-01",
+        "end": "2022-10-17",
+        "scheduled_sessions": "443"
+      },
+      "reference_execution": {
+        "name": "reference",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "configuration": {
+        "study_title": "Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities",
+        "start_date": "2021-01-01",
+        "end_date": "2023-12-31",
+        "universe": [
+          "RELIANCE",
+          "HDFCBANK",
+          "INFY",
+          "TCS",
+          "ITC"
+        ],
+        "index_symbol": ".NSEI",
+        "reference_capital_inr": 100000.0,
+        "allocation_fraction": 0.5,
+        "prior_sessions": 20,
+        "signal_window_minutes": 15,
+        "z_threshold": -2.0,
+        "decision_minutes_after_open": 30,
+        "decision_interval_minutes": 30,
+        "holding_minutes": 15,
+        "normal_session_open": "09:15",
+        "normal_session_close": "15:30",
+        "excluded_nonstandard_sessions": [
+          "2021-02-24"
+        ],
+        "funded_restart_dates": {}
+      },
+      "parsed_data_sha256": "792b0cf6c871be0e4f59e74c1907d638a9f5acaa4ceb42b87f274b2defeaf6ee",
+      "raw_inputs_reverified": true,
+      "independent_economic_failure": false,
+      "reference": [
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "policy": "time_only",
+          "n_days": 360,
+          "mean_daily_pnl_bp": -2.3362370814063453,
+          "policy_minus_time_bp": 0.0,
+          "ES975_loss_bp": 17.408534449945076,
+          "tail_mass_days": 9.0
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "policy": "stop_only",
+          "n_days": 360,
+          "mean_daily_pnl_bp": -2.5924859474684046,
+          "policy_minus_time_bp": -0.2562488660620592,
+          "ES975_loss_bp": 14.849489911889638,
+          "tail_mass_days": 9.0
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "policy": "stop_and_target",
+          "n_days": 360,
+          "mean_daily_pnl_bp": -2.5687157823477658,
+          "policy_minus_time_bp": -0.23247870094142042,
+          "ES975_loss_bp": 14.407470130556288,
+          "tail_mass_days": 9.0
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "policy": "time_only",
+          "n_days": 381,
+          "mean_daily_pnl_bp": -2.3863305838364477,
+          "policy_minus_time_bp": 0.0,
+          "ES975_loss_bp": 15.308322228147645,
+          "tail_mass_days": 9.525
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "policy": "stop_only",
+          "n_days": 381,
+          "mean_daily_pnl_bp": -2.493450562778246,
+          "policy_minus_time_bp": -0.10711997894179826,
+          "ES975_loss_bp": 14.298083026022207,
+          "tail_mass_days": 9.525
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "policy": "stop_and_target",
+          "n_days": 381,
+          "mean_daily_pnl_bp": -2.5136592212390614,
+          "policy_minus_time_bp": -0.1273286374026137,
+          "ES975_loss_bp": 13.277387767689815,
+          "tail_mass_days": 9.525
+        }
+      ],
+      "paired_effects": [
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "contrast": "combined_minus_time",
+          "n_days": 360,
+          "mean_difference_bp": -0.23247870094142048
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "contrast": "stop_minus_time",
+          "n_days": 360,
+          "mean_difference_bp": -0.2562488660620592
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "contrast": "combined_minus_stop",
+          "n_days": 360,
+          "mean_difference_bp": 0.023770165120638738
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "contrast": "combined_minus_time",
+          "n_days": 381,
+          "mean_difference_bp": -0.12732863740261363
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "contrast": "stop_minus_time",
+          "n_days": 381,
+          "mean_difference_bp": -0.10711997894179813
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "contrast": "combined_minus_stop",
+          "n_days": 381,
+          "mean_difference_bp": -0.020208658460815487
+        }
+      ],
+      "ambiguity": [
+        {
+          "stage": "development",
+          "timestamp_label": "start",
+          "unique_episodes": 637,
+          "ambiguous_episodes": 0,
+          "ambiguity_rate": 0.0
+        },
+        {
+          "stage": "development",
+          "timestamp_label": "end",
+          "unique_episodes": 662,
+          "ambiguous_episodes": 0,
+          "ambiguity_rate": 0.0
+        }
+      ],
+      "funded_drawdown": [
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 9.42820853466501,
+          "saved_marks": 10841.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 9.335928277981797,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 10.437075190510651,
+          "saved_marks": 8733.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 10.371412472287355,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 10.1412613742127,
+          "saved_marks": 7584.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 10.119077034269619,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 9.90721551523269,
+          "saved_marks": 10905.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 9.825188653995498,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 10.16503358498972,
+          "saved_marks": 8926.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 10.084527457737135,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 10.02962053487256,
+          "saved_marks": 8045.0,
+          "first_date": "2021-01-01",
+          "last_date": "2022-10-17",
+          "daily_close_max_drawdown_pct": 10.01156426912958,
+          "identified_daily_closes": 443.0,
+          "last_identified_daily_close": "2022-10-17",
+          "segment_initial_capital": 100000.0,
+          "stage": "development"
+        }
+      ],
+      "sensitivity": [
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.23247870094142048,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.2562488660620592,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": 0.023770165120638738,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.23247870094142042,
+          "change_from_reference_bp": 5.551115123125783e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.25624886606205916,
+          "change_from_reference_bp": 5.551115123125783e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": 0.023770165120638728,
+          "change_from_reference_bp": -1.0408340855860843e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.2324787009414204,
+          "change_from_reference_bp": 8.326672684688674e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.25624886606205916,
+          "change_from_reference_bp": 5.551115123125783e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": 0.023770165120638724,
+          "change_from_reference_bp": -1.3877787807814457e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.5769231453858609,
+          "change_from_reference_bp": -0.3444444444444404,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.6131933105064996,
+          "change_from_reference_bp": -0.3569444444444404,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": 0.03627016512063871,
+          "change_from_reference_bp": 0.01249999999999997,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.9213675898303175,
+          "change_from_reference_bp": -0.6888888888888971,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.970137754950944,
+          "change_from_reference_bp": -0.7138888888888848,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": 0.04877016512062661,
+          "change_from_reference_bp": 0.024999999999987872,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.18401247913573263,
+          "change_from_reference_bp": 0.048466221805687854,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.06336897642820578,
+          "change_from_reference_bp": 0.19287988963385344,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": -0.12064350270752684,
+          "change_from_reference_bp": -0.1444136678281656,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.23247870094142048,
+          "scenario_difference_bp": -0.11507160284811925,
+          "change_from_reference_bp": 0.11740709809330123,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 360.0,
+          "reference_difference_bp": -0.2562488660620592,
+          "scenario_difference_bp": -0.07862133967306979,
+          "change_from_reference_bp": 0.17762752638898943,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 360.0,
+          "reference_difference_bp": 0.023770165120638738,
+          "scenario_difference_bp": -0.03645026317504944,
+          "change_from_reference_bp": -0.060220428295688175,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.12732863740261363,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.10711997894179813,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.020208658460815487,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.12732863740261363,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.10711997894179816,
+          "change_from_reference_bp": -2.7755575615628914e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.020208658460815467,
+          "change_from_reference_bp": 2.0816681711721685e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.12732863740261363,
+          "change_from_reference_bp": 0.0,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.1071199789417981,
+          "change_from_reference_bp": 2.7755575615628914e-17,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.020208658460815494,
+          "change_from_reference_bp": -6.938893903907228e-18,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.44885094711391504,
+          "change_from_reference_bp": -0.3215223097113014,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.4365163044011196,
+          "change_from_reference_bp": -0.32939632545932146,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.012334642712795446,
+          "change_from_reference_bp": 0.007874015748020042,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.7703732568251972,
+          "change_from_reference_bp": -0.6430446194225836,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.7659126298604524,
+          "change_from_reference_bp": -0.6587926509186542,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.004460626964744864,
+          "change_from_reference_bp": 0.015748031496070625,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.13599521891106853,
+          "change_from_reference_bp": -0.008666581508454896,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": -0.10057289791327434,
+          "change_from_reference_bp": 0.006547081028523791,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.035422320997794236,
+          "change_from_reference_bp": -0.015213662536978749,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.12732863740261363,
+          "scenario_difference_bp": -0.05515904296995816,
+          "change_from_reference_bp": 0.07216959443265547,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.10711997894179813,
+          "scenario_difference_bp": 0.0034580794428114648,
+          "change_from_reference_bp": 0.1105780583846096,
+          "stage": "development"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 381.0,
+          "reference_difference_bp": -0.020208658460815487,
+          "scenario_difference_bp": -0.05861712241276965,
+          "change_from_reference_bp": -0.038408463951954165,
+          "stage": "development"
+        }
+      ]
+    },
+    {
+      "stage": "validation",
+      "run_id": "20261018T084332Z-ghd27dnw",
+      "protocol_sha256": "4f7c68c2570f32fc433588777a7f25ff46c3e7926aac4af62519a7a6666322ec",
+      "source_sha256": {
+        "run_manifest.json": "1f6a862b8799a9fa076787ba78195a4a88f0140b1b9dd5b65d496565b6fabedb",
+        "policy_means.csv": "5693db3ebaf0802761afb5f23e253eea0dff8dd3d09ba985365662d3ae01cce6",
+        "paired_effects.csv": "8d405517170c67c99a0d18eea49eeaeffa1ac060e6fc3491af6b3727ee925d17",
+        "expected_shortfall.csv": "b6a02535df078964e0279de4dc5ca17a6f84f851c4035539d45007def8c8416f",
+        "exit_ambiguity.csv": "5d5d697a799fc49a1de0572943218d68de29d81caccff8a42524e66feba98afa",
+        "funded_drawdown.csv": "0a14784a2aa6ab89451e5c5789a5c933f90aaf2e3089718e0aa8b0b144216af3",
+        "aligned_sensitivity.csv": "f561fcc6ce895c8d396d9bbc3263ad564418e1471a3532c75a84f8788536e9db"
+      },
+      "evaluation_window": {
+        "stage": "validation",
+        "start": "2022-10-18",
+        "end": "2023-05-25",
+        "scheduled_sessions": "148"
+      },
+      "reference_execution": {
+        "name": "reference",
+        "cost_bp": 15.0,
+        "stop_slippage_bp": 0.0,
+        "delay_minutes": 1
+      },
+      "configuration": {
+        "study_title": "Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities",
+        "start_date": "2021-01-01",
+        "end_date": "2023-12-31",
+        "universe": [
+          "RELIANCE",
+          "HDFCBANK",
+          "INFY",
+          "TCS",
+          "ITC"
+        ],
+        "index_symbol": ".NSEI",
+        "reference_capital_inr": 100000.0,
+        "allocation_fraction": 0.5,
+        "prior_sessions": 20,
+        "signal_window_minutes": 15,
+        "z_threshold": -2.0,
+        "decision_minutes_after_open": 30,
+        "decision_interval_minutes": 30,
+        "holding_minutes": 15,
+        "normal_session_open": "09:15",
+        "normal_session_close": "15:30",
+        "excluded_nonstandard_sessions": [
+          "2021-02-24"
+        ],
+        "funded_restart_dates": {}
+      },
+      "parsed_data_sha256": "792b0cf6c871be0e4f59e74c1907d638a9f5acaa4ceb42b87f274b2defeaf6ee",
+      "raw_inputs_reverified": true,
+      "independent_economic_failure": false,
+      "reference": [
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "policy": "time_only",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.0099775924626777,
+          "policy_minus_time_bp": 0.0,
+          "ES975_loss_bp": 13.364703395493315,
+          "tail_mass_days": 3.7
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "policy": "stop_only",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.286431302705426,
+          "policy_minus_time_bp": -0.27645371024274823,
+          "ES975_loss_bp": 11.694107532679068,
+          "tail_mass_days": 3.7
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "policy": "stop_and_target",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.6984724492463323,
+          "policy_minus_time_bp": -0.6884948567836546,
+          "ES975_loss_bp": 11.859877558826033,
+          "tail_mass_days": 3.7
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "policy": "time_only",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.050969723970116,
+          "policy_minus_time_bp": 0.0,
+          "ES975_loss_bp": 13.935296618347714,
+          "tail_mass_days": 3.7
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "policy": "stop_only",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.451065783935052,
+          "policy_minus_time_bp": -0.4000960599649357,
+          "ES975_loss_bp": 11.866682265917502,
+          "tail_mass_days": 3.7
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "policy": "stop_and_target",
+          "n_days": 148,
+          "mean_daily_pnl_bp": -2.4364775010793744,
+          "policy_minus_time_bp": -0.3855077771092583,
+          "ES975_loss_bp": 12.03324302742053,
+          "tail_mass_days": 3.7
+        }
+      ],
+      "paired_effects": [
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "contrast": "combined_minus_time",
+          "n_days": 148,
+          "mean_difference_bp": -0.6884948567836546
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "contrast": "stop_minus_time",
+          "n_days": 148,
+          "mean_difference_bp": -0.2764537102427484
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "contrast": "combined_minus_stop",
+          "n_days": 148,
+          "mean_difference_bp": -0.4120411465409061
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "contrast": "combined_minus_time",
+          "n_days": 148,
+          "mean_difference_bp": -0.38550777710925843
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "contrast": "stop_minus_time",
+          "n_days": 148,
+          "mean_difference_bp": -0.4000960599649359
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "contrast": "combined_minus_stop",
+          "n_days": 148,
+          "mean_difference_bp": 0.014588282855677514
+        }
+      ],
+      "ambiguity": [
+        {
+          "stage": "validation",
+          "timestamp_label": "start",
+          "unique_episodes": 266,
+          "ambiguous_episodes": 0,
+          "ambiguity_rate": 0.0
+        },
+        {
+          "stage": "validation",
+          "timestamp_label": "end",
+          "unique_episodes": 260,
+          "ambiguous_episodes": 1,
+          "ambiguity_rate": 0.0038461538461538464
+        }
+      ],
+      "funded_drawdown": [
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 3.0080150140876,
+          "saved_marks": 3989.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 2.9850514812885476,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 3.4170418967640304,
+          "saved_marks": 3072.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 3.3890892549401253,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "segment": "1",
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 4.0343642666519495,
+          "saved_marks": 2642.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 4.01403842699678,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "time_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 3.04759271556385,
+          "saved_marks": 3893.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 3.0354351914757993,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "stop_only",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 3.6396606408736702,
+          "saved_marks": 3135.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 3.627577360223877,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "segment": "1",
+          "policy": "stop_and_target",
+          "path": "O-L-H-C",
+          "max_drawdown_pct": 3.61807268930793,
+          "saved_marks": 2806.0,
+          "first_date": "2022-10-18",
+          "last_date": "2023-05-25",
+          "daily_close_max_drawdown_pct": 3.605986701597552,
+          "identified_daily_closes": 148.0,
+          "last_identified_daily_close": "2023-05-25",
+          "segment_initial_capital": 100000.0,
+          "stage": "validation"
+        }
+      ],
+      "sensitivity": [
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -0.6884948567836546,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.2764537102427484,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "reference",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": -0.4120411465409061,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -0.6884948567836545,
+          "change_from_reference_bp": 1.1102230246251565e-16,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.2764537102427484,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": -0.4120411465409062,
+          "change_from_reference_bp": -5.551115123125783e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -0.6884948567836546,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.2764537102427484,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "cost_25",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": -0.4120411465409061,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -1.0837651270539446,
+          "change_from_reference_bp": -0.39527027027028994,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.6784807372697951,
+          "change_from_reference_bp": -0.4020270270270467,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": -0.40528438978414943,
+          "change_from_reference_bp": 0.006756756756756688,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -1.4790353973241852,
+          "change_from_reference_bp": -0.7905405405405306,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -1.0805077642967926,
+          "change_from_reference_bp": -0.8040540540540442,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": -0.39852763302739264,
+          "change_from_reference_bp": 0.013513513513513487,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -0.25920925862117505,
+          "change_from_reference_bp": 0.4292855981624796,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.44727504009111924,
+          "change_from_reference_bp": -0.17082132984837084,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_2",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": 0.18806578146994418,
+          "change_from_reference_bp": 0.6001069280108503,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.6884948567836546,
+          "scenario_difference_bp": -0.4417985000248999,
+          "change_from_reference_bp": 0.24669635675875473,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.2764537102427484,
+          "scenario_difference_bp": -0.4835864113058542,
+          "change_from_reference_bp": -0.20713270106310583,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "start",
+          "setting": "delay_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4120411465409061,
+          "scenario_difference_bp": 0.04178791128095425,
+          "change_from_reference_bp": 0.4538290578218604,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.38550777710925843,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.4000960599649359,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "reference",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.014588282855677514,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.3855077771092584,
+          "change_from_reference_bp": 5.551115123125783e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.4000960599649359,
+          "change_from_reference_bp": 0.0,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.014588282855677539,
+          "change_from_reference_bp": 2.42861286636753e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.3855077771092585,
+          "change_from_reference_bp": -5.551115123125783e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.40009605996493597,
+          "change_from_reference_bp": -5.551115123125783e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "cost_25",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.014588282855677539,
+          "change_from_reference_bp": 2.42861286636753e-17,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.7334807500822412,
+          "change_from_reference_bp": -0.3479729729729828,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.7548257896946755,
+          "change_from_reference_bp": -0.3547297297297396,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.021345039612434294,
+          "change_from_reference_bp": 0.00675675675675678,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -1.0814537230552437,
+          "change_from_reference_bp": -0.6959459459459852,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -1.1095555194244249,
+          "change_from_reference_bp": -0.709459459459489,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "stop_slippage_10",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.028101796369181198,
+          "change_from_reference_bp": 0.013513513513503684,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.29192535490248106,
+          "change_from_reference_bp": 0.09358242220677737,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.2913423907944053,
+          "change_from_reference_bp": 0.10875366917053059,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_2",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": -0.0005829641080757867,
+          "change_from_reference_bp": -0.0151712469637533,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "combined_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.38550777710925843,
+          "scenario_difference_bp": -0.19202570883113562,
+          "change_from_reference_bp": 0.1934820682781228,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "stop_minus_time",
+          "aligned_days": 148.0,
+          "reference_difference_bp": -0.4000960599649359,
+          "scenario_difference_bp": -0.24853104005350038,
+          "change_from_reference_bp": 0.15156501991143553,
+          "stage": "validation"
+        },
+        {
+          "timestamp_label": "end",
+          "setting": "delay_5",
+          "contrast": "combined_minus_stop",
+          "aligned_days": 148.0,
+          "reference_difference_bp": 0.014588282855677514,
+          "scenario_difference_bp": 0.05650533122236477,
+          "change_from_reference_bp": 0.041917048366687255,
+          "stage": "validation"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Saved aggregates only; no market replay or final-stage evaluation.",
+    "Means and ES use common evaluable session-reset accounts; missing days are not zero.",
+    "Funded drawdowns retain separate segments and minute/boundary versus daily-close marks.",
+    "Funded samples need not equal the primary sample. No funded segments are concatenated.",
+    "All inference remains exploratory. ES is descriptive; zero ambiguity does not establish robustness."
+  ]
+}

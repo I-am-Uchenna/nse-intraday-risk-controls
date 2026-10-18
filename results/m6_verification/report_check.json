@@ -1,0 +1,15 @@
+{
+  "report_pages": 20,
+  "report_sha256": "3989e7225015b573054de358c8d75370359d568420a6dee0250aa1fc99d17044",
+  "tex_sha256": "66c6c1bb42c435247adbf0049175c5c7423278bf1be4c6ff2d6ba996b4d2a242",
+  "source_compilation": "success",
+  "new_tables_generated_from_csv": [
+    "policy_means.csv",
+    "expected_shortfall.csv",
+    "funded_drawdown.csv",
+    "aligned_sensitivity.csv"
+  ],
+  "stored_notebook_errors": 0,
+  "report_scope": "M6 draft; final outcomes disabled; peer feedback pending",
+  "final_numerical_review": "validation tables and interpretation matched to exported CSVs; four scope and unit corrections applied"
+}

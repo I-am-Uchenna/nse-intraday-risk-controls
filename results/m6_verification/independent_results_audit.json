@@ -1,0 +1,89 @@
+{
+  "review_type": "independent analytical review of exported aggregates; not a separate market replay",
+  "checked_utc": "2026-10-18T09:11:07.707450+00:00",
+  "status": "PASS",
+  "run_id": "20261018T084332Z-ghd27dnw",
+  "stage": "validation",
+  "protocol_sha256": "4f7c68c2570f32fc433588777a7f25ff46c3e7926aac4af62519a7a6666322ec",
+  "final_test_enabled": false,
+  "notebook_sha256": "317e1d9a8fddaf416656410bfdefce2e2164d19fe76656f1c79298e6bea23ce8",
+  "scope": "Archived development inputs and completed validation aggregates; no raw price files, private ledgers or final-test outcomes read.",
+  "input_identity": {
+    "input_audit_files_byte_identical": true,
+    "input_audit_sha256": "6ccdb997aa63117bf3be76f8db12f5faa196ab9fb043003aa796d9cd07b7a4ea",
+    "parsed_data_sha256": "792b0cf6c871be0e4f59e74c1907d638a9f5acaa4ceb42b87f274b2defeaf6ee",
+    "parsed_data_matches_development": true
+  },
+  "checks": {
+    "paired_contrasts": {
+      "count": 84,
+      "maximum_absolute_error_bp": 7.216449660063518e-16,
+      "tolerance_bp": 1e-12
+    },
+    "expected_shortfall": {
+      "count": 12,
+      "source": "tail_dates.csv weighted loss sums divided by fractional tail mass",
+      "maximum_absolute_error_bp": 0.0,
+      "maximum_tail_mass_error_days": 3.1086244689504383e-15,
+      "tail_mass_days": 3.7
+    },
+    "notebook_csv_tables": [
+      {
+        "csv": "policy_means.csv",
+        "notebook_cell": "research-037",
+        "matched_rows": 12,
+        "maximum_display_rounding_error": 4.2353411325191104e-05,
+        "absolute_display_tolerance": 5.1e-05,
+        "status": "PASS"
+      },
+      {
+        "csv": "funded_drawdown.csv",
+        "notebook_cell": "research-039",
+        "matched_rows": 12,
+        "maximum_display_rounding_error": 4.8518711452505414e-05,
+        "absolute_display_tolerance": 5.1e-05,
+        "status": "PASS"
+      },
+      {
+        "csv": "expected_shortfall.csv",
+        "notebook_cell": "research-041",
+        "matched_rows": 6,
+        "maximum_display_rounding_error": 4.9943039188704574e-05,
+        "absolute_display_tolerance": 5.1e-05,
+        "status": "PASS"
+      }
+    ],
+    "exported_ledger_checks": {
+      "scenarios": 14,
+      "all_reported_pass": true,
+      "maximum_recorded_error_inr": 2.7284841053187847e-11,
+      "tolerance_inr": 1e-07,
+      "resolved_account_trade_rows": 44184,
+      "evaluated_account_days": 24864,
+      "counts_are_repeated_accounting_records_not_independent_observations": true
+    }
+  },
+  "ambiguity": {
+    "reference_start": {
+      "ambiguous": 0,
+      "episodes": 266
+    },
+    "reference_end": {
+      "ambiguous": 1,
+      "episodes": 260
+    },
+    "end_reference_favourable_minus_adverse_mean_bp": 0.02719677978090429,
+    "scope": "Reference scenario only; start-label delay scenarios also show path differences."
+  },
+  "caveats": [
+    "All intervals remain exploratory, including the start-label interval excluding zero; this audit does not validate statistical coverage.",
+    "ES is descriptive with only 3.7 days of tail mass.",
+    "Funded and session-reset validation records cover the same 148 dates but measure different accounting and risk quantities.",
+    "Ledger residuals were inspected from exported reconciliation results; this audit did not separately replay private cash or trade ledgers.",
+    "Drawdown CSVs match displayed notebook tables; drawdown was not independently recalculated from private equity histories.",
+    "Source audit and parsed-data identities match development; raw instructor archives were not separately rehashed by this review.",
+    "One observed reference ambiguity does not establish a stable population frequency or general path robustness.",
+    "Software arithmetic and table agreement do not establish historical fills, fees, market capacity or executable profitability.",
+    "Final-test outcomes were not evaluated or inspected."
+  ]
+}

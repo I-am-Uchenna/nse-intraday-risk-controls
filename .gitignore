@@ -32,3 +32,5 @@ data/*
 !results/m4_pilot/sensitivity_comparisons.csv
 !results/m4_pilot/run_diagnostics.csv
 !results/development_20261001/*.csv
+!results/validation_20261018/*.csv
+!results/m6_comparison_20261018/*.csv

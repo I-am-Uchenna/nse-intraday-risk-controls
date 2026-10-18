@@ -7,3 +7,7 @@
 requirements.txt -text
 # Keep the archived development snapshot identical to its checksum manifest.
 results/development_20261001/** -text
+# Preserve the executed M6 exports, verification records and report checksums.
+results/validation_20261018/** -text
+results/m6_verification/** -text
+reports/m6/** -text

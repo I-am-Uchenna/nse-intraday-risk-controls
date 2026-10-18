@@ -1,0 +1,20 @@
+{
+  "module": "M6 Draft Project",
+  "recorded_date": "2026-10-18",
+  "study_title": "Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities",
+  "purpose": "Evaluate the existing chronological validation partition and strengthen reproducibility without changing the strategy after seeing validation outcomes.",
+  "development": ["2021-01-01", "2022-10-17"],
+  "validation": ["2022-10-18", "2023-05-25"],
+  "final_reserved": ["2023-05-26", "2023-12-29"],
+  "validation_scheduled_sessions": 148,
+  "universe": ["RELIANCE", "HDFCBANK", "INFY", "TCS", "ITC"],
+  "index_symbol": ".NSEI",
+  "strategy_changes": "None: retain the submitted signal, fixed parameters, three matched exit policies, two timestamp interpretations, two candle paths and seven execution settings.",
+  "primary_comparison": "Combined minus time-only mean daily P&L divided by fixed reference capital, on common evaluable session-reset dates, under reference execution and O-L-H-C ordering; report both unconfirmed timestamp interpretations.",
+  "secondary_measures": ["stop-only minus time-only", "combined minus stop-only", "descriptive ES97.5 with effective tail mass", "funded minute/boundary and daily-close drawdown", "dual-hit counts", "declared cost, stop-slippage and delay sensitivities"],
+  "new_software_checks": ["independent reconciliation of exported trade and cash ledgers", "identical matched episode sets", "synthetic validation read-boundary test", "complete environment record"],
+  "inference": "All nominal moving-block intervals remain exploratory. Retain the existing segment-support rule; do not change block length or exclude dates to obtain significance.",
+  "final_stage": "Disabled in the interim M6 notebook. No final strategy outcomes or protocol freeze will be generated in this development pass.",
+  "peer_review": "Not received when this plan was recorded. Any later change will identify the comment, reason and affected evidence; no claim that missing feedback has been incorporated.",
+  "provenance": "Internal dated plan, not an independent preregistration. Existing development and pilot evidence remain archived with their original run identities."
+}

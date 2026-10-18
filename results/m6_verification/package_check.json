@@ -1,0 +1,17 @@
+{
+  "tested_zip_sha256": "5c82afb5cbd5b52505cf04ee9612c53d82d3cd51a5f6614214c28601f4f9f517",
+  "final_zip_sha256": "a90b616451a40322f286747ba2f44b0a2ca7940613d9ae4a538b0105f45d97d8",
+  "original_members_byte_unchanged": 103,
+  "added_documentation": [
+    "README.md",
+    "CONTRIBUTORS.md"
+  ],
+  "final_member_count": 105,
+  "tests_run_from_extracted_package": 111,
+  "failures": 0,
+  "errors": 0,
+  "validation_checksums_verified": 24,
+  "development_checksums_verified": 25,
+  "market_data_accessed": false,
+  "note": "After the successful extracted-package test, only the current M6 README and contributor record were added. All previously tested members remain byte-identical."
+}

@@ -1,0 +1,14 @@
+{
+  "tests": 111,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "market_outcomes_evaluated": false,
+  "source_sha256": {
+    "NSE_Intraday_M6.ipynb": "85002b42bd88781cf8a2230b6f5cb894792c00e904db74e3f283195ebbd0a8ca",
+    "NSE_Intraday_Research.ipynb": "aebc13e93fb4c087eb4ce2ac043e31464dd98cf433fa1129b4236486dbe2df30",
+    "summarize_m6.py": "13b052f57e5f928bfdb5c68f563472c9a29963ea38057ae728ce3157cb2b0b10",
+    "m6_validation_plan.json": "9b0d9ef1082894df0bce2cb29538ea79d65e24afd46e46b01463946513505749"
+  }
+}
