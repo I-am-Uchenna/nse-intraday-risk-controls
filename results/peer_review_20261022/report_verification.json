@@ -37,10 +37,17 @@
   "code_validation": "115 software checks; added notebook cell replayed against both saved stages; all four diagnostic tables match.",
   "report_numeric_audit": "Tables 13-16 and existing development/validation results cross-checked against saved aggregates.",
   "wording_audit": {
-    "new_or_changed_units_reviewed": 228,
+    "previous_pass_new_or_changed_units_reviewed": 228,
     "reused_or_fixed_numeric_units": 470,
     "prior_processed_words_reused": 4285,
-    "scope": "Submission report only; exact technical, numerical, formula, citation and grammar repairs applied."
+    "scope": "Submission report only; prior wording retained with exact technical, numerical, formula, citation and grammar repairs.",
+    "response_integration": "Seven factual clarifications, 112 words, added to make the report self-contained; retained without another language-service pass following user direction."
+  },
+  "final_response_integration": {
+    "points_cross_checked": 33,
+    "additional_clarifications": 7,
+    "response_8_2_description_corrected": true,
+    "notebook_and_saved_results_changed": false
   },
   "rubric_review": {
     "draft_project_60": "All required report sections, current results, progress, limitations and dated working plan.",
@@ -50,10 +57,10 @@
     "grade_guarantee": false
   },
   "artifact_sha256": {
-    "WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.tex": "6caa39a8c8298107e1406c933d51eb6aa12d14eef4acb00769a9021333047b52",
-    "WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.pdf": "0cf06ccd0c6a0f8dac3b44b2d2774f24e827a76e51e718d6696e56dff052787b",
-    "Group17838_M6_Response_to_Peer_Review.tex": "76af2fa68172df258e08987499f41218f8ed9924c342d767dca93c5383277188",
-    "Group17838_M6_Response_to_Peer_Review.pdf": "c49f7f408e2ce340ffa9d55f234d0eb79e827d50cccce8ed7f356260b1cbe024"
+    "WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.tex": "eb0e5529e7d9b9039aa89fe46ae726b3cb80a6f20d07149e8c890c3466281331",
+    "WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.pdf": "15090fc3829d5fec3311760d6df5522848192e94eff5694ba82f22efdebb293b",
+    "Group17838_M6_Response_to_Peer_Review.tex": "350372033e0d49a6f4a57ed04a5c21421dfbe72ad7b25b76e12306fb7e5a987e",
+    "Group17838_M6_Response_to_Peer_Review.pdf": "1e61deae86297fc1e8820a109d103802413a7c5bfcf0ada1358254e53f4fc5ee"
   },
   "notebook_sha256": "8874b067775a6a8f261623431f796a451233c7c90f2b5d3c85f1d714ad6d8e76",
   "lms_submission_performed": false
