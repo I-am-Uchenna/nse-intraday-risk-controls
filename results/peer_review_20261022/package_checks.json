@@ -1,0 +1,35 @@
+{
+  "checked_on": "2026-10-22",
+  "software_tests_run": 115,
+  "failures": 0,
+  "errors": 0,
+  "source": "Newly extracted archived submission with explicit reviewed overrides",
+  "test_command": "python -m unittest discover -s tests -v",
+  "pythonpath": "src",
+  "helper_reproductions": [
+    {
+      "script": "summarize_m6.py",
+      "byte_identical_outputs": {
+        "comparison.csv": true,
+        "sensitivity.csv": true,
+        "summary.json": true
+      }
+    },
+    {
+      "script": "peer_review_diagnostics.py",
+      "byte_identical_outputs": {
+        "gross_net_returns.csv": true,
+        "sample_accounting.csv": true,
+        "expected_shortfall_sensitivity.csv": true,
+        "execution_sensitivity.csv": true,
+        "provenance.json": true
+      }
+    }
+  ],
+  "staged_files_unchanged_by_checks": true,
+  "checked_file_count": 116,
+  "specific_private_path_email_scan_hits": [],
+  "market_replay_performed": false,
+  "final_test_evaluated": false,
+  "report_status": "Final reviewed report source and response copied after the code and reproduction checks; code unchanged since those checks."
+}

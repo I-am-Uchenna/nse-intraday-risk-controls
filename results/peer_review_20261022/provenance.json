@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {
+      "stage": "development",
+      "run_id": "20261001T221531Z-th2hk303",
+      "source_sha256": {
+        "run_manifest.json": "f34a95a26b27930cbfc11e6d1f579538346e48c01433efbaa0ab8df88a1ab9d9",
+        "policy_means.csv": "e34b1a2655a25894033e0294c6dedac1f2b502a85d5d535cbd0969ed070361a0",
+        "exit_ambiguity.csv": "a4d43383c0fc4633a113a871e76bbdca2592047e59bbd4a6066d2698b410f9df",
+        "expected_shortfall.csv": "ab7a9b04b4638e24a07180f63026bd4f7b6cc94e285ee5be320f6e71b3cc9939",
+        "status_counts.csv": "5af6e2704545a0c64caba7a1ff3465e1920108f71de8ce8cd104d8946df13cb6",
+        "calendar_split.csv": "fc2ac1be1bf34fb705d9667779000d88efa722688f35e3954106f26b4cf6583b",
+        "aligned_sensitivity.csv": "909b30fdb8c0a4fdb20cfa2433e703ae5583ff7a21bcd47ad0cd4fcff7895195"
+      }
+    },
+    {
+      "stage": "validation",
+      "run_id": "20261018T084332Z-ghd27dnw",
+      "source_sha256": {
+        "run_manifest.json": "1f6a862b8799a9fa076787ba78195a4a88f0140b1b9dd5b65d496565b6fabedb",
+        "policy_means.csv": "5693db3ebaf0802761afb5f23e253eea0dff8dd3d09ba985365662d3ae01cce6",
+        "exit_ambiguity.csv": "5d5d697a799fc49a1de0572943218d68de29d81caccff8a42524e66feba98afa",
+        "expected_shortfall.csv": "b6a02535df078964e0279de4dc5ca17a6f84f851c4035539d45007def8c8416f",
+        "status_counts.csv": "45ccff5e143aad7a2ec2729366769b1870b269ef6e65095549855ded7798ad67",
+        "calendar_split.csv": "fc2ac1be1bf34fb705d9667779000d88efa722688f35e3954106f26b4cf6583b",
+        "aligned_sensitivity.csv": "f561fcc6ce895c8d396d9bbc3263ad564418e1471a3532c75a84f8788536e9db"
+      }
+    }
+  ],
+  "notes": [
+    "Post-review arithmetic from recorded development/validation aggregates; no raw prices or final outcomes read.",
+    "Gross returns add back the declared identical fixed-notional fees; they are not random-entry-adjusted alpha.",
+    "Per-trade means use equal entry notionals; bp/day and INR/day use fixed initial capital, not compounded wealth.",
+    "Sample counts distinguish primary complete cases from funded identified days; counts alone cannot locate the causes of individual exclusions.",
+    "All scenarios and risk ranges are descriptive. Leave-one-day-out ranges are not confidence intervals or a common-date policy ranking.",
+    "Final dates in the calendar are schedule metadata, not final strategy outcomes. No samples are pooled."
+  ]
+}

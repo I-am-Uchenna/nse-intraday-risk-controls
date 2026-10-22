@@ -1,0 +1,5 @@
+stage,timestamp_label,scheduled_days,primary_evaluable_days,primary_unavailable_days,explicitly_excluded_days,incomplete_candidate_days,funded_identified_days,reference_unique_episodes,mean_episodes_per_primary_day
+development,start,443,360,83,1,82,443,637,1.7694444444444444
+development,end,443,381,62,1,61,443,662,1.73753280839895
+validation,start,148,148,0,0,0,148,266,1.7972972972972974
+validation,end,148,148,0,0,0,148,260,1.7567567567567568

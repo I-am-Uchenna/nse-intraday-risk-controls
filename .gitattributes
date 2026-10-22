@@ -11,3 +11,6 @@ results/development_20261001/** -text
 results/validation_20261018/** -text
 results/m6_verification/** -text
 reports/m6/** -text
+# Preserve the peer-review release fingerprints on Windows and Linux.
+M6_README.md -text
+results/peer_review_20261022/** -text

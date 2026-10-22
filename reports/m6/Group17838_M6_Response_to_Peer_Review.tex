@@ -1,0 +1,268 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage[left=2.25cm,right=2.25cm,top=2.0cm,bottom=2.1cm,headheight=14pt,headsep=14pt,footskip=25pt]{geometry}
+\usepackage{microtype,ragged2e,titlesec,fancyhdr,xcolor,hyperref}
+\definecolor{Ink}{HTML}{273D58}
+\hypersetup{colorlinks=true,linkcolor=Ink,urlcolor=Ink,pdftitle={Group 17838: Response to Peer Review},pdfauthor={Uchenna Splendor Ejike, Israel Olanrewaju Odeajo and Goodness Chibueze Kalu}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\linespread{1.035}
+\widowpenalty=10000
+\clubpenalty=10000
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Group 17838 | M6}
+\fancyhead[R]{\small Response to peer review}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\titleformat{\section}{\normalfont\fontsize{12}{14.4}\selectfont\bfseries\color{Ink}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\newcommand{\Needspace}[1]{\par\begingroup\ifdim\dimexpr\pagegoal-\pagetotal\relax<#1\relax\newpage\fi\endgroup}
+\newcommand{\reply}[3]{\par\addvspace{5pt}\noindent\textbf{#1. #2}\ \textit{#3.}\par\nobreak}
+\begin{document}
+\justifying
+\begin{center}
+{\fontsize{15}{18}\selectfont\bfseries Response to Peer Review\par}
+\vspace{3pt}
+{\fontsize{12}{14.4}\selectfont\bfseries Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities\par}
+\vspace{5pt}
+MScFE 690 Capstone | M6 Draft Project | Student Group 17838\par
+Uchenna Splendor Ejike, Israel Olanrewaju Odeajo and Goodness Chibueze Kalu\par
+22 October 2026
+\end{center}
+\vspace{3pt}
+\textbf{Reviewers:} Ikemefula Solomon Oriaku; Zione Esther Kamtambe. \textbf{Review date:} 17 October 2026.\par
+Thank you for the detailed review and for reproducing the pilot results. The comments have helped clarify the question, presentation and limits of the work. The review concerns the M4 proposal dated 10 October. M6 adds the validation run completed on 18 October and the aggregate diagnostics prepared on 22 October. These additions are kept separate from the original pilot and development records. The responses below identify report revisions, existing evidence and suggested extensions that are not part of the fixed experiment.
+
+AI assistance was used to organise the review comments and draft this response (OpenAI).\footnote{OpenAI Codex assisted with tracing comments to report passages, checking arithmetic from saved aggregates and organising this response. This reduced the time needed to locate and compare evidence. The tool did not supply market observations or perform a new market replay.}
+
+\textbf{How to read the responses.} Accepted means a correction or addition is made. Partly adopted means the concern is addressed with stated limits. Not adopted means the proposed extension is not added to this fixed experiment. Report locations use section names so they remain usable after pagination changes.
+\Needspace{10\baselineskip}
+\section*{1. Objectives and scope}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{1.1}{Order the three aims and identify the main contribution.}{Accepted}
+The revised Introduction identifies exit-policy comparison as the primary question, measured first by combined-minus-time mean net daily return. Candle-order sensitivity and bootstrap reliability support interpretation; they are not separate claims of profitable prediction or new inference theory. Stop-only comparisons and downside-risk measures are secondary outcomes.
+{\small\textit{Report: Abstract and Introduction.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{1.2}{Align the title with the absence of ambiguous development episodes.}{Partly adopted}
+The submitted title is retained. The Introduction now defines path sensitivity as the change in a matched comparison between two declared candle orderings, not proof of robustness to all feasible paths. Zero development ambiguity establishes no general robustness. M6 adds one ambiguous end-labelled reference episode among 260; that sparse evidence also cannot establish broad robustness.
+{\small\textit{Report: Introduction; Results: M6 validation; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{1.3}{Start the abstract with motivation and the research question; say what would answer it.}{Accepted}
+The abstract now follows motivation, question, method, findings and limits. The Introduction explains that positive or negative paired estimates answer the sample comparison in their stated units, but do not establish a population effect. A risk reduction alongside a return reduction is a trade-off. No trading-adoption threshold was prespecified, so none is invented after seeing results.
+{\small\textit{Report: Abstract; Methodology: evaluation; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{2. Theory, entry signal and economic interpretation}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{2.1}{Report gross signal returns and compare them with random entry.}{Partly adopted}
+Gross and net time-only returns are reported in daily-capital and per-trade units using saved aggregates. Gross averages are positive in development and validation but below the assumed reference cost. No matched random-entry experiment has been run, and no excess return over random entry is claimed. The fixed-entry experiment isolates exit differences; it does not establish an attractive entry rule.
+{\small\textit{Report: Results: gross and net baseline; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{2.2}{Explain the relative signal, long-only exposure, coefficient of one and index membership.}{Accepted}
+The Introduction and execution limitations now state that the coefficient of one defines a stock-minus-index feature; it is not an estimated beta or a hedge. The traded stock retains market exposure. Historical index weights and alternative-beta sensitivity have not been established. Current weights are not substituted for 2021-2023 weights, and no market-neutral performance is claimed.
+{\small\textit{Report: Methodology: signal definition; Discussion: limits.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{2.3}{Justify the barrier multiples and connect the experiment to stop-loss theory.}{Partly adopted}
+The fixed-design rationale identifies the 1.0 and 1.5 volatility multiples as illustrative barriers, not optimal boundaries or a guaranteed realised reward-to-risk ratio. The project estimates this empirical contrast, rather than testing or refuting the cited portfolio-overlay theorem. Its assumptions and trading rule differ; negative gross performance alone would not establish a general theorem that no exit can help.
+{\small\textit{Report: Theoretical Framework; Methodology: fixed-design rationale.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{3. Definitions, samples and interpretation}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{3.1}{Explain the scheduled, complete-case and funded sample sizes.}{Accepted}
+The revised sample discussion and aggregate table distinguish 443 scheduled development sessions, 360 or 381 complete-case sessions, and 443 identified funded daily closes. Funded accounts can retain known abstentions and trades when the primary all-candidate requirement fails. These samples are not interchangeable. Validation has 148 sessions in both accounts, but the accounting definitions still differ.
+{\small\textit{Report: Methodology: samples; Results table notes.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{3.2}{State what exploratory intervals mean for a practitioner.}{Accepted}
+The revised inference section explains that the intervals describe variation under the specified resampling procedure. Demonstrated undercoverage prevents reliable nominal 95\% inference, even when an interval excludes zero. These estimates are not a deployment decision or a significance guarantee. The Discussion retains effect sizes and uncertainty without making a trading recommendation.
+{\small\textit{Report: Methodology: inference; Discussion; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{3.3}{Separate funded drawdown from negative drift and consider detrending.}{Partly adopted}
+The Discussion now acknowledges that negative drift contributes to drawdown; drawdown is not evidence of a separate causal risk mechanism. The review's approximation combines complete-case means with the larger funded calendar, so it does not exactly reconstruct funded losses. Detrending has not been performed and would change the diagnostic; it does not replace the observed funded path.
+{\small\textit{Report: Results: funded accounting; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{3.4}{Infer the timestamp convention and explain the 21-session count difference.}{Partly adopted}
+The revised data discussion retains 09:15-15:30 as an assumption pending supplier confirmation, with both timestamp interpretations. Source inventories alone have not resolved the vendor convention. A missing required minute can affect the following twenty scheduled-session histories. Both interpretations remain conditional. The 21-session difference is reported, but no exact causal attribution to a particular missing minute is claimed without tracing those histories.
+{\small\textit{Report: Methodology: timestamps and history; data-quality limitations.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{4. Contribution and scope extensions}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{4.1}{State the economic magnitude and what would justify using a target.}{Accepted}
+The Results report rupees as well as basis points of reference capital. One basis point of INR 100,000 is INR 10. The development combined-minus-time estimates correspond to about minus INR 2.32 and minus INR 1.27 per evaluable day. These are sample differences, not an economically validated adoption threshold. No recommendation to deploy follows from them.
+{\small\textit{Report: Results and Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{4.2}{Broaden the stock universe to improve power.}{Not adopted}
+The current question concerns five stocks fixed before outcome inspection. Expanding the universe after seeing these results would create a different study and require new eligibility, data and multiplicity decisions. A broader study remains a reasonable extension, but is not presented as completion of the current fixed design or as guaranteed additional independent evidence.
+{\small\textit{Report: Discussion: scope and future work.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{4.3}{Make novelty relative to the cited stop-loss literature precise.}{Accepted}
+The Introduction and Conclusion now identify the contribution as a reproducible NSE case study of matched exits with explicit timing, candle-order, missingness and accounting limits. It is not a new stop-loss theorem or a claim that mean reversion is novel. The comparison with prior work distinguishes empirical setting and measurement from theoretical innovation.
+{\small\textit{Report: Introduction; Theoretical Framework; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{5. Methodology}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.a}{Quantify power and the smallest detectable final-period effect.}{Partly adopted}
+A labelled normal-approximation illustration is added: the development start-label interval implies about 0.1321 bp standard error, about 0.3700 bp detectable at assumed two-sided 5\% size and 80\% power, or about 0.5771 bp after scaling to 148 sessions. Constant variance, dependence and availability are not established. These are planning illustrations, not validated power, and use no final outcomes. Final tail weight could be only 3.70 days even with complete coverage.
+{\small\textit{Report: Methodology: inference limitations; remaining work.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.b}{Pool validation and final sessions if the protocol permits.}{Not adopted}
+Validation results have now been inspected and used to assess implementation and interpretation. Pooling them with final sessions would not create an untouched confirmatory sample. The declared chronological boundaries and final-access restriction are retained. A later pooled descriptive summary, if undertaken, would need that label and could not replace held-out assessment.
+{\small\textit{Report: Methodology: chronological evaluation; completion plan.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.c}{Use exit-specific costs and imperfect fills; explain gap treatment.}{Partly adopted}
+The execution section now explains that equal fixed-notional fees cancel in paired differences, so repeated contrasts are arithmetic, not realistic cost robustness. Stop-slippage stresses address only one asymmetry. Target-price capping withholds improvement, but guaranteed touch fills can be optimistic; stop gaps also affect stop-only exits. OHLC cannot establish a uniformly conservative combined estimate or identify fill probabilities. No new fill experiment is claimed.
+{\small\textit{Report: Methodology: execution and costs; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.d}{Report a full grid of barrier multiples and ambiguity counts.}{Not adopted}
+A barrier grid could identify settings where ambiguity matters, but it would be a new exploratory design changing both exits and selected outcomes. The fixed barriers and their observed counts are retained, including the validation episode. Narrower barriers are not chosen to manufacture ambiguous cases. No result for an untested grid is claimed.
+{\small\textit{Report: Methodology: fixed design; Results: ambiguity; future work.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.e}{Report signal instability and lookback/threshold sensitivity.}{Partly adopted}
+The pilot's 33 versus 24 episodes demonstrate sensitivity to timestamp interpretation, but alone do not isolate instability of the z-score estimator: eligible histories and decision windows also change. Recorded episode counts and this limitation are reported. Lookback and threshold changes remain separately specified exploratory extensions, not optimisation within the present experiment.
+{\small\textit{Report: Methodology: timestamps; Results: episode counts; limitations.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.f}{Increase simulations, compare bootstrap methods, use permutation inference and clustered episodes.}{Partly adopted}
+The abstract now acknowledges undercoverage in an independent simulated case as well as under serial dependence. The report states Monte Carlo uncertainty and the diagnostic's Gaussian scope. More replications reduce simulation noise but do not repair coverage. Stationary bootstrap, sign-flip and episode-level methods need justified dependence, symmetry and estimand assumptions. None has been substituted; current intervals remain exploratory unless a separate amendment is evaluated before final outcomes.
+{\small\textit{Report: Abstract; Results: synthetic diagnostics; Methodology: inference.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.g}{Characterise excluded sessions and use available-session rolling histories.}{Partly adopted}
+The revised missingness discussion accepts that complete-case conditioning can select an unrepresentative sample. Missing required prices prevent some excluded-day volatility and signal comparisons; they are not reconstructed as zero outcomes. Observable coverage and status counts are reported. Replacing twenty scheduled sessions with the latest twenty available sessions would change the feature horizon and has not been adopted as a neutral correction.
+{\small\textit{Report: Methodology: missing data; Results: coverage; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.h}{Address fourteen scenarios and multiplicity.}{Accepted}
+The main contrast remains fixed, and the other settings are explicitly descriptive stresses rather than independent discoveries. No scenario is selected for significance. The discussion of data-snooping methods distinguishes their assumptions and purpose from this fixed comparison. A fixed signal does not remove all selection risk, and five stocks alone do not determine which statistical test is appropriate.
+{\small\textit{Report: Theoretical Framework; Methodology: evaluation; sensitivity notes.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{5.i}{Identify the environments behind the pilot and development tables.}{Already addressed}
+The reproducibility appendix separates pilot, development and validation environments. Development used Python 3.13.15; validation used Python 3.13.16, NumPy 2.1.3, pandas 2.2.3 and Matplotlib 3.10.0. The pilot's Python 3.12.14 record is not the development environment. Historical executed identities remain separate from later wording changes and the newly checked aggregate-diagnostic cell.
+{\small\textit{Report: Appendix A: reproducibility; Appendix B: computational checks.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{6. Literature and attribution}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{6.1}{Connect the signal to reversal, residual arbitrage, momentum and Indian microstructure research.}{Accepted}
+The framework now distinguishes the selected relative-return feature from fitted residual-arbitrage models and intraday momentum strategies, using checked primary sources. Indian intraday evidence is discussed with its different sample and purpose. Similar z-score notation does not make the strategies equivalent, and findings at other horizons or in other markets are not treated as validation of this signal.
+{\small\textit{Report: Theoretical Framework and References.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{6.2}{Consider high-low spread estimation and additional data-snooping methods.}{Partly adopted}
+The framework distinguishes model-based spread proxies from observed execution information. A daily high-low estimator cannot recover minute-level quoted spreads, depth or target-fill probabilities. Reality Check, superior-predictive-ability and backtest-overfitting methods are discussed as different approaches to selection risk, not as implemented tests. No spread proxy, fill estimate or additional inferential result is claimed.
+{\small\textit{Report: Theoretical Framework; execution limitations.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{6.3}{Tighten author attribution and state each source's claim and conditions.}{Accepted}
+The framework names Aleti, Bollerslev and Siggaard consistently with the reference entry. The Heston and Kaminski passages have been rewritten as specific claims with conditions and citation locators. The references support the stated claims rather than imply that a theoretical result proves this empirical finding.
+{\small\textit{Report: Theoretical Framework; References.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{7. Style and organisation}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{7.1}{Correct circular wording, grammar, tenses, headings, captions and undefined abbreviations.}{Accepted}
+The cited circular wording and unclear headings and captions have been corrected. Definitions and transitions distinguish completed analyses from planned work. Numerical values, formulas, units and assumptions are checked separately from the prose. These revisions address clarity without treating language editing as evidence that a result is correct.
+{\small\textit{Report: Throughout the report, especially Abstract, Introduction and Results.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{7.2}{Reduce provenance detail in Results and reconsider the feedback table.}{Partly adopted}
+Results focus on the experiment and findings, with detailed source identities retained in the reproducibility appendix. A concise feedback table remains because M6 requires incorporation of earlier feedback. This separate response carries the detailed record, avoiding repetition of every review point in the research narrative.
+{\small\textit{Report: Results; reproducibility appendix; response record.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{7.3}{Correct URLs, corporate authors and reference punctuation.}{Already addressed}
+The references use lowercase nseindia URLs, consistent National Stock Exchange of India entries, corrected Lo and Remorov punctuation, and a consistently formatted Sullivan entry. New sources are included with their corresponding in-text citations. The reference list is checked for alphabetical order and consistent MLA formatting.
+{\small\textit{Report: References.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{7.4}{Give sections a clear purpose and connect their implications to the question.}{Accepted}
+The abstract now uses motivation, question, method, findings and limits. Short transitions connect the literature to the matched experiment, the accounting and sample rules to the estimates, and the findings to their implications. Unsupported claims of reliable significance, general robustness and profitability are excluded.
+{\small\textit{Report: Abstract; section transitions; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\Needspace{10\baselineskip}
+\section*{8. Results and conclusions}
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{8.1}{Avoid treating a zero-crossing interval as evidence of no effect.}{Accepted}
+The revised Conclusion states that point estimates are negative but their uncertainty remains exploratory. The start-label development interval is about minus 0.4410 to plus 0.0770 bp/day; this does not prove no benefit. Validation estimates and intervals are reported separately. Neither crossing zero nor excluding it establishes a reliable population conclusion under the documented undercoverage limitation.
+{\small\textit{Report: Results; Discussion; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{8.2}{Add development sensitivity values and aligned sample counts beside Figure1.}{Accepted}
+The development sensitivity table reports saved aligned-day counts, contrasts and changes from reference. These values are checked against Figure 1 and the discussion's slippage and delay numbers. The validation sensitivity table remains separate; it does not substitute for development-specific evidence.
+{\small\textit{Report: Results: development execution sensitivity.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{8.3}{Show ES leave-one-day-out ranges and policy rankings after the worst day is removed.}{Partly adopted}
+The report now includes saved leave-one-day-out ES ranges for all three policies in development and validation. They are sensitivity ranges, not confidence intervals. Removing each policy's own worst day can use different samples. The available aggregate ranges do not establish a ranking after deleting one common date. No result for that unperformed shared-date comparison is claimed.
+{\small\textit{Report: Results: tail-risk sensitivity; Discussion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\par\noindent\begin{minipage}{\linewidth}\justifying
+\reply{8.4}{Do not interpret identical paths with zero ambiguity as robustness.}{Already addressed}
+The Discussion states that zero development ambiguity does not demonstrate robustness to ambiguous candles. Validation adds one end-labelled reference event: combined-minus-time changes from about minus 0.3855 to minus 0.3583 bp/day across the two paths. This observation does not establish universal bounds, the historical tick order or actual fill accuracy.
+{\small\textit{Report: Results: M6 validation; Discussion; Conclusion.}}
+\end{minipage}\par\addvspace{5pt}
+
+\section*{Priority recommendation cross-reference}
+1. Title, abstract and research question: responses 1.1, 1.2, 1.3, 7.4.\par
+2. Gross signal, random entry and unhedged exposure: responses 2.1, 2.2.\par
+3. Power, pooling and universe expansion: responses 5.a, 5.b, 4.2.\par
+4. Costs, fills and barrier grid: responses 5.c, 5.d.\par
+5. Inference diagnostics and effect-size conclusions: responses 5.f, 8.1.\par
+6. Sensitivity, drift, references and language: responses 8.2, 3.3, 7.1, 7.3.\par
+
+The revised work retains the original topic, entry rule, stock universe and untouched final period. Its contribution is a conditional comparison of fixed exits, not proof of profitable trading. The added diagnostics use saved aggregates; they are not a new market replay. The revised software suite passed 115 tests with no failures or errors; these checks use synthetic cases, small fixtures and saved aggregates, not final-period outcomes. Unperformed extensions are stated explicitly, and the documented uncertainty remains part of the conclusions.
+\section*{References}
+{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent OpenAI. \textit{Codex}. Responses to prompts requesting comparison of the Group 17838 peer review with the M6 report and preparation of a point-by-point response. 22 Oct. 2026. AI-assisted analysis and drafting.\par}
+{\RaggedRight\hangindent=1.27cm\hangafter=1\noindent Oriaku, Ikemefula Solomon, and Zione Esther Kamtambe. "Peer Review: Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities." MScFE 690 Capstone, WorldQuant University, 17 Oct. 2026. Unpublished peer review.\par}
+\end{document}

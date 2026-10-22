@@ -1,0 +1,72 @@
+{
+  "checked_on": "2026-10-22",
+  "code_cells": 26,
+  "all_code_cells_parse": true,
+  "changed_existing_code_cells": [
+    "research-047"
+  ],
+  "unchanged_original_trading_inference_guard_cells": 24,
+  "new_code_cell": "m6-peer-review-diagnostics",
+  "full_market_rerun": false,
+  "final_test_evaluated": false,
+  "new_diagnostic_tests": 4,
+  "existing_m6_tests": 5,
+  "focused_tests_passed": 9,
+  "aggregate_cell_replays": [
+    {
+      "stage": "development",
+      "run_id": "20261001T221531Z-th2hk303",
+      "new_cell_replayed_against_saved_aggregates": true,
+      "tables_equal": 4
+    },
+    {
+      "stage": "validation",
+      "run_id": "20261018T084332Z-ghd27dnw",
+      "new_cell_replayed_against_saved_aggregates": true,
+      "tables_equal": 4
+    }
+  ],
+  "source_hashes": {
+    "NSE_Intraday_M6.ipynb": "8874b067775a6a8f261623431f796a451233c7c90f2b5d3c85f1d714ad6d8e76",
+    "scripts/peer_review_diagnostics.py": "eda86ad55d38a24daa8716f7e8ab21486517e7808ddfe0f270f2f77709352884",
+    "tests/test_peer_review_diagnostics.py": "74d0cdd7dcd3068e32fc6c3a8762c6b55c076551d89af8c62735c0989f614358",
+    "requirements.txt": "55b3dfe06e8d1ac7f1ae741caaec27f3540e6d6933644025fc025ade2e4c6df8",
+    "M6_README.md": "31a93161c3ecccfd338232f1c5c6894249e6b3a110000c3c97bea42adc046286"
+  },
+  "complete_suite": {
+    "tests_run": 115,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "input_scope": "Synthetic checks, small fixtures and recorded development/validation aggregates; no raw market replay or final outcomes"
+  },
+  "historical_csv_integrity": {
+    "development_20261001": {
+      "csv_count": 13,
+      "all_byte_identical_to_HEAD": true,
+      "manifest_hashes_checked": 13,
+      "all_manifest_csv_hashes_match": true
+    },
+    "validation_20261018": {
+      "csv_count": 14,
+      "all_byte_identical_to_HEAD": true,
+      "manifest_hashes_checked": 14,
+      "all_manifest_csv_hashes_match": true
+    },
+    "m6_comparison_20261018": {
+      "csv_count": 2,
+      "all_byte_identical_to_HEAD": true,
+      "manifest_hashes_checked": 0,
+      "all_manifest_csv_hashes_match": true
+    }
+  },
+  "estimand_audit": {
+    "fee_addback": "Reference round-trip15bp * (allocation/stock_count) * complete-case unique episodes / complete-case sessions",
+    "per_trade_units": "Gross simple price-return bp per equal-notional resolved episode on primary complete-case days",
+    "per_day_units": "Daily P&L bp of fixed initial INR100000 capital, including no-trade evaluable days",
+    "rupee_units": "Daily P&L bp * reference capital /10000",
+    "market_exposure": "Unhedged long stock; stock-minus-index signal does not hedge position and gross is not risk-adjusted alpha",
+    "source_episode_scope": "research-037: independent, RESOLVED, included_primary_day=True; unique episode ID avoids six-policy/path duplication",
+    "additional_correction_required": false
+  }
+}
