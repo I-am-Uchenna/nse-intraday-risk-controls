@@ -7,7 +7,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "summarize_m6.py"
+from path_robust.paths import SCRIPTS
+SCRIPT = SCRIPTS / "summarize_m6.py"
 spec = importlib.util.spec_from_file_location("summarize_m6", SCRIPT)
 summary = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(summary)

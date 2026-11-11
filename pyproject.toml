@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "path-robust"
+version = "1.0.0"
+description = "Exit-policy comparison for intraday mean reversion in NSE equities (MScFE 690, Group 17838)"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

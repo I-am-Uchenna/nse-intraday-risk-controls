@@ -3,11 +3,11 @@
 **Path-Robust Risk Controls for Intraday Mean Reversion in NSE Equities**  
 Uchenna Splendor Ejike, Israel Olanrewaju Odeajo and Goodness Chibueze Kalu · Group 17838
 
-Use `NSE_Intraday_M7.ipynb`. It contains the complete experiment, comments, checks, plots and results export. The M6 notebook and its recorded results remain unchanged.
+Use `notebooks/NSE_Intraday_M7.ipynb`. It contains the complete experiment, comments, checks, plots and results export. The M6 notebook and its recorded results remain unchanged.
 
 ## Run in Google Colab
 
-1. [Open the M7 notebook in Google Colab](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Intraday_M7.ipynb) and save a copy in Drive. Select a hosted CPU runtime.
+1. [Open the M7 notebook in Google Colab](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/notebooks/NSE_Intraday_M7.ipynb) and save a copy in Drive. Select a hosted CPU runtime.
 2. Add readable My Drive shortcuts to the instructor's **NSE Cash Stocks Data** and **NSE Index Data** folders. Set `CASH_FOLDER`, `INDEX_FOLDER` and `SAVE_FOLDER` in the first code cell. Use the same `SAVE_FOLDER` for validation, its freeze and final evaluation.
 3. Keep `RUN_STAGE="validation"` and `FINAL_ACCESS_APPROVED=False`. Select **Runtime → Run all**. Review all cell outputs, source exclusions, fourteen ledger checks and validation results. Save the executed notebook and exported ZIP.
 4. Compare the reproduced validation with `results/validation_20261018` and the aggregate diagnostics with `results/peer_review_20261022`. Investigate any numerical difference before proceeding; do not select a better result.
@@ -50,6 +50,6 @@ The focused M7 checks use synthetic records and existing aggregate tables. They 
 
 ## Execution status
 
-We completed a fresh M7 validation run on 11 November 2026. All 27 code cells executed without saved errors, all fourteen ledger reconciliations passed, and seventeen aggregate tables matched the historical validation exactly. The executed notebook's normalized code identity matched the reviewed source. The [verified validation export](results/m7_validation_20261111/) includes the run manifest, comparison record, tables, figures and exact runtime versions.
+We completed a fresh M7 validation run on 11 November 2026. All 27 code cells executed without saved errors, all fourteen ledger reconciliations passed, and seventeen aggregate tables matched the historical validation exactly. The executed notebook's normalized code identity matched the reviewed source. The [verified validation export](../results/m7_validation_20261111/) includes the run manifest, comparison record, tables, figures and exact runtime versions.
 
 This run reproduced the previously observed validation period; it did not evaluate the final partition. Final access remains disabled by default, and this export records `final_test_evaluated=false`. Final evaluation requires its separate approval, matching protocol freeze and saved execution evidence.

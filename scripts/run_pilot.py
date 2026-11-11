@@ -17,8 +17,8 @@ from pathlib import Path
 import sqlite3
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from path_robust.paths import CONFIG, DATA, RUN  # noqa: E402
 from path_robust.engine import Execution, Path as PricePath, Policy
 from path_robust.research import ResearchConfig, ResearchState
 from path_robust.vendor import VendorRow
@@ -193,9 +193,9 @@ def write_csv(path, rows):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "config/m4_pilot.json")
-    parser.add_argument("--work-dir", type=Path, default=ROOT / "data/m4_pilot")
-    parser.add_argument("--output-dir", type=Path, default=ROOT / "results/m4_pilot")
+    parser.add_argument("--config", type=Path, default=CONFIG / "m4_pilot.json")
+    parser.add_argument("--work-dir", type=Path, default=DATA / "m4_pilot")
+    parser.add_argument("--output-dir", type=Path, default=RUN["M4_PILOT"])
     args = parser.parse_args()
     spec = json.loads(args.config.read_text(encoding="utf-8"))
     audit_path = args.work_dir / "input_audit.json"

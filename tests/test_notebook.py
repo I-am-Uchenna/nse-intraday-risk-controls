@@ -11,7 +11,8 @@ import tempfile
 from types import SimpleNamespace
 import unittest
 
-NOTEBOOK = Path(__file__).resolve().parents[1] / 'NSE_Intraday_Research.ipynb'
+from path_robust.paths import NOTEBOOK as NOTEBOOKS
+NOTEBOOK = NOTEBOOKS['M4_RESEARCH']
 
 
 class ResearchNotebookTests(unittest.TestCase):

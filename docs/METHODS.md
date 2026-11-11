@@ -1,7 +1,7 @@
 # Implemented research and execution rules
 
 This file documents the historical M3/M4 script implementation and its pilot
-limits. `NSE_Intraday_Research.ipynb` is the subsequent standalone implementation:
+limits. `notebooks/NSE_Intraday_M4_Research.ipynb` is the subsequent standalone implementation:
 its visible cells additionally implement funded marked equity, minute/daily-close
 drawdown, ES, paired inference, synthetic reliability diagnostics and a final-test
 gate. The notebook records its own code, configuration, data fingerprints,
