@@ -1,0 +1,10 @@
+# Exact packages recorded for validation run 20261111T081528Z-fzxevfhy
+# Python 3.13.18; Google Colab CPU runtime; archive tools are system dependencies.
+numpy==2.4.6
+pandas==2.2.3
+matplotlib==3.10.0
+ipython==7.34.0
+nbformat==5.11.1
+nbclient==0.10.4
+ipykernel==6.17.1
+nbconvert==7.17.2

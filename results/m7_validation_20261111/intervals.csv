@@ -1,0 +1,37 @@
+timestamp_label,path,contrast,n_days,mean_difference_bp,block_length,segment_lengths,support_blocks,lower_bp,upper_bp,status
+start,O-H-L-C,combined_minus_time,148,-0.6884948567836546,5,[148],29,-1.7036688567376335,-0.08088851060286167,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_time,148,-0.6884948567836546,10,[148],14,-1.7443914701530634,-0.06068426040068398,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_time,148,-0.6884948567836546,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+start,O-H-L-C,stop_minus_time,148,-0.2764537102427484,5,[148],29,-0.47949950916252626,-0.0359844128757289,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,stop_minus_time,148,-0.2764537102427484,10,[148],14,-0.47449268456377053,-0.03571889650947091,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,stop_minus_time,148,-0.2764537102427484,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+start,O-H-L-C,combined_minus_stop,148,-0.4120411465409061,5,[148],29,-1.3530149693604756,0.10944094008539841,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_stop,148,-0.4120411465409061,10,[148],14,-1.3770204083031756,0.13965344660070547,AVAILABLE: conditional moving-block percentile interval
+start,O-H-L-C,combined_minus_stop,148,-0.4120411465409061,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+start,O-L-H-C,combined_minus_time,148,-0.6884948567836546,5,[148],29,-1.7036688567376335,-0.08088851060286167,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_time,148,-0.6884948567836546,10,[148],14,-1.7443914701530634,-0.06068426040068398,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_time,148,-0.6884948567836546,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+start,O-L-H-C,stop_minus_time,148,-0.2764537102427484,5,[148],29,-0.47949950916252626,-0.0359844128757289,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,stop_minus_time,148,-0.2764537102427484,10,[148],14,-0.47449268456377053,-0.03571889650947091,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,stop_minus_time,148,-0.2764537102427484,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+start,O-L-H-C,combined_minus_stop,148,-0.4120411465409061,5,[148],29,-1.3530149693604756,0.10944094008539841,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_stop,148,-0.4120411465409061,10,[148],14,-1.3770204083031756,0.13965344660070547,AVAILABLE: conditional moving-block percentile interval
+start,O-L-H-C,combined_minus_stop,148,-0.4120411465409061,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-H-L-C,combined_minus_time,148,-0.35831099732835403,5,[148],29,-1.1412031987114044,0.17024690494401237,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_time,148,-0.35831099732835403,10,[148],14,-1.177339795698223,0.18733674830162417,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_time,148,-0.35831099732835403,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-H-L-C,stop_minus_time,148,-0.4000960599649359,5,[148],29,-1.0759204838476228,0.040262406156406,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,stop_minus_time,148,-0.4000960599649359,10,[148],14,-1.0853364779658587,0.04133954444870673,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,stop_minus_time,148,-0.4000960599649359,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-H-L-C,combined_minus_stop,148,0.04178506263658186,5,[148],29,-0.25237041042683195,0.26857863492630885,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_stop,148,0.04178506263658186,10,[148],14,-0.2233644079038264,0.2885557236952268,AVAILABLE: conditional moving-block percentile interval
+end,O-H-L-C,combined_minus_stop,148,0.04178506263658186,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-L-H-C,combined_minus_time,148,-0.38550777710925843,5,[148],29,-1.2169592346599651,0.16949776595256344,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_time,148,-0.38550777710925843,10,[148],14,-1.2630344163580058,0.18733674830162417,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_time,148,-0.38550777710925843,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-L-H-C,stop_minus_time,148,-0.4000960599649359,5,[148],29,-1.0759204838476228,0.040262406156406,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,stop_minus_time,148,-0.4000960599649359,10,[148],14,-1.0853364779658587,0.04133954444870673,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,stop_minus_time,148,-0.4000960599649359,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks
+end,O-L-H-C,combined_minus_stop,148,0.014588282855677514,5,[148],29,-0.30710935813053963,0.25070065417153087,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_stop,148,0.014588282855677514,10,[148],14,-0.28482904374434787,0.2645520977284858,AVAILABLE: conditional moving-block percentile interval
+end,O-L-H-C,combined_minus_stop,148,0.014588282855677514,20,[148],7,,,UNAVAILABLE: fewer than ten support blocks

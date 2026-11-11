@@ -50,4 +50,6 @@ The focused M7 checks use synthetic records and existing aggregate tables. They 
 
 ## Execution status
 
-This M7 source starts with final access disabled. Its fresh validation and final executions must have their own saved notebooks, manifests and reconciliation records. The historical M6 execution and its software checks do not establish a completed M7 market run. Do not label the final results complete until that evidence exists.
+We completed a fresh M7 validation run on 11 November 2026. All 27 code cells executed without saved errors, all fourteen ledger reconciliations passed, and seventeen aggregate tables matched the historical validation exactly. The executed notebook's normalized code identity matched the reviewed source. The [verified validation export](results/m7_validation_20261111/) includes the run manifest, comparison record, tables, figures and exact runtime versions.
+
+This run reproduced the previously observed validation period; it did not evaluate the final partition. Final access remains disabled by default, and this export records `final_test_evaluated=false`. Final evaluation requires its separate approval, matching protocol freeze and saved execution evidence.
