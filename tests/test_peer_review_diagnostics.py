@@ -8,8 +8,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("peer_diagnostics", ROOT/"scripts/peer_review_diagnostics.py")
+from path_robust.paths import NOTEBOOK, RUN, SCRIPTS
+spec = importlib.util.spec_from_file_location("peer_diagnostics", SCRIPTS/"peer_review_diagnostics.py")
 diagnostics = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(diagnostics)
 
@@ -63,16 +63,16 @@ class PeerDiagnosticsTests(unittest.TestCase):
             diagnostics.peer_review_tables("final", *fixture())
 
     def test_notebook_uses_same_function_and_saved_aggregates_reproduce(self):
-        notebook = json.loads((ROOT/"NSE_Intraday_M6.ipynb").read_text(encoding="utf-8"))
+        notebook = json.loads((NOTEBOOK["M6"]).read_text(encoding="utf-8"))
         cell = next(c for c in notebook["cells"] if c["id"] == "m6-peer-review-diagnostics")
         source = "".join(cell["source"])
         fn = next(n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef))
-        script = (ROOT/"scripts/peer_review_diagnostics.py").read_text(encoding="utf-8")
+        script = (SCRIPTS/"peer_review_diagnostics.py").read_text(encoding="utf-8")
         original = next(n for n in ast.parse(script).body if isinstance(n,ast.FunctionDef))
         self.assertEqual(ast.dump(fn),ast.dump(original))
         with tempfile.TemporaryDirectory() as d:
-            out = diagnostics.derive(ROOT/"results/development_20261001",
-                                     ROOT/"results/validation_20261018",Path(d)/"out")
+            out = diagnostics.derive(RUN["DEVELOPMENT"],
+                                     RUN["VALIDATION"],Path(d)/"out")
             self.assertEqual(len(out["gross_net_returns"]),12)
             self.assertEqual(len(out["execution_sensitivity"]),84)
             row = next(r for r in out["gross_net_returns"] if r["stage"]=="validation"
@@ -80,10 +80,10 @@ class PeerDiagnosticsTests(unittest.TestCase):
             self.assertAlmostEqual(row["gross_bp_per_trade"],3.8166660268993877)
             for name in out:
                 actual = (Path(d)/"out"/(name+".csv")).read_bytes()
-                self.assertEqual(actual,(ROOT/"results/peer_review_20261022"/(name+".csv")).read_bytes())
+                self.assertEqual(actual,(RUN["PEER_REVIEW"]/(name+".csv")).read_bytes())
             with self.assertRaises(FileExistsError):
-                diagnostics.derive(ROOT/"results/development_20261001",
-                                   ROOT/"results/validation_20261018",Path(d)/"out")
+                diagnostics.derive(RUN["DEVELOPMENT"],
+                                   RUN["VALIDATION"],Path(d)/"out")
 
 
 if __name__ == "__main__":

@@ -5,8 +5,8 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from path_robust.paths import EXAMPLES, RESULTS  # noqa: E402
 
 from path_robust.engine import Path as PricePath, paired_difference_bp, simulate_policies
 from path_robust.fixtures import LABEL, cases
@@ -24,7 +24,7 @@ def number(value):
 
 
 def main():
-    output = ROOT / "results"
+    output = RESULTS
     output.mkdir(exist_ok=True)
     fixture_rows, episode_rows, ledger, comparisons = [], [], [], []
     case_notes = {}
@@ -64,8 +64,8 @@ def main():
                 "combined_minus_stop_bp": paired_difference_bp(combined, stop)
                 if stop.status == combined.status == "RESOLVED" else None,
             })
-    csv_file(ROOT / "examples" / "synthetic_bars.csv", fixture_rows)
-    (ROOT / "examples" / "synthetic_episodes.json").write_text(
+    csv_file(EXAMPLES / "synthetic_bars.csv", fixture_rows)
+    (EXAMPLES / "synthetic_episodes.json").write_text(
         json.dumps(episode_rows, indent=2) + "\n", encoding="utf-8")
     csv_file(output / "synthetic_examples.csv", ledger)
     csv_file(output / "synthetic_comparisons.csv", comparisons)

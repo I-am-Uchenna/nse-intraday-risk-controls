@@ -1,0 +1,15 @@
+# Results index
+
+Each folder holds aggregate outputs from one run. Folders are never overwritten; a new run gets a new dated folder. Raw prices and detailed trade ledgers are excluded.
+
+| Folder | Contents |
+| --- | --- |
+| [m4_pilot](m4_pilot/) | Frozen Q1 2021 pilot: scenario means, paired contrasts, sensitivity, reconciliation |
+| [development_20261001](development_20261001/) | Development stage, 1 Jan 2021 to 17 Oct 2022 |
+| [validation_20261018](validation_20261018/) | Validation stage, 18 Oct 2022 to 25 May 2023 |
+| [m6_comparison_20261018](m6_comparison_20261018/) | Development versus validation comparison |
+| [peer_review_20261022](peer_review_20261022/) | Gross/net returns, sample counts, execution and ES sensitivity |
+| [m6_verification](m6_verification/) | M6 execution, source and software checks |
+| [m7_validation_20261111](m7_validation_20261111/) | Validation reproduced with the M7 notebook |
+
+Files directly in this folder are the M3 synthetic examples (`synthetic_*.csv`, `synthetic_summary.json`, `initial_findings.md`) and M4 verification records (`*_verification.json`, `checks.json`).

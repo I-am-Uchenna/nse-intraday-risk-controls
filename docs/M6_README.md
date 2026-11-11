@@ -6,7 +6,7 @@ Uchenna Splendor Ejike, Israel Olanrewaju Odeajo and Goodness Chibueze Kalu
 
 ## Run in Colab
 
-[Open the M6 notebook](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/NSE_Intraday_M6.ipynb), or upload `NSE_Intraday_M6.ipynb` to Colab and save a copy in Drive.
+[Open the M6 notebook](https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/notebooks/NSE_Intraday_M6.ipynb), or upload `notebooks/NSE_Intraday_M6.ipynb` to Colab and save a copy in Drive.
 
 1. Use a fresh hosted CPU runtime. No GPU is needed.
 2. Make the instructor's stock and index folders available through My Drive shortcuts. Set `CASH_FOLDER` and `INDEX_FOLDER` to their paths.
@@ -32,7 +32,7 @@ Raw archive preparation includes later dates. This is distinct from evaluating l
 
 ## Completed validation
 
-Run `20261018T084332Z-ghd27dnw` completed the 25 code cells without recorded errors. Their execution counts are 3–27 because the initial Drive mount required retries; this is not described as an untouched fresh-kernel run. The revised notebook has 53 cells (26 code cells): 24 unchanged original code cells, one revised export cell and one new diagnostics cell. The recorded execution predates the 22 October peer-review additions. The trading and inference cells are unchanged; the current notebook adds a post-analysis diagnostics cell and extends the export. Those additions have separate aggregate-only checks and are not represented as a new full market replay. The [execution record](results/m6_verification/execution_check.json) and [source verification](results/m6_verification/source_verification.json) preserve the identities and runtime details.
+Run `20261018T084332Z-ghd27dnw` completed the 25 code cells without recorded errors. Their execution counts are 3–27 because the initial Drive mount required retries; this is not described as an untouched fresh-kernel run. The revised notebook has 53 cells (26 code cells): 24 unchanged original code cells, one revised export cell and one new diagnostics cell. The recorded execution predates the 22 October peer-review additions. The trading and inference cells are unchanged; the current notebook adds a post-analysis diagnostics cell and extends the export. Those additions have separate aggregate-only checks and are not represented as a new full market replay. The [execution record](../results/m6_verification/execution_check.json) and [source verification](../results/m6_verification/source_verification.json) preserve the identities and runtime details.
 
 All 148 validation sessions were evaluable under both timestamp assumptions. The 14 scenario reconciliations passed, with a maximum accounting difference below INR 0.000000001. Source preparation reverified 216 selected symbol-month entries, retained 1,669,406 rows, and excluded 1,883 verified copied rows. These input totals cover the three-year source window; strategy results cover only the validation partition.
 
@@ -45,7 +45,7 @@ All 148 validation sessions were evaluable under both timestamp assumptions. The
 
 Combined exits had lower mean returns and lower descriptive ES, but greater funded drawdown. All three policies had negative mean returns under reference costs. The start-label nominal interval excludes zero, but it remains exploratory because the procedure's coverage is unverified. The ES tail contains only 3.7 days of probability mass. No final-test outcomes were evaluated.
 
-The [validation outputs](results/validation_20261018), [development outputs](results/development_20261001) and [stage comparison](results/m6_comparison_20261018) are kept separately. All 24 validation exports match the original downloaded ZIP byte for byte; [SHA256SUMS.txt](results/validation_20261018/SHA256SUMS.txt) records their checksums. The executed notebook remains outside the repository because its outputs contain private Drive/runtime paths and a worked market-signal observation. The clean notebook, aggregates and execution verification are provided here.
+The [validation outputs](../results/validation_20261018), [development outputs](../results/development_20261001) and [stage comparison](../results/m6_comparison_20261018) are kept separately. All 24 validation exports match the original downloaded ZIP byte for byte; [SHA256SUMS.txt](../results/validation_20261018/SHA256SUMS.txt) records their checksums. The executed notebook remains outside the repository because its outputs contain private Drive/runtime paths and a worked market-signal observation. The clean notebook, aggregates and execution verification are provided here.
 
 The M6 changes add an independent reconciliation of trade P&L, cash movements, daily totals and matched episodes; a boundary test; and a fuller runtime record. The engine still models assumed fills. Passing software checks does not establish profitable trading, actual fills or reliable statistical coverage.
 
@@ -84,5 +84,5 @@ Reproduce the same tables from saved development and validation aggregates:
 python scripts/peer_review_diagnostics.py --development results/development_20261001 --validation results/validation_20261018 --output results/peer_review_reproduced
 ```
 
-The [recorded diagnostic tables](results/peer_review_20261022) preserve both stages and source hashes. Gross returns are averages before the assumed fixed fees, not returns above a random-entry baseline. Sensitivity settings remain descriptive; tail deletion ranges are not confidence intervals. New baselines or parameter grids would require a separately documented exploratory study. Validation is already inspected and is not pooled with the untouched final partition.
+The [recorded diagnostic tables](../results/peer_review_20261022) preserve both stages and source hashes. Gross returns are averages before the assumed fixed fees, not returns above a random-entry baseline. Sensitivity settings remain descriptive; tail deletion ranges are not confidence intervals. New baselines or parameter grids would require a separately documented exploratory study. Validation is already inspected and is not pooled with the untouched final partition.
 

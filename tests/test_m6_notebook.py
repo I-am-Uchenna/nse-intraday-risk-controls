@@ -12,7 +12,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-NOTEBOOK = Path(__file__).resolve().parents[1] / 'NSE_Intraday_M6.ipynb'
+from path_robust.paths import NOTEBOOK as NOTEBOOKS
+NOTEBOOK = NOTEBOOKS['M6']
 SCENARIOS = tuple((policy, path) for path in ('O-L-H-C', 'O-H-L-C')
                   for policy in ('time_only', 'stop_only', 'stop_and_target'))
 

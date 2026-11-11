@@ -10,8 +10,8 @@ import re
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parents[1]
-NOTEBOOK = ROOT / 'NSE_Intraday_M7.ipynb'
+from path_robust.paths import NOTEBOOK as NOTEBOOKS
+NOTEBOOK = NOTEBOOKS['M7']
 
 
 def notebook():
@@ -71,7 +71,7 @@ class M7NotebookTests(unittest.TestCase):
                 ast.parse(''.join(c['source']))
                 self.assertIsNone(c['execution_count'])
                 self.assertFalse(c['outputs'])
-        old = json.loads((ROOT/'NSE_Intraday_M6.ipynb').read_text(encoding='utf-8'))
+        old = json.loads((NOTEBOOKS['M6']).read_text(encoding='utf-8'))
         old_cells = {c['id']: ''.join(c['source']) for c in old['cells']}
         for cid in ['research-004', 'research-008', 'research-009', 'research-010',
                     'research-019', 'research-021', 'research-023', 'research-025',

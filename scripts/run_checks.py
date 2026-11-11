@@ -6,14 +6,14 @@ import sys
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from path_robust.paths import RESULTS, ROOT, SCRIPTS, TESTS  # noqa: E402
 
 
 def main():
-    suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"))
+    suite = unittest.defaultTestLoader.discover(str(TESTS))
     result = unittest.TextTestRunner(verbosity=2).run(suite)
-    output = ROOT / "results"
+    output = RESULTS
     output.mkdir(exist_ok=True)
     (output / "checks.json").write_text(json.dumps({
         "data_label": "SYNTHETIC / NOT MARKET DATA",
@@ -24,7 +24,7 @@ def main():
     }, indent=2) + "\n", encoding="utf-8")
     if not result.wasSuccessful():
         return 1
-    return subprocess.run([sys.executable, str(ROOT / "scripts" / "run_examples.py")],
+    return subprocess.run([sys.executable, str(SCRIPTS / "run_examples.py")],
                           cwd=ROOT, check=False).returncode
 
 

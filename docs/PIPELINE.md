@@ -1,7 +1,7 @@
 # Historical pilot pipeline and subsequent notebook
 
 The tables below document the original M4 command-line pilot and its remaining
-work at that version. The subsequent `NSE_Intraday_Research.ipynb` implements
+work at that version. The subsequent `notebooks/NSE_Intraday_M4_Research.ipynb` implements
 funded cash accounting, separate minute/daily-close drawdown, ES, paired
 moving-block intervals and synthetic reliability diagnostics. Its visible
 cells and saved run manifests are the current implementation record.

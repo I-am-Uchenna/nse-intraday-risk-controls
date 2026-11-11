@@ -17,8 +17,8 @@ import sys
 import tempfile
 import zipfile
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT/'src'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from path_robust.paths import CONFIG, DATA  # noqa: E402
 from path_robust.vendor import iter_vendor_rows
 
 
@@ -103,8 +103,8 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--downloads',type=Path,action='append',required=True,
                         help='Source folder; repeat for separate cash and index folders.')
-    parser.add_argument('--work-dir',type=Path,default=ROOT/'data/m4_pilot')
-    parser.add_argument('--config',type=Path,default=ROOT/'config/m4_pilot.json')
+    parser.add_argument('--work-dir',type=Path,default=DATA/'m4_pilot')
+    parser.add_argument('--config',type=Path,default=CONFIG/'m4_pilot.json')
     args=parser.parse_args()
     spec=json.loads(args.config.read_text(encoding='utf-8'))
     args.work_dir.mkdir(parents=True,exist_ok=True)
