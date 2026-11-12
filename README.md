@@ -13,12 +13,13 @@ We hold one intraday entry rule fixed and compare three ways of exiting it:
 
 The entry buys a stock when its 15-minute return is unusually weak against the NIFTY 50 index (z-score of -2 or lower over the previous 20 sessions). The data are minute bars for RELIANCE, HDFCBANK, INFY, TCS and ITC from 2021 to 2023, split chronologically into development (60%), validation (20%) and a final test (20%).
 
-**Main finding so far.** Before costs, the entry rule earns about 0.2 to 0.7 bp of capital per day; the assumed 15 bp round-trip cost takes about 2.6 bp per day. All three exits therefore lose money. Adding a stop and target lowered the mean return further (by 0.13 to 0.69 bp per day against time-only) while lowering expected shortfall and deepening funded drawdown. The final test (26 May to 29 December 2023) has not been evaluated yet.
+**Main finding so far.** The entry signal earns 0.2200–0.6860 bp of reference capital per evaluable day before costs. The assumed fee takes 2.6063–2.6959 bp per day, so all three exits lose money. Adding a stop and target lowered the mean further, by 0.1273–0.6885 bp per day against time-only, while lowering expected shortfall and deepening funded drawdown. The [M7 results narrative](reports/m7_results/RESULTS.md) states that finding first and keeps the qualifications in one Limitations section. The final test (26 May to 29 December 2023) has not been evaluated yet.
 
 ## Submission documents
 
 | Document | Location |
 | --- | --- |
+| M7 results narrative | [reports/m7_results/RESULTS.md](reports/m7_results/RESULTS.md) |
 | Final project report (M7) | Pending |
 | Solution design document (M7) | Pending |
 | Presentation (M7) | Pending |

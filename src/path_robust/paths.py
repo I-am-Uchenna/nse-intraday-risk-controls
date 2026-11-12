@@ -27,6 +27,12 @@ NOTEBOOK = {
     "M7": NOTEBOOKS / "NSE_Intraday_M7.ipynb",
 }
 
+REPORT = {
+    "M6_DRAFT": REPORTS / "m6_draft",
+    "M6_RESPONSE": REPORTS / "m6_peer_review_response",
+    "M7_RESULTS": REPORTS / "m7_results",
+}
+
 RUN = {
     "M4_PILOT": RESULTS / "m4_pilot",
     "DEVELOPMENT": RESULTS / "development_20261001",
