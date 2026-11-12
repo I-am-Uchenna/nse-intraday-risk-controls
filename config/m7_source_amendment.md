@@ -32,5 +32,10 @@ No other date, file or the index is changed.
 
 The index (`.NSEI`) is not amended. Its coverage on 23 June is reported in the audit so the group can confirm the amendment actually restores the affected sessions.
 
+## Index gap on the same date (declared 12 November 2026, before the freeze)
+The validation run of 12 November 2026 (`20261112T145910Z-mcheh48a`) reported 42 index session minutes missing on 23 June 2023. A direct check of the raw file `NSE Indices-June 2023/.NSEI.csv` confirmed the gap: the labels jump from 14:15 to 14:58, leaving 333 of 375 session minutes, the same 14:16 to 14:57 window as the stocks. No index supplement was supplied, so the index is not amended.
+
+The 14:45 decision on that date therefore has no index return. Under the unchanged complete-day rule, 23 June and each later session whose 20-session history for the 14:45 slot includes it are classed as incomplete and leave the primary comparison. The amendment still corrects the stock bars used in the funded accounts and the input audit, but it does not change which sessions are evaluable. The final run's sample accounting reports the actual number of affected sessions. No rule, date or threshold is changed in response.
+
 ## Effect on earlier stages
 The notebook loads 2021 to 2023 in every run, so the amendment also runs, and is reported, in development and validation runs. Their results cannot change: 23 June 2023 is after the validation period, and signals use past data only. The input-data fingerprint and the protocol record do change, so the validation run that precedes the freeze must be repeated with this notebook version.
