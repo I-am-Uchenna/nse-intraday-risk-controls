@@ -35,7 +35,7 @@ The entry buys a stock when its 15-minute return is unusually weak against the N
 2. Add My Drive shortcuts to the instructor folders **NSE Cash Stocks Data** and **NSE Index Data**.
 3. In the first code cell set `CASH_FOLDER`, `INDEX_FOLDER` and `SAVE_FOLDER`. Leave `RUN_STAGE = "validation"`.
 4. Choose **Runtime > Run all** on a CPU runtime and allow Drive access.
-5. Compare the exported tables with [results/m7_validation_20261111](results/m7_validation_20261111/). They should match exactly.
+5. Compare the exported tables with [results/m7_validation_20261112](results/m7_validation_20261112/). They should match exactly. The earlier [m7_validation_20261111](results/m7_validation_20261111/) differs only in the 23 June 2023 coverage counts, because it predates the source amendment.
 6. Runs are saved only to `SAVE_FOLDER`. When the group is satisfied with one, tick `PUBLISH_RUN` in the publish cell near the end and rerun that cell to prepare its `results/` folder.
 
 Full instructions, including the protocol freeze and the one-time final-test run, are in the [M7 guide](docs/M7_README.md).
@@ -69,6 +69,7 @@ The notebook is the only thing needed to run the study; nothing outside it is ca
 | Tables 11 and 12 | Validation, Oct 2022 to May 2023 | [results/validation_20261018](results/validation_20261018/) |
 | Tables 13 to 16 | Peer-review diagnostics | [results/peer_review_20261022](results/peer_review_20261022/) |
 | Reproduction check | Validation rerun with the M7 notebook | [results/m7_validation_20261111](results/m7_validation_20261111/) |
+| Freeze basis | Validation rerun with the 23 June 2023 amendment; its freeze was superseded by a gate fix (see [config/m7_source_amendment.md](config/m7_source_amendment.md)) | [results/m7_validation_20261112](results/m7_validation_20261112/) |
 
 Each results folder has a `SHA256SUMS.txt` and a run manifest recording the code, data fingerprint and settings used. See the [results index](results/README.md).
 
