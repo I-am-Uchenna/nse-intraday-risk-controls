@@ -12,6 +12,8 @@ Each folder holds aggregate outputs from one run. Folders are never overwritten;
 | [m6_verification](m6_verification/) | M6 execution, source and software checks |
 | [m7_validation_20261111](m7_validation_20261111/) | Validation reproduced with the M7 notebook |
 
+New M7 runs are added from the notebook's publish cell, which names them `m7_<stage>_<YYYYMMDD>` and never overwrites a folder. Column definitions for every table are in the [repository guide](../docs/REPOSITORY_GUIDE.md#result-table-dictionary).
+
 Files directly in this folder are the M3 synthetic examples (`synthetic_*.csv`, `synthetic_summary.json`, `initial_findings.md`) and M4 verification records (`*_verification.json`, `checks.json`).
 
 The written M7 results note, [reports/m7_results/RESULTS.md](../reports/m7_results/RESULTS.md), is built from the peer-review gross table, the development and validation aggregates, and the 11 November 2026 reproduction. It does not add a new market run.

@@ -25,7 +25,7 @@ The entry buys a stock when its 15-minute return is unusually weak against the N
 | Presentation (M7) | Pending |
 | M6 draft report | [PDF](reports/m6_draft/WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.pdf), [LaTeX](reports/m6_draft/WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.tex) |
 | M6 response to peer review | [PDF](reports/m6_peer_review_response/Group17838_M6_Response_to_Peer_Review.pdf), [LaTeX](reports/m6_peer_review_response/Group17838_M6_Response_to_Peer_Review.tex) |
-| M5 peer review received | [reports/m5_peer_review](reports/m5_peer_review/) |
+| M5 peer review received | [PDF](reports/m5_peer_review/Group17838_M5_Peer_Review_of_M4.pdf) |
 
 ## Run it
 
@@ -36,6 +36,7 @@ The entry buys a stock when its 15-minute return is unusually weak against the N
 3. In the first code cell set `CASH_FOLDER`, `INDEX_FOLDER` and `SAVE_FOLDER`. Leave `RUN_STAGE = "validation"`.
 4. Choose **Runtime > Run all** on a CPU runtime and allow Drive access.
 5. Compare the exported tables with [results/m7_validation_20261111](results/m7_validation_20261111/). They should match exactly.
+6. Runs are saved only to `SAVE_FOLDER`. When the group is satisfied with one, tick `PUBLISH_RUN` in the publish cell near the end and rerun that cell to prepare its `results/` folder.
 
 Full instructions, including the protocol freeze and the one-time final-test run, are in the [M7 guide](docs/M7_README.md).
 
@@ -51,7 +52,13 @@ pip install -r requirements.txt
 python -m unittest discover -s tests -v
 ```
 
-`pip install -r requirements.txt` also installs this repository's `path_robust` package, so the tests and scripts run from any folder. The tests use synthetic data and the saved aggregate results, so they run without the instructor data. To re-run the market experiment locally, open `notebooks/NSE_Intraday_M7.ipynb`, set `CONNECT_DRIVE = False` and point the three folder variables at local copies of the instructor data.
+`pip install -r requirements.txt` also installs this repository's `path_robust` package, so the tests and scripts run from any folder. The tests use synthetic data and the saved aggregate results, so they run without the instructor data. To re-run the market experiment locally:
+
+1. Copy the instructor folders **NSE Cash Stocks Data** and **NSE Index Data** into `data/` (git ignores everything there). Yearly 7z, monthly RAR or extracted CSV layouts all work, as long as each month has only one.
+2. Open `notebooks/NSE_Intraday_M7.ipynb` in VS Code or Jupyter and run all cells, keeping the default folder paths. The first cell detects that it is not in Colab, uses `data/`, shows a setup checklist and saves runs to `data/m7_runs/`, which is not tracked. The source check then shows which file each month will use before anything is loaded.
+3. When the group is satisfied with a run, tick `PUBLISH_RUN` in the publish cell and rerun that cell. It writes `results/m7_<stage>_<YYYYMMDD>/` with checksums and a README, ready to commit, and never overwrites an existing folder.
+
+The notebook is the only thing needed to run the study; nothing outside it is called.
 
 ## Where each result comes from
 
@@ -80,6 +87,8 @@ reports/     Submitted reports, peer review and response
 docs/        Module guides, methods and pipeline notes
 data/        Placeholder only; instructor market data are not redistributed
 ```
+
+The [repository guide](docs/REPOSITORY_GUIDE.md) describes every folder and file and defines the columns of each results table.
 
 ## Notebooks
 
