@@ -13,15 +13,15 @@ We hold one intraday entry rule fixed and compare three ways of exiting it:
 
 The entry buys a stock when its 15-minute return is unusually weak against the NIFTY 50 index (z-score of -2 or lower over the previous 20 sessions). The data are minute bars for RELIANCE, HDFCBANK, INFY, TCS and ITC from 2021 to 2023, split chronologically into development (60%), validation (20%) and a final test (20%).
 
-**Main finding so far.** The entry signal earns 0.2200–0.6860 bp of reference capital per evaluable day before costs. The assumed fee takes 2.6063–2.6959 bp per day, so all three exits lose money. Adding a stop and target lowered the mean further, by 0.1273–0.6885 bp per day against time-only, while lowering expected shortfall and deepening funded drawdown. The [M7 results narrative](reports/m7_results/RESULTS.md) states that finding first and keeps the qualifications in one Limitations section. The final test (26 May to 29 December 2023) has not been evaluated yet.
+**Main finding.** The entry rule does not pay for its trades. Before costs it earns 0.22 to 0.69 bp of reference capital per evaluable day in development and validation, and slightly less than zero in the final test, while the assumed fee takes 2.6 to 2.9 bp per day, so all three exits lose money. Adding a stop and target lowered the mean against time-only in every stage: by 0.13 to 0.69 bp per day in development and validation, and by 0.05 to 0.09 bp in the final test (26 May to 29 December 2023), where declared data gaps left 88 of 148 sessions and the exploratory intervals include zero. Stop-based exits lowered expected shortfall and deepened funded drawdown in every stage. The [final report](reports/m7_final/m7_report.pdf) gives the full results; the [M7 results narrative](reports/m7_results/RESULTS.md) covers development and validation.
 
 ## Submission documents
 
 | Document | Location |
 | --- | --- |
 | M7 results narrative | [reports/m7_results/RESULTS.md](reports/m7_results/RESULTS.md) |
-| Final project report (M7) | Pending |
-| Solution design document (M7) | Pending |
+| Final project report (M7) | [PDF](reports/m7_final/m7_report.pdf), [LaTeX](reports/m7_final/m7_report.tex) |
+| Solution design document (M7) | [PDF](reports/m7_solution_design/solution_design.pdf), [LaTeX](reports/m7_solution_design/solution_design.tex) |
 | Presentation (M7) | Pending |
 | M6 draft report | [PDF](reports/m6_draft/WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.pdf), [LaTeX](reports/m6_draft/WQU_MScFE690_M6_Draft_Project_Group17838_LaTeX.tex) |
 | M6 response to peer review | [PDF](reports/m6_peer_review_response/Group17838_M6_Response_to_Peer_Review.pdf), [LaTeX](reports/m6_peer_review_response/Group17838_M6_Response_to_Peer_Review.tex) |
@@ -35,7 +35,7 @@ The entry buys a stock when its 15-minute return is unusually weak against the N
 2. Add My Drive shortcuts to the instructor folders **NSE Cash Stocks Data** and **NSE Index Data**.
 3. In the first code cell set `CASH_FOLDER`, `INDEX_FOLDER` and `SAVE_FOLDER`. Leave `RUN_STAGE = "validation"`.
 4. Choose **Runtime > Run all** on a CPU runtime and allow Drive access.
-5. Compare the exported tables with [results/m7_validation_20261112](results/m7_validation_20261112/). They should match exactly. The earlier [m7_validation_20261111](results/m7_validation_20261111/) differs only in the 23 June 2023 coverage counts, because it predates the source amendment.
+5. Compare the exported tables with [results/m7_validation_20261112b](results/m7_validation_20261112b/). They should match exactly. The earlier [m7_validation_20261111](results/m7_validation_20261111/) differs only in the 23 June 2023 coverage counts, because it predates the source amendment.
 6. Runs are saved only to `SAVE_FOLDER`. When the group is satisfied with one, tick `PUBLISH_RUN` in the publish cell near the end and rerun that cell to prepare its `results/` folder.
 
 Full instructions, including the protocol freeze and the one-time final-test run, are in the [M7 guide](docs/M7_README.md).
@@ -69,7 +69,9 @@ The notebook is the only thing needed to run the study; nothing outside it is ca
 | Tables 11 and 12 | Validation, Oct 2022 to May 2023 | [results/validation_20261018](results/validation_20261018/) |
 | Tables 13 to 16 | Peer-review diagnostics | [results/peer_review_20261022](results/peer_review_20261022/) |
 | Reproduction check | Validation rerun with the M7 notebook | [results/m7_validation_20261111](results/m7_validation_20261111/) |
-| Freeze basis | Validation rerun with the 23 June 2023 amendment; its freeze was superseded by a gate fix (see [config/m7_source_amendment.md](config/m7_source_amendment.md)) | [results/m7_validation_20261112](results/m7_validation_20261112/) |
+| First freeze (superseded) | Validation rerun with the 23 June 2023 amendment; its freeze was superseded by a gate fix (see [config/m7_source_amendment.md](config/m7_source_amendment.md)) | [results/m7_validation_20261112](results/m7_validation_20261112/) |
+| Freeze basis | Validation rerun with the corrected notebook; its freeze is the one the final test was checked against | [results/m7_validation_20261112b](results/m7_validation_20261112b/) |
+| Final test | The single approved final run, 26 May to 29 December 2023 | [results/m7_final_20261112](results/m7_final_20261112/) |
 
 Each results folder has a `SHA256SUMS.txt` and a run manifest recording the code, data fingerprint and settings used. See the [results index](results/README.md).
 

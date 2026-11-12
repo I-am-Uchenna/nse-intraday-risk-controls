@@ -12,6 +12,8 @@ Each folder holds aggregate outputs from one run. Folders are never overwritten;
 | [m6_verification](m6_verification/) | M6 execution, source and software checks |
 | [m7_validation_20261111](m7_validation_20261111/) | Validation reproduced with the M7 notebook |
 | [m7_validation_20261112](m7_validation_20261112/) | Validation rerun with the 23 June 2023 source amendment; its freeze was superseded by a gate fix ([record](../config/m7_source_amendment.md#record-of-review)) |
+| [m7_validation_20261112b](m7_validation_20261112b/) | Validation rerun with the corrected notebook; the freeze the final test was checked against |
+| [m7_final_20261112](m7_final_20261112/) | The single approved final test, 26 May to 29 December 2023 (88 of 148 sessions evaluable) |
 
 New M7 runs are added from the notebook's publish cell, which names them `m7_<stage>_<YYYYMMDD>` and never overwrites a folder. Column definitions for every table are in the [repository guide](../docs/REPOSITORY_GUIDE.md#result-table-dictionary).
 
