@@ -1,0 +1,4 @@
+stage,start,end,scheduled_sessions
+development,2021-01-01,2022-10-17,443
+validation,2022-10-18,2023-05-25,148
+final,2023-05-26,2023-12-29,148
