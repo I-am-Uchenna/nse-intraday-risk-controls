@@ -23,7 +23,7 @@ def code_cells():
 
 
 def bundle_hash(book):
-    controls = 'RUN_STAGE|FINAL_ACCESS_APPROVED|CONNECT_DRIVE|CASH_FOLDER|INDEX_FOLDER|SAVE_FOLDER|READY_TO_FREEZE'
+    controls = 'RUN_STAGE|FINAL_ACCESS_APPROVED|CONNECT_DRIVE|CASH_FOLDER|INDEX_FOLDER|SAVE_FOLDER|READY_TO_FREEZE|PUBLISH_RUN|PUBLISH_RUN_ID'
     payload = []
     for c in book['cells']:
         if c['cell_type'] != 'code':
@@ -59,7 +59,7 @@ def validation_record(scope):
 class M7NotebookTests(unittest.TestCase):
     def test_clean_source_identity_and_unchanged_trading_core(self):
         book = notebook(); cells = code_cells()
-        self.assertEqual(len(cells), 27)
+        self.assertEqual(len(cells), 28)
         self.assertIn('RUN_STAGE = "validation"', cells['research-002'])
         self.assertIn('FINAL_ACCESS_APPROVED = False', cells['research-002'])
         declared = next(n.value.value for n in ast.parse(cells['m7-review-and-protocol']).body

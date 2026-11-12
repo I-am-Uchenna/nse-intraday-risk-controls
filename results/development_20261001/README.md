@@ -61,7 +61,7 @@ Details and the tested source identity are in `publication_metadata.json`.
 
 ## Reproduction and data boundaries
 
-Use the [research notebook](../../notebooks/NSE_Intraday_M4_Research.ipynb) and
+Use the [research notebook](../../NSE_Intraday_Research.ipynb) and
 [repository instructions](../../README.md) with the original instructor inputs
 to reproduce the study. Use the executed commit above to reproduce this
 historical source version. The original run records Python 3.13.15, NumPy 2.1.3

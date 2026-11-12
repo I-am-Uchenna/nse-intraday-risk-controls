@@ -14,3 +14,7 @@ reports/m6/** -text
 # Preserve the peer-review release fingerprints on Windows and Linux.
 M6_README.md -text
 results/peer_review_20261022/** -text
+# Paths after the M7 repository reorganisation
+reports/m6_draft/** -text
+reports/m6_peer_review_response/** -text
+docs/M6_README.md -text
