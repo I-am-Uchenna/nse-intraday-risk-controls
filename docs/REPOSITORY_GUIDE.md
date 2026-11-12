@@ -138,8 +138,8 @@ Only `data/README.md` is tracked. Everything else is private.
 | `m6_draft/` | The M6 draft report, PDF and LaTeX source, kept byte-identical. |
 | `m6_peer_review_response/` | Our response to the peer review of M6, PDF and LaTeX source. |
 | `m7_results/` | The M7 results note (`RESULTS.md`), generated from saved tables by `scripts/m7_results_narrative.py`. |
-
-The M7 final report and the one-page solution design document are added here when they are submitted.
+| `m7_final/` | The M7 final report (`m7_report.pdf`, LaTeX source) and `make_tables.py`, which redraws its headline figures from the saved results. |
+| `m7_solution_design/` | The one-page solution design document, PDF and LaTeX source. |
 
 ## docs/
 
@@ -167,7 +167,8 @@ One folder per run or derived table set. See also the [results index](../results
 | `m6_verification/` | Checks of the M6 package | verification records |
 | `m7_validation_20261111/` | Validation reproduced with the M7 notebook | M7 notebook, published by hand before the publish cell existed |
 | `m7_validation_20261112/` | Validation rerun with the 23 June 2023 amendment; includes its freeze, later superseded | M7 notebook publish cell |
-| `m7_final_<date>/` | Final test, 26 May to 29 Dec 2023 (after the one approved run) | M7 notebook publish cell |
+| `m7_validation_20261112b/` | Validation rerun with the corrected notebook; includes the freeze used for the final test | M7 notebook publish cell |
+| `m7_final_20261112/` | Final test, 26 May to 29 Dec 2023, the one approved run | M7 notebook publish cell |
 
 ### Files in a published M7 run folder
 
