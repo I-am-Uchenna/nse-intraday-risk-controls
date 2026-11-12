@@ -157,6 +157,36 @@ class M7NotebookTests(unittest.TestCase):
                 access(freeze, science, True, None, log, 'another-attempt', dates)
             self.assertEqual(log.read_bytes(), raw)
 
+    def test_real_payload_constants_survive_the_freeze_file(self):
+        # The freeze is saved as JSON and compared with the in-memory payload before final access.
+        # Any tuple or other non-JSON type in the payload would make that comparison fail forever.
+        cells = code_cells()
+        constants = {}
+        wanted = {'research-004': ('STUDY_START', 'STUDY_END', 'CFG', 'SETTINGS', 'INFERENCE', 'DIAGNOSTIC_SPEC'),
+                  'research-011': ('SOURCE_AMENDMENTS',), 'research-033': ('DECLARED_SOURCE_ID',)}
+        for cid, names in wanted.items():
+            for node in ast.parse(cells[cid]).body:
+                if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id in names
+                                                        for t in ast.walk(node.targets[0])):
+                    exec(compile(ast.Module(body=[node], type_ignores=[]), cid, 'exec'), constants)
+        constants = {k: constants[k] for k in ('CFG', 'SETTINGS', 'INFERENCE', 'DIAGNOSTIC_SPEC',
+                                               'SOURCE_AMENDMENTS', 'DECLARED_SOURCE_ID')}
+        for name, value in constants.items():
+            self.assertEqual(json.loads(json.dumps(value)), value, name)
+        scope = controls(); science, manifest, checks = validation_record(scope)
+        science = {**science, 'configuration': constants['CFG'], 'inference': constants['INFERENCE'],
+                   'bootstrap_diagnostic': constants['DIAGNOSTIC_SPEC'],
+                   'source_amendments': constants['SOURCE_AMENDMENTS'],
+                   'declared_source_id': constants['DECLARED_SOURCE_ID']}
+        manifest = {**manifest, 'protocol_sha256': scope['m7_digest'](science)}
+        with tempfile.TemporaryDirectory() as d:
+            freeze, log = Path(d)/'freeze.json', Path(d)/'access.json'
+            scope['m7_freeze_validation'](freeze, science, science, manifest, checks)
+            scope['m7_freeze_validation'](freeze, science, science, manifest, checks)  # existing freeze accepted
+            scope['m7_record_final_access'](freeze, science, True, None, log, 'synthetic-final',
+                                            [date(2023,5,26), date(2023,12,29)])
+            self.assertTrue(log.exists())
+
     def test_final_diagnostics_accept_synthetic_stage_without_market_read(self):
         from test_peer_review_diagnostics import fixture
         analyze = controls()['peer_review_tables']

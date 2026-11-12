@@ -29,7 +29,7 @@ The notebook is the only thing needed to run the study. It calls nothing outside
 | Run identity | `RUN_ID` is `<UTC timestamp>-<work folder suffix>`, for example `20261111T081528Z-fzxevfhy`. It appears in `run_manifest.json`, the HTML report and the published README. |
 | Checksums | Every published folder has `SHA256SUMS.txt` in `sha256  filename` form. Check one with `sha256sum -c SHA256SUMS.txt` inside the folder (Linux, WSL, macOS with `shasum -a 256 -c`). |
 | Line endings | The notebooks, the archived M6 reports and every published result folder are stored with `-text` in `.gitattributes`, so git never rewrites their bytes and checksums stay valid on Windows, macOS and Linux. |
-| Private data | Raw prices, SQLite databases, trade ledgers, cash ledgers and executed notebooks are excluded by `.gitignore` and refused by the publish cell. Only aggregate tables are public. |
+| Private data | Raw prices, SQLite databases, trade ledgers and cash ledgers are excluded by `.gitignore`; executed notebooks are kept outside the repository, and the publish cell refuses all of these. Only aggregate tables are public. |
 | Locations | Every script and test finds files through [`src/path_robust/paths.py`](../src/path_robust/paths.py). Set `NSE_DATA_DIR` to keep data outside the repository. |
 
 ## Top level
@@ -134,7 +134,7 @@ Only `data/README.md` is tracked. Everything else is private.
 
 | Folder | Contents |
 | --- | --- |
-| `m5_peer_review/` | Our M5 review of another group's M4 report. |
+| `m5_peer_review/` | The M5 peer review our group received. |
 | `m6_draft/` | The M6 draft report, PDF and LaTeX source, kept byte-identical. |
 | `m6_peer_review_response/` | Our response to the peer review of M6, PDF and LaTeX source. |
 | `m7_results/` | The M7 results note (`RESULTS.md`), generated from saved tables by `scripts/m7_results_narrative.py`. |
@@ -166,6 +166,7 @@ One folder per run or derived table set. See also the [results index](../results
 | `peer_review_20261022/` | Gross/net, sample and sensitivity tables | `peer_review_diagnostics.py` |
 | `m6_verification/` | Checks of the M6 package | verification records |
 | `m7_validation_20261111/` | Validation reproduced with the M7 notebook | M7 notebook, published by hand before the publish cell existed |
+| `m7_validation_20261112/` | Validation rerun with the 23 June 2023 amendment; includes its freeze, later superseded | M7 notebook publish cell |
 | `m7_final_<date>/` | Final test, 26 May to 29 Dec 2023 (after the one approved run) | M7 notebook publish cell |
 
 ### Files in a published M7 run folder
@@ -178,7 +179,8 @@ One folder per run or derived table set. See also the [results index](../results
 | `research_report.html` | Single-page report with the main tables and every figure embedded. |
 | `*.csv` | The aggregate tables defined below. |
 | `*.png` | Figures: calendar split, coverage, paired effects, funded equity and drawdown, execution sensitivity, synthetic ambiguity. |
-| `protocol_freeze.json`, `final_access.json` | Final runs only: the validation freeze checked before the run, and the access record written before evaluation. |
+| `protocol_freeze.json` | In the validation run that was frozen, the freeze made from it; in a final run, the freeze it was checked against. |
+| `final_access.json` | Final runs only: the access record written before evaluation. |
 | `runtime-requirements.txt` | Exact package versions recorded by the run. |
 | `README.md` | What the run is and which file to read first. |
 | `SHA256SUMS.txt`, `.gitattributes` | Checksums and the byte-preservation rule. |
