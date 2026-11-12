@@ -31,7 +31,7 @@ The partitions are never pooled. Preparing or fingerprinting source files is sep
 
 ## Reading results
 
-Start with `gross_net_returns.csv`: it separates gross returns, assumed fees and net returns in daily reference-capital units and per-trade units. Then read `paired_effects.csv`, `expected_shortfall.csv`, `funded_drawdown.csv` and `exit_ambiguity.csv`. The generated conclusions lead with the observed economics and collect the main limitations afterwards.
+Start with `gross_net_returns.csv`: it separates gross returns, assumed fees and net returns in daily reference-capital units and per-trade units. Then read `paired_effects.csv`, `expected_shortfall.csv`, `funded_drawdown.csv` and `exit_ambiguity.csv`. The generated conclusions lead with the observed economics and collect the main limitations afterwards. The written note for the report is [reports/m7_results/RESULTS.md](../reports/m7_results/RESULTS.md): the cost finding is the first paragraph, and the qualifications sit together under Limitations.
 
 The exported manifest identifies the stage, runtime versions, input audit, code and protocol. A final export also includes its validation freeze and access record. Shared exports exclude raw prices and private trade/cash ledgers. Review saved notebook outputs for private paths or worked source observations before sharing them.
 
