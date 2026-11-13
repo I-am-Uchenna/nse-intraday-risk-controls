@@ -386,6 +386,7 @@ This record can be used by researchers to make a decision whether or not to furt
 
 The answer to the research question is no for mean return and a qualified, fragile yes for risk. Adding a stop and target lowered mean net return relative to the time exit in all three stages: by 0.13 to 0.69 bp per day in development and validation, under every declared cost, slippage and delay setting, and by 0.05 to 0.09 bp per day in the untouched final test, where the exploratory intervals include zero and a five-minute entry delay reverses the sign. Stop-based exits lowered expected shortfall and deepened funded drawdown in every stage, but the final-test ES advantage rests on 2.2 days of tail weight and, under start labels, on a single date. Underlying both results, the entry does not pay for its trades: its time-only gross return was 0.22 to 0.69 bp per day before the final test and slightly negative in it, against costs of 2.6 to 2.9 bp, so no exit makes it profitable. Candle ordering mattered in one of about 2,150 reference episodes and did not reverse the ranking. The project met its goal of a reproducible, matched comparison of fixed exits on held-out data, with one approved final access recorded before evaluation, and its practical lesson is to measure an entry's net edge before choosing how to exit.
 
+\clearpage
 \section*{Works Cited}
 
 {\RaggedRight\hangindent=1.27cm\hangafter=1\noindent Acerbi, Carlo, and Dirk Tasche. “On the Coherence of Expected Shortfall.” \textit{arXiv}, version 5, 2 May 2002, \url{https://arxiv.org/abs/cond-mat/0104295v5}.\par}\vspace{5pt}
@@ -452,6 +453,7 @@ The answer to the research question is no for mean return and a qualified, fragi
 
 {\RaggedRight\hangindent=1.27cm\hangafter=1\noindent Yamai, Yasuhiro, and Toshinao Yoshiba. “Comparative Analyses of Expected Shortfall and Value-at-Risk: Their Estimation Error, Decomposition, and Optimization.” \textit{Monetary and Economic Studies}, vol. 20, no. 1, 2002, pp. 87--122, \url{https://www.imes.boj.or.jp/research/papers/english/me20-1-4.pdf}.\par}\vspace{5pt}
 
+\clearpage
 \section*{Appendix A. Reproducibility}
 
 The final notebook is at \url{https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/notebooks/NSE_Intraday_M7.ipynb}; the repository README links to every notebook, results folder and report. Each table in this report can be regenerated from the saved results with \nolinkurl{reports/m7_final/make_tables.py}.
@@ -498,6 +500,7 @@ The original code and protocol are retained for the completed development run: \
 
 Run 20261018T084332Z-ghd27dnw records these outputs. No Python errors are stored in the code cells after Drive was connected, all 25 code cells completed, and the saved code cells match the archived 18 October source. The later peer-review revision changes export bookkeeping and introduces aggregate diagnostics (checked separately). All 14 of the ledger reconciliations were within the INR $10^{-7}$ tolerance, with the biggest discrepancy being under INR $2.73\times10^{-11}$. These policy, path and accounting records do not constitute independent observations, as they are repeated. The checks establish internal arithmetic consistency within their stated scope, but not real fills, reliable interval coverage or profitability. The validation run was reproduced exactly with the final notebook on 11 November 2026 (run \nolinkurl{20261111T081528Z-fzxevfhy}, results/m7\_validation\_20261111). After the 23 June 2023 source amendment it was rerun locally on 12 November (Python 3.12.3). A pre-final review found that the first freeze of that day could never be matched, because the amendment record changed type when saved, so that freeze was kept but superseded, the comparison was corrected without changing any research rule, and validation was rerun and frozen again (run \nolinkurl{20261112T164906Z-z9dulsgn}, results/m7\_validation\_20261112b). Its tables matched the earlier validation runs. The protocol SHA-256 of the freeze is \nolinkurl{1f50c774c2c686d21641436db93abd86bc07743334d7452aa581dedeae8b85f2} and the notebook code SHA-256 is \nolinkurl{e4b738d4e667a40e3381efe37f1a8b429367a95b50493fb2837da49035f2151d}. The final test was run once with that code (run \nolinkurl{20261112T202937Z-9u8as5ex}, results/m7\_final\_20261112); its access record was written at 20:30 UTC on 12 November 2026, before any final session was replayed, and all 14 ledger reconciliations passed. Every published results folder carries SHA-256 checksums of its files, and the full record of the amendment, the review and the coverage gaps is in \nolinkurl{config/m7_source_amendment.md}.
 
+\clearpage
 \section*{Appendix B. Computational checks}
 
 
@@ -533,6 +536,7 @@ End, AR(1) 0.7 & 81.5 (2.75) & 0.3334 (0.0024) & 0.705 \\[3pt]
 \endgroup
 \end{minipage}\par\addvspace{8pt}
 
+\clearpage
 \section*{Appendix C. Feedback received and how it was addressed}
 
 Table 9 lists the M6 grading feedback and each peer-review recommendation (Oriaku and Kamtambe), our decision and where it is addressed. We declined recommendations that would have changed the fixed design after outcomes had been seen, because that would undermine the holdout that gives the final test its value. The full point-by-point response submitted with M6 is in the repository.
@@ -571,10 +575,12 @@ Gather caveats so Results commit & Adopted & Limitations section \\[2pt]
 8.4 Zero ambiguity is not robustness & Adopted & Discussion; Limitations \\[2pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
 
+\clearpage
 \section*{Appendix D. Use of software tools}
 
 Software tools assisted the project but are not sources of evidence. In M6, AI assistance helped organise review comments, inspect code and compare report values with saved outputs, and Humantonebot was used for language refinement. In M7, an AI assistant (Claude, Anthropic) drafted code changes that the group reviewed and tested before use, namely the 23 June 2023 source amendment, the local-run and publishing cells and the correction of the freeze comparison; it helped review the repository before final access and drafted parts of this report from the saved results. Every number reported here comes from the notebook's exported tables, and the group checked the figures, citations and interpretation and is responsible for the content.
 
+\clearpage
 \section*{Appendix E. Frozen Q1 2021 pilot}
 
 The original M4 pilot added streamed ingestion, strict parser, past only signals and session accounting to M3. Its verification checks are listed in Appendix B. The code can be found in the link: \url{https://github.com/I-am-Uchenna/nse-intraday-risk-controls}.
@@ -649,6 +655,7 @@ Entry delay 5 min & \char45{}\allowbreak{}0.997 & +0.027 & \char45{}\allowbreak{
 
 At the reference cost, all three policies lose, on average. Combined exits do not perform as well as time\char45{}\allowbreak{}only in all the stated settings. The small stop\char45{}\allowbreak{}only advantage of the start\char45{}\allowbreak{}label becomes negative with the addition of 5 bp stop slippage. In the case of 20 equally weighted daily outcomes, empirical ES97.5 would be the same as the worst observed loss. Hence, the pilot does not report any ES, drawdown, Sharpe ratio or inferential interval.
 
+\clearpage
 \section*{Appendix F. Detailed development, validation and robustness results}
 
 These tables and figures support the summary in Table 5 and the discussion; they are reference material and are not interpreted again here.
