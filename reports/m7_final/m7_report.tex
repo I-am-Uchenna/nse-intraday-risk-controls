@@ -231,7 +231,7 @@ The 60/20/20 split is based on the full-period calendar of $n$ scheduled session
 
 Intervals are nominal 95\% paired moving-block percentile intervals with 2,000 repetitions and seed 17838. Five-day blocks are primary and ten- and twenty-day blocks are sensitivities; whole paired days are resampled within each contiguous eligible segment (Künsch). An interval is withheld if any segment is shorter than its block length or if \(\sum_j \lfloor L_j / b\rfloor < 10\), where \(L_j\) is the number of eligible sessions in segment \(j\) and \(b\) the block length. Block lengths were not chosen for statistical significance.
 
-All nominal 95\% bootstrap intervals in this report are exploratory, because synthetic diagnostics indicate undercoverage (Table 8). An interval that excludes zero indicates direction under the resampling model, and the consistent sign of the point estimates across stages and settings is the main evidence. The protocol review retained this status; no inferential amendment was made before final access.
+All nominal 95\% bootstrap intervals in this report are exploratory, because synthetic diagnostics indicate undercoverage (Table 7). An interval that excludes zero indicates direction under the resampling model, and the consistent sign of the point estimates across stages and settings is the main evidence. The protocol review retained this status; no inferential amendment was made before final access.
 
 Tail-risk estimates may not be sufficiently precise with sample size expansion. There are 148 scheduled sessions in the final partition, a maximum of 3.70 days of ES97.5 tail weight; 88 were evaluable, giving 2.2 days of tail weight. Final ES is therefore descriptive. The notebook shows the actual number of sessions, the tail dates and tail leave-one-day-out sensitivities for each stage performed. Independent tail events cannot be formed with more trades or bootstrap repetitions.
 
@@ -244,10 +244,10 @@ Tail-risk estimates may not be sufficiently precise with sample size expansion. 
 \toprule
 \textbf{Stage} & \textbf{Status and evidence} \\[3pt]
 \midrule
-Frozen pilot (Q1 2021) & Completed in M4; Appendix E. \\[3pt]
-Development (Jan 2021--Oct 2022) & Completed 1 October 2026; Table 5, Tables 13--14 (Appendix F) and Table 8 (Appendix B). \\[3pt]
-Validation (Oct 2022--May 2023) & Completed 18 October 2026; reproduced with the final notebook on 11 and 12 November 2026; Table 5 and Tables 15--16 (Appendix F). \\[3pt]
-Peer-review diagnostics & Computed from saved development and validation aggregates; Table 4 and Tables 17--20 (Appendix F). \\[3pt]
+Frozen pilot (Q1 2021) & Completed in M4; kept in the repository (results/m4\_pilot). \\[3pt]
+Development (Jan 2021--Oct 2022) & Completed 1 October 2026; Table 5, Tables 9--10 (Appendix E) and Table 7 (Appendix B). \\[3pt]
+Validation (Oct 2022--May 2023) & Completed 18 October 2026; reproduced with the final notebook on 11 and 12 November 2026; Table 5 and Tables 11--12 (Appendix E). \\[3pt]
+Peer-review diagnostics & Computed from saved development and validation aggregates; Table 4 and Tables 13--16 (Appendix E). \\[3pt]
 Protocol freeze & 12 November 2026, from validation run 20261112T164906Z-z9dulsgn. \\[3pt]
 Final test (May--Dec 2023) & Evaluated once on 12 November 2026, run 20261112T202937Z-9u8as5ex; Table 6. \\[3pt]
 \bottomrule\end{tabular}
@@ -288,7 +288,7 @@ This is the central economic finding. The entry selects moves that reverse sligh
 
 \subsection*{The exit comparison across the three stages}
 
-Table 5 brings the primary comparison for all three stages together. Development and validation are summarised here; their full tables, the funded-equity and sensitivity figures and the peer-review diagnostics are in Appendix F. The final test is reported in detail below.
+Table 5 brings the primary comparison for all three stages together. Development and validation are summarised here; their full tables, the funded-equity and sensitivity figures and the peer-review diagnostics are in Appendix E. The final test is reported in detail below.
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 5. Headline exit comparison by stage}\par\vspace{5pt}
@@ -317,7 +317,7 @@ Final / end & 88 & $-0.0478$ & [$-0.3551$, 0.2040] & 13.66 / 13.35 & 3.90 / 3.99
 
 The pattern is the same in every stage and under both timestamp readings. The combined exit has a lower mean than time-only, by 0.13 to 0.23 bp per day in development, 0.39 to 0.69 bp in validation and 0.05 to 0.09 bp in the final test. Only the validation start-label interval excludes zero, and all intervals are exploratory because the synthetic diagnostic in Appendix B shows undercoverage. The combined exit also has lower expected shortfall and deeper funded drawdown than time-only in every stage, so a smaller worst-day loss comes with a larger peak-to-trough loss on the account.
 
-In development, 360 and 381 of 443 sessions were evaluable; the gap comes mainly from four short data gaps in 2022 and the twenty sessions after each. In validation all 148 sessions were evaluable; the stage was completed on 18 October 2026 and reproduced exactly with the final notebook on 11 and 12 November 2026, the second run becoming the basis of the protocol freeze. The robustness checks in Appendix F do not change the ranking: in development and validation every cost, slippage and delay setting gives a negative contrast, extra stop slippage widens it most, one ambiguous episode in validation leaves the ranking unchanged, and removing the single worst shared day leaves time-only ahead on the mean. The expected-shortfall estimates rest on 3.7 to 9.5 days of tail weight, and in validation the saved tail records cannot confirm the ES ranking once the worst day is removed.
+In development, 360 and 381 of 443 sessions were evaluable; the gap comes mainly from four short data gaps in 2022 and the twenty sessions after each. In validation all 148 sessions were evaluable; the stage was completed on 18 October 2026 and reproduced exactly with the final notebook on 11 and 12 November 2026, the second run becoming the basis of the protocol freeze. The robustness checks in Appendix E do not change the ranking: in development and validation every cost, slippage and delay setting gives a negative contrast, extra stop slippage widens it most, one ambiguous episode in validation leaves the ranking unchanged, and removing the single worst shared day leaves time-only ahead on the mean. The expected-shortfall estimates rest on 3.7 to 9.5 days of tail weight, and in validation the saved tail records cannot confirm the ES ranking once the worst day is removed.
 
 \subsection*{Final test}
 
@@ -342,7 +342,7 @@ Table 6 uses reference execution and O-L-H-C ordering; with no ambiguous episode
 
 The combined-minus-time contrast is negative again, at $-0.0850$ bp per day under start labels and $-0.0478$ bp under end labels, the same sign as in development and validation but smaller. Both five-day-block intervals include zero. The ten- and twenty-day intervals are withheld under the declared rule, because the 88 sessions fall in three runs of 20, 23 and 45 days that yield only eight and four support blocks. The final test therefore agrees with the earlier stages in direction and cannot, on its own, distinguish the exits. The secondary contrasts are mixed: stop-minus-time is $-0.1835$ and $-0.0434$ bp, and adding the target to the stop changes the mean by $+0.0984$ and $-0.0044$ bp, so, as in validation, the target has no consistent effect.
 
-The risk pattern also repeats. Both stop-based exits have lower ES97.5 than time-only, by 0.12 to 0.38 bp under start labels and 0.25 to 0.31 bp under end labels, but these rest on 2.2 days of tail weight, and under start labels the combined exit's advantage disappears when 8 December 2023 is removed (Table 20). Both stop-based exits have deeper funded drawdown than time-only, 3.53 to 3.58\% against 3.31\% (start) and 3.95 to 3.99\% against 3.90\% (end). Execution sensitivity follows the development pattern: 10 bp of extra stop slippage worsens the contrast to $-0.89$ and $-0.88$ bp, while a five-minute entry delay makes it slightly positive, $+0.20$ and $+0.10$ bp, as does a two-minute delay under end labels ($+0.01$ bp); these are the first sign changes in any stage, and all are smaller than the slippage effects. No reference episode touched both barriers within one minute, so the candle-order assumption did not affect the final test.
+The risk pattern also repeats. Both stop-based exits have lower ES97.5 than time-only, by 0.12 to 0.38 bp under start labels and 0.25 to 0.31 bp under end labels, but these rest on 2.2 days of tail weight, and under start labels the combined exit's advantage disappears when 8 December 2023 is removed (Table 16). Both stop-based exits have deeper funded drawdown than time-only, 3.53 to 3.58\% against 3.31\% (start) and 3.95 to 3.99\% against 3.90\% (end). Execution sensitivity follows the development pattern: 10 bp of extra stop slippage worsens the contrast to $-0.89$ and $-0.88$ bp, while a five-minute entry delay makes it slightly positive, $+0.20$ and $+0.10$ bp, as does a two-minute delay under end labels ($+0.01$ bp); these are the first sign changes in any stage, and all are smaller than the slippage effects. No reference episode touched both barriers within one minute, so the candle-order assumption did not affect the final test.
 
 \section*{Discussion}
 
@@ -378,7 +378,7 @@ The findings rest on the following assumptions and limits, which were previously
 
 \section*{Future Work and Applications}
 
-The most useful next step is to fix the entry before revisiting the exit: a random-entry benchmark, an estimated-beta or market-neutral signal and cost-aware entry thresholds would test whether any version of this signal earns its costs. On the exit side, a barrier-multiple grid would map where candle ambiguity begins to matter, and separate fill probabilities for stop and limit orders would make execution more realistic. Tick or quote data would resolve the candle order directly, a larger stock universe would add statistical power, and stationary-bootstrap or episode-level clustered methods (Politis and Romano) would give better-calibrated intervals. Saving full daily series would also allow the worst-day ES check in Table 20 to be completed exactly.
+The most useful next step is to fix the entry before revisiting the exit: a random-entry benchmark, an estimated-beta or market-neutral signal and cost-aware entry thresholds would test whether any version of this signal earns its costs. On the exit side, a barrier-multiple grid would map where candle ambiguity begins to matter, and separate fill probabilities for stop and limit orders would make execution more realistic. Tick or quote data would resolve the candle order directly, a larger stock universe would add statistical power, and stationary-bootstrap or episode-level clustered methods (Politis and Romano) would give better-calibrated intervals. Saving full daily series would also allow the worst-day ES check in Table 16 to be completed exactly.
 
 This record can be used by researchers to make a decision whether or not to further investigate the selected exit controls. The same audit method can be used to audit broker or platform backtests, where the results of bracket\char45{}\allowbreak{}orders rely on a candle sequence that isn\char39{}t disclosed. Other markets may have researchers who can modify the approach to their respective calendars, instruments and costs. There is no evidence of performance in those markets which is provided by the NSE results themselves.
 
@@ -458,7 +458,7 @@ The answer to the research question is no for mean return and a qualified, fragi
 
 The final notebook is at \url{https://colab.research.google.com/github/I-am-Uchenna/nse-intraday-risk-controls/blob/main/notebooks/NSE_Intraday_M7.ipynb}; the repository README links to every notebook, results folder and report. Each table in this report can be regenerated from the saved results with \nolinkurl{reports/m7_final/make_tables.py}.
 
-The commit of the historical pilot implementation is commit \nolinkurl{494ca1299696ce0968a1eb39fa14018628f60a68}, which can be found on \url{https://github.com/I-am-Uchenna/nse-intraday-risk-controls/tree/494ca1299696ce0968a1eb39fa14018628f60a68}. It\char39{}s configured with the JSON values from commit ab23883; its manifests are support for Tables 10\char45{}\allowbreak{}12. The notebook used for the completed development run is commit \nolinkurl{8b40cf6e4170a157095ecfc28d0579cf1299c99a}, notebook SHA\char45{}\allowbreak{}256 \nolinkurl{0c4bfa9a55f2de2a31604b2dd2add76abee0344208ae124cbd8149e4d5a03eaf}. The development manifest contains its “run” identity, its “parsed\char45{}\allowbreak{}data” identity, its calendar, and its execution assumptions and inference settings. Records of both are maintained.
+The frozen M4 pilot (Q1 2021), its implementation at commit \nolinkurl{494ca1299696ce0968a1eb39fa14018628f60a68} and its results are kept in the repository (\nolinkurl{results/m4_pilot} and \nolinkurl{docs/M4_README.md}); they are historical and none of the M7 conclusions depends on them.
 
 The current M6 notebook contains 26 code cells, 24 of which are unchanged original cells, one of which is the revised export cell and one is the new aggregate-diagnostics cell. The recorded validation run on 18 October completed 25 code cells, using Python 3.13.16, NumPy 2.1.3, pandas 2.2.3 and Matplotlib 3.10.0. The development run used Linux with Python 3.13.15, NumPy 2.1.3 and pandas 2.2.3, and Matplotlib was used for figures. The pilot used Python 3.12.14. The new diagnostics have separate aggregate-only checks. Shared outputs exclude source prices, private ledgers and course documents. Synthetic checks do not require the original instructor archives, while market replay does.
 
@@ -466,28 +466,7 @@ To reproduce the results, open notebooks/NSE\_Intraday\_M7.ipynb in Colab, enter
 
 The original twenty day comparisons are kept in both results/m4\_pilot/summary.json and CSVs. The development run is recorded and it exports separate policy means, paired effects, coverage, status counts, ambiguity, funded drawdown, expected shortfall, tail dates, intervals and source/protocol manifests. The synthetic diagnostic CSV file includes data about coverage, Monte Carlo error, width, oracle width and unavailable counts; bootstrap\_reliability\_audit.json keeps settings, seeds and precise eligibility masks. The two output generations cannot replace each other. Numbers are stored at full precision and rounded to display. Instructor prices and private ledgers with details are not included in the common aggregate\char45{}\allowbreak{}output ZIP.
 
-NSE\_Intraday\_M6.ipynb contains the implementation of M6. For each timestamp interpretation and execution setting, the inherited experiment calls run\_one\_scenario and run\_research. The methods and analysis can be seen in the notebook. The M6 additions check boundaries and independently reconcile trade, cash, day and episode records before accepting the exported comparisons. There were 19 synthetic method scenarios and five focused M6 tests, all of which passed. These checks establish software behaviour on their test cases; they do not verify a market result or guarantee statistical coverage.
-
-\par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 7. Notebook guide}\par\vspace{5pt}
-\begingroup\fontsize{9.5}{11.7}\selectfont
-\renewcommand{\arraystretch}{1.12}
-\setlength{\tablecontentwidth}{\dimexpr\linewidth-2\tabcolsep\relax}
-\noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.32\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.68\tablecontentwidth}@{}}
-\toprule
-\textbf{Notebook section} & \textbf{Functions and purpose} \\[3pt]
-\midrule
-1\char45{}\allowbreak{}3. Run instructions, Research design, Calendar and chronological split & RUN\_STAGE; CASH\_FOLDER; INDEX\_FOLDER; SAVE\_FOLDER; CFG. Set the input/output locations, declared rules and chronological evaluation stage. \\[3pt]
-Load instructor data & discover\_sources; vendor\_rows; build\_database. Find specific inputs, check the validity of the inputs from a vendor, and feed these into a disk\char45{}\allowbreak{}based SQLite database. \\[3pt]
-4. Signal and sizing & window\_feature; plan\_session; replay\_session; run\_research. Develop past-only signals, configure matched entries, utilize the three exit policies and use session/funded accounts. \\[3pt]
-5. Uncertainty and tail risk (paired) & expected\_shortfall; paired\_block\_interval; bootstrap\_reliability\_diagnostic. Calculate descriptive tail loss, exploratory paired intervals and synthetic coverage/width diagnostics. \\[3pt]
-6. Run the experiment & run\_one\_scenario; RUNS. Perform two timestamp interpretations in seven scenarios and save the results of each scenario. This is driving the market\char45{}\allowbreak{}analysis. \\[3pt]
-7\char45{}\allowbreak{}12. Sample, returns, funded risk, intervals, sensitivity and conclusions & ALL\_DAILY, MEANS, FUNDED\_RISK, INTERVALS, ALIGNMENT. Summarize exclusions, returns, drawdown and uncertainty; compare execution assumptions and interpret limits. \\[3pt]
-Peer-review diagnostics & Four aggregate tables: gross/net returns, sample accounting, aligned execution sensitivity and ES leave-one-day-out sensitivity. No additional market replay. \\[3pt]
-13. Save and verify & Export aggregate tables, plots, provenance and reconciliation checks; save and check the protocol freeze before the one-time final run. \\[3pt]
-\bottomrule\end{tabular}
-\endgroup
-\end{minipage}\par\addvspace{8pt}
+The repository guide (\nolinkurl{docs/REPOSITORY_GUIDE.md}) describes every folder and file and defines the columns of each results table, and the notebook's section headings explain each step of the run.
 
 The expanded development aggregates and original run manifests are located at \url{https://github.com/I-am-Uchenna/nse-intraday-risk-controls/tree/main/results/development_20261001}. The recorded outputs and their checksums are kept in this dated folder. The publication of it does not constitute a new market run.
 
@@ -509,7 +488,7 @@ The new M6 checks are distinct from the historical checks listed below. Cell res
 In the original pilot, the number of reference signals matched with the independent calculations was 57, the number of policy/path executions was 2,394 and the number of evaluable daily accounts was 1,680. The biggest daily P\&L difference was less than INR 0.00000001. Repeated accounts do not constitute independent market data. The historical replay validated source counts and SHA\char45{}\allowbreak{}256 digests. It had a 384 MiB process limit, with preparation using 55.65 MiB and replay 39.70 MiB of total committed memory for all child processes (excluding the supervisor and operating\char45{}\allowbreak{}system cache). The preceding measurements are not of the later Colab notebook. Before the recorded development run, the then current notebook executed all 24 code cells and repeated the export in a separate check in the local cached\char45{}\allowbreak{}pilot. Its 84 means matched the historic pilot within 2.57e\char45{}\allowbreak{}13 bp, and had a maximum aggregate child\char45{}\allowbreak{}process committed memory of 332.66 MiB, with a 768 MiB limit. This is local verification memory and not hosted full\char45{}\allowbreak{}study memory. The hosted development run was then used to read the original Drive archives and run all 14 scenarios. Neither run assessed the validation or final\char45{}\allowbreak{}test strategy results.
 
 
-The synthetic bootstrap diagnostic (Table 8) uses process seed 20261002 and bootstrap seed 17838, simulates each process over all 443 scheduled development dates before applying the actual 360- or 381-day eligibility mask, and compares mean width with the exact Gaussian width from the known covariance. The cached arithmetic reproduces the original interval function within 1e-11 bp for three probe vectors per mask. The diagnostic does not model outcome-dependent missingness, heavy tails or regime change.
+The synthetic bootstrap diagnostic (Table 7) uses process seed 20261002 and bootstrap seed 17838, simulates each process over all 443 scheduled development dates before applying the actual 360- or 381-day eligibility mask, and compares mean width with the exact Gaussian width from the known covariance. The cached arithmetic reproduces the original interval function within 1e-11 bp for three probe vectors per mask. The diagnostic does not model outcome-dependent missingness, heavy tails or regime change.
 
 \subsection*{Bootstrap reliability diagnostics}
 
@@ -518,7 +497,7 @@ These diagnostics support the interval interpretation in the Results.
 The added diagnostics use the specified resampler on Gaussian paired daily differences with mean 0 and stationary standard deviation 1 bp: independent observations and AR(1) coefficients 0.3 and 0.7. Each process evolves over all 443 of the scheduled development dates before the actual 360 day or 381 day eligibility mask is applied. These diagnostics evaluate repeated\char45{}\allowbreak{}sample interval coverage and width for these specified processes, in addition to arithmetic tests. The experiment is carried out using 200 simulated samples per design, the settings of the experiment, the seed and the output are reported in bootstrap\_reliability.csv. This is a zero mean coverage experiment, no power is claimed on a trading advantage.
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 8. Synthetic bootstrap diagnostics}\par\vspace{5pt}
+\textbf{Table 7. Synthetic bootstrap diagnostics}\par\vspace{5pt}
 \begingroup\fontsize{9.5}{11.7}\selectfont
 \renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-6\tabcolsep\relax}
@@ -539,10 +518,10 @@ End, AR(1) 0.7 & 81.5 (2.75) & 0.3334 (0.0024) & 0.705 \\[3pt]
 \clearpage
 \section*{Appendix C. Feedback received and how it was addressed}
 
-Table 9 lists the M6 grading feedback and each peer-review recommendation (Oriaku and Kamtambe), our decision and where it is addressed. We declined recommendations that would have changed the fixed design after outcomes had been seen, because that would undermine the holdout that gives the final test its value. The full point-by-point response submitted with M6 is in the repository.
+Table 8 lists the M6 grading feedback and each peer-review recommendation (Oriaku and Kamtambe), our decision and where it is addressed. We declined recommendations that would have changed the fixed design after outcomes had been seen, because that would undermine the holdout that gives the final test its value. The full point-by-point response submitted with M6 is in the repository.
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 9. Feedback and responses}\par\vspace{5pt}
+\textbf{Table 8. Feedback and responses}\par\vspace{5pt}
 \begingroup\fontsize{9}{11}\selectfont\renewcommand{\arraystretch}{1.08}
 \noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{6.0cm}>{\RaggedRight\arraybackslash}p{2.0cm}>{\RaggedRight\arraybackslash}p{5.2cm}@{}}\toprule
 \textbf{Recommendation} & \textbf{Decision} & \textbf{Where / reason} \\[2pt]\midrule
@@ -556,10 +535,10 @@ Gather caveats so Results commit & Adopted & Limitations section \\[2pt]
 2.1 Gross returns; random-entry benchmark & Partly & Table 4; benchmark in Future Work \\[2pt]
 2.2 Relative signal and long-only exposure & Adopted & Introduction; Methodology \\[2pt]
 2.3 Justify barriers; link to theory & Adopted & Pros and cons of a fixed design \\[2pt]
-3.1 Explain the sample sizes & Adopted & Table 17 \\[2pt]
-3.2 Practical meaning of intervals & Adopted & Methodology; Table 8 \\[2pt]
+3.1 Explain the sample sizes & Adopted & Table 13 \\[2pt]
+3.2 Practical meaning of intervals & Adopted & Methodology; Table 7 \\[2pt]
 3.3 Separate drawdown from drift & Partly & Discussion; detrending not substituted \\[2pt]
-3.4 Timestamp convention; 21-session gap & Partly & Table 17; supplier convention unconfirmed \\[2pt]
+3.4 Timestamp convention; 21-session gap & Partly & Table 13; supplier convention unconfirmed \\[2pt]
 4.1 Economic magnitude & Adopted & Table 4; first Results subsection \\[2pt]
 4.2 Broaden the stock universe & Not adopted & Would change the fixed design after outcomes \\[2pt]
 4.3 Precise novelty vs literature & Adopted & Table 1 \\[2pt]
@@ -570,8 +549,8 @@ Gather caveats so Results commit & Adopted & Limitations section \\[2pt]
 6.1--6.3 Literature and attribution & Adopted & Theoretical Framework \\[2pt]
 7.1--7.4 Language, provenance, references & Adopted & Throughout; provenance in Appendices A--B \\[2pt]
 8.1 Zero-crossing intervals & Adopted & Results \\[2pt]
-8.2 Development sensitivity values & Adopted & Table 18 \\[2pt]
-8.3 ES ranges; ranking without worst day & Adopted & Tables 19 and 20 \\[2pt]
+8.2 Development sensitivity values & Adopted & Table 14 \\[2pt]
+8.3 ES ranges; ranking without worst day & Adopted & Tables 15 and 16 \\[2pt]
 8.4 Zero ambiguity is not robustness & Adopted & Discussion; Limitations \\[2pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
 
@@ -581,89 +560,14 @@ Gather caveats so Results commit & Adopted & Limitations section \\[2pt]
 Software tools assisted the project but are not sources of evidence. In M6, AI assistance helped organise review comments, inspect code and compare report values with saved outputs, and Humantonebot was used for language refinement. In M7, an AI assistant (Claude, Anthropic) drafted code changes that the group reviewed and tested before use, namely the 23 June 2023 source amendment, the local-run and publishing cells and the correction of the freeze comparison; it helped review the repository before final access and drafted parts of this report from the saved results. Every number reported here comes from the notebook's exported tables, and the group checked the figures, citations and interpretation and is responsible for the content.
 
 \clearpage
-\section*{Appendix E. Frozen Q1 2021 pilot}
-
-The original M4 pilot added streamed ingestion, strict parser, past only signals and session accounting to M3. Its verification checks are listed in Appendix B. The code can be found in the link: \url{https://github.com/I-am-Uchenna/nse-intraday-risk-controls}.
-
-The frozen pilot sample includes 137,036 rows from eighteen monthly files that are held by the instructor in the NSE Cash Stocks Data and NSE Index Data. These selected rows were successful in the pilot parser checks and missing intervals were left in. This is the count of the original Q1 sample. The later source audit commands its own manifest and is not able to certify instruments and files beyond the study inputs selected.
-
-\par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 10. Session / Episode coverage of reference execution settings}\par\vspace{5pt}
-\begingroup\fontsize{9.5}{11.7}\selectfont
-\renewcommand{\arraystretch}{1.12}
-\setlength{\tablecontentwidth}{\dimexpr\linewidth-4\tabcolsep\relax}
-\noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.52\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.24\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.24\tablecontentwidth}@{}}
-\toprule
-\textbf{Measure} & \textbf{Start labels} & \textbf{End labels} \\[3pt]
-\midrule
-Scheduled Q1 sessions & 61 & 61 \\[3pt]
-Initial history\char45{}\allowbreak{}only sessions & 20 & 20 \\[3pt]
-Nonstandard session excluded & 1 & 1 \\[3pt]
-Subsequent sessions with an incomplete prior history & 20 & 20 \\[3pt]
-Common evaluable sessions & 20 & 20 \\[3pt]
-Valid zero\char45{}\allowbreak{}trade sessions: & 4 & 7 \\[3pt]
-Unique eligible trade episodes. & 33 & 24 \\[3pt]
-Unresolved episodes & 0 & 0 \\[3pt]
-Ambiguous episodes of active dual\char45{}\allowbreak{}barrier (ADB) & 0 & 0 \\[3pt]
-\bottomrule\end{tabular}
-\endgroup
-\par\smallskip{\small\noindent Source: results/m4\_pilot/summary.json. The twenty evaluable dates are 1--23 February, 26 March, 30 March and 31 March. Counts are unique episodes; the 33-versus-24 difference shows sensitivity to timestamp interpretation.\par}
-\end{minipage}\par\addvspace{8pt}
-
-\subsection*{Pilot comparisons}
-
-\par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 11. Reference mean daily P\&L / reference capital, in basis points}\par\vspace{5pt}
-\begingroup\fontsize{9.5}{11.7}\selectfont
-\renewcommand{\arraystretch}{1.12}
-\setlength{\tablecontentwidth}{\dimexpr\linewidth-4\tabcolsep\relax}
-\noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.52\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.24\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.24\tablecontentwidth}@{}}
-\toprule
-\textbf{Policy and/or paired contrast} & \textbf{Start labels} & \textbf{End labels} \\[3pt]
-\midrule
-Time\char45{}\allowbreak{}only & \char45{}\allowbreak{}2.914 & \char45{}\allowbreak{}0.886 \\[3pt]
-Stop\char45{}\allowbreak{}only & \char45{}\allowbreak{}2.734 & \char45{}\allowbreak{}1.359 \\[3pt]
-Stop and target & \char45{}\allowbreak{}3.476 & \char45{}\allowbreak{}1.957 \\[3pt]
-Combined minus time & \char45{}\allowbreak{}0.562 & \char45{}\allowbreak{}1.072 \\[3pt]
-Stop minus time & +0.180 & \char45{}\allowbreak{}0.473 \\[3pt]
-Combined minus stop & \char45{}\allowbreak{}0.742 & \char45{}\allowbreak{}0.598 \\[3pt]
-\bottomrule\end{tabular}
-\endgroup
-\par\smallskip{\small\noindent Means and paired contrasts produced from scenario\_means.csv and paired\_contrasts.csv. The default settings are 15 bp round trip, no additional stop slippage and a 1 minute entry delay. Each day starts independently with capital of INR 100,000 with each basis point being INR 10. Both paths agree because no active episode encounters both barriers in one candle.\par}
-\end{minipage}\par\addvspace{8pt}
-
-\par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 12. Sensitivity of paired mean daily differences (bps of reference capital)}\par\vspace{5pt}
-\begingroup\fontsize{9.5}{11.7}\selectfont
-\renewcommand{\arraystretch}{1.12}
-\setlength{\tablecontentwidth}{\dimexpr\linewidth-8\tabcolsep\relax}
-\noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.26\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.185\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.185\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.185\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.185\tablecontentwidth}@{}}
-\toprule
-\textbf{Setting} & \textbf{Start: combined\char45{}\allowbreak{}time} & \textbf{Start: stop\char45{}\allowbreak{}time} & \textbf{End: combined\char45{}\allowbreak{}time} & \textbf{End: stop\char45{}\allowbreak{}time} \\[3pt]
-\midrule
-Reference & \char45{}\allowbreak{}0.562 & +0.180 & \char45{}\allowbreak{}1.072 & \char45{}\allowbreak{}0.473 \\[3pt]
-Common cost 5 bp & \char45{}\allowbreak{}0.562 & +0.180 & \char45{}\allowbreak{}1.072 & \char45{}\allowbreak{}0.473 \\[3pt]
-Common cost 25 bp & \char45{}\allowbreak{}0.562 & +0.180 & \char45{}\allowbreak{}1.072 & \char45{}\allowbreak{}0.473 \\[3pt]
-Stop slippage +5 bp & \char45{}\allowbreak{}0.962 & \char45{}\allowbreak{}0.220 & \char45{}\allowbreak{}1.297 & \char45{}\allowbreak{}0.698 \\[3pt]
-Stop slippage +10 bp & \char45{}\allowbreak{}1.362 & \char45{}\allowbreak{}0.620 & \char45{}\allowbreak{}1.522 & \char45{}\allowbreak{}0.923 \\[3pt]
-Entry delay 2 min & \char45{}\allowbreak{}0.071 & +0.476 & \char45{}\allowbreak{}1.204 & \char45{}\allowbreak{}0.641 \\[3pt]
-Entry delay 5 min & \char45{}\allowbreak{}0.997 & +0.027 & \char45{}\allowbreak{}1.466 & \char45{}\allowbreak{}0.667 \\[3pt]
-\bottomrule\end{tabular}
-\endgroup
-\par\smallskip{\small\noindent Source: paired\_contrasts.csv and sensitivity\_comparisons.csv; every setting uses the same twenty dates. Common costs cancel in contrasts but not in absolute returns: at 5 bp, end-label time-only averages +0.314 bp per day while stop-only and combined remain negative.\par}
-\end{minipage}\par\addvspace{8pt}
-
-At the reference cost, all three policies lose, on average. Combined exits do not perform as well as time\char45{}\allowbreak{}only in all the stated settings. The small stop\char45{}\allowbreak{}only advantage of the start\char45{}\allowbreak{}label becomes negative with the addition of 5 bp stop slippage. In the case of 20 equally weighted daily outcomes, empirical ES97.5 would be the same as the worst observed loss. Hence, the pilot does not report any ES, drawdown, Sharpe ratio or inferential interval.
-
-\clearpage
-\section*{Appendix F. Detailed development, validation and robustness results}
+\section*{Appendix E. Detailed development, validation and robustness results}
 
 These tables and figures support the summary in Table 5 and the discussion; they are reference material and are not interpreted again here.
 
-\subsection*{F.1 Development (1 January 2021 to 17 October 2022, 443 sessions)}
+\subsection*{E.1 Development (1 January 2021 to 17 October 2022, 443 sessions)}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 13. Comparison of development at reference execution}\par\vspace{5pt}
+\textbf{Table 9. Comparison of development at reference execution}\par\vspace{5pt}
 \begingroup\fontsize{9.5}{11.7}\selectfont
 \renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-4\tabcolsep\relax}
@@ -722,7 +626,7 @@ title={Minute labels},title style={font=\small,yshift=13pt},
 \end{minipage}\par\addvspace{8pt}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 14. Funded drawdown for development on reference execution}\par\vspace{5pt}
+\textbf{Table 10. Funded drawdown for development on reference execution}\par\vspace{5pt}
 \begingroup\fontsize{9.5}{11.7}\selectfont
 \renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-8\tabcolsep\relax}
@@ -741,12 +645,12 @@ End: Combined & 10.0296 & 10.0116 & 443 & 2022\char45{}\allowbreak{}10\char45{}\
 \par\smallskip{\small\noindent Source: funded\_drawdown.csv, O-L-H-C reference accounts, 1 January 2021 to 17 October 2022. Each account is one segment starting at C0, with 443 identified daily closes and no early ending.\par}
 \end{minipage}\par\addvspace{8pt}
 
-{\small\noindent The synthetic coverage check in Table 8 (Appendix B) gives 78.5 to 94.5\% coverage for nominal 95\% intervals, which is why all intervals in this report are treated as exploratory.\par}
+{\small\noindent The synthetic coverage check in Table 7 (Appendix B) gives 78.5 to 94.5\% coverage for nominal 95\% intervals, which is why all intervals in this report are treated as exploratory.\par}
 
-\subsection*{F.2 Validation (18 October 2022 to 25 May 2023, 148 sessions)}
+\subsection*{E.2 Validation (18 October 2022 to 25 May 2023, 148 sessions)}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 15. Validation returns and risk at reference execution}\par\vspace{5pt}
+\textbf{Table 11. Validation returns and risk at reference execution}\par\vspace{5pt}
 \begingroup\fontsize{9.5}{11.7}\selectfont
 \renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-8\tabcolsep\relax}
@@ -772,7 +676,7 @@ End / Combined. & -2.4365 & 12.0332 & 3.6181 & 3.6060 \\[3pt]
 \end{minipage}\par\addvspace{8pt}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 16. Validation execution sensitivity}\par\vspace{5pt}
+\textbf{Table 12. Validation execution sensitivity}\par\vspace{5pt}
 \begingroup\fontsize{9.5}{11.7}\selectfont
 \renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-4\tabcolsep\relax}
@@ -791,12 +695,12 @@ Entry delay: 5 minutes & -0.4418 & -0.1920 \\[3pt]
 \endgroup
 \end{minipage}\par\addvspace{8pt}
 
-\subsection*{F.3 Peer-review diagnostics from stored aggregates}
+\subsection*{E.3 Peer-review diagnostics from stored aggregates}
 
 {\small\noindent Recomputed from the saved development and validation exports; no setting was changed.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 17. Calendar, estimation and funded-account samples}\par\vspace{5pt}
+\textbf{Table 13. Calendar, estimation and funded-account samples}\par\vspace{5pt}
 \begingroup\fontsize{9.2}{11.2}\selectfont\renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-10\tabcolsep\relax}
 \noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.27\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.12\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.15\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.18\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.13\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.15\tablecontentwidth}@{}}\toprule
@@ -811,7 +715,7 @@ Final / end & 148 & 88 & 60 & 148 & 170 \\[3pt]
 {\small\noindent Scheduled, complete-case and funded dates are different counts. The 83 and 62 unavailable development dates are one explicit exclusion plus 82 and 61 incomplete candidates; a funded account can remain identified on a date with no eligible entry. The 21-date gap between timestamp conventions arises because one missing observation invalidates later twenty-session windows, and a one-minute shift changes which observations fall at window edges; it is not attributable to a single outage and does not occur in validation. In the final test the 60 unavailable dates are the declared gaps of 23 June, 20 July and 22 September 2023 and the twenty sessions after each; the September and October minute gaps fell outside every signal window, so the count matches the higher of the two figures declared before the freeze, under both conventions.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 18. Development combined-minus-time sensitivity}\par\vspace{5pt}
+\textbf{Table 14. Development combined-minus-time sensitivity}\par\vspace{5pt}
 \begingroup\fontsize{9.2}{11.2}\selectfont\renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-8\tabcolsep\relax}
 \noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.32\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.2\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.14\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.2\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.14\tablecontentwidth}@{}}\toprule
@@ -827,7 +731,7 @@ Entry delay: 5 min & -0.1151 & 360 & -0.0552 & 381 \\[3pt]
 {\small\noindent Each comparison uses the dates common to the scenario and reference execution (360 and 381 in development, 148 in validation), and the combined-minus-time contrast is negative in every setting.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 19. Expected-shortfall sensitivity to removing one day}\par\vspace{5pt}
+\textbf{Table 15. Expected-shortfall sensitivity to removing one day}\par\vspace{5pt}
 \begingroup\fontsize{9.2}{11.2}\selectfont\renewcommand{\arraystretch}{1.12}
 \setlength{\tablecontentwidth}{\dimexpr\linewidth-8\tabcolsep\relax}
 \noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.24\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.16\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.15\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.16\tablecontentwidth}>{\RaggedRight\arraybackslash}p{0.29\tablecontentwidth}@{}}\toprule
@@ -853,10 +757,10 @@ Final / end & Combined & 2.2000 & 13.3516 & 11.9713--13.3753 \\[3pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
 {\small\noindent The last column gives the minimum and maximum ES97.5 when each day is deleted in turn and the tail mass recomputed; it is a sensitivity range, not a confidence interval. The 3.7-day tail in validation and the 2.2-day tail in the final test call for particular caution.\par}
 
-{\small\noindent Table 20 removes, for each stage and label, the date with the largest combined loss across the three exits and recomputes the contrast and ES. Where that date's neighbours are not in the saved tail records, ES is shown as a range.\par}
+{\small\noindent Table 16 removes, for each stage and label, the date with the largest combined loss across the three exits and recomputes the contrast and ES. Where that date's neighbours are not in the saved tail records, ES is shown as a range.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-\textbf{Table 20. Rankings after removing the worst shared date}\par\vspace{5pt}
+\textbf{Table 16. Rankings after removing the worst shared date}\par\vspace{5pt}
 \begingroup\fontsize{9.2}{11.2}\selectfont\renewcommand{\arraystretch}{1.12}
 \noindent\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{2.3cm}>{\RaggedRight\arraybackslash}p{1.8cm}rrrr@{}}\toprule
 \textbf{Stage / label} & \textbf{Date removed} & \textbf{\makecell{Combined$-$time\\before}} & \textbf{\makecell{Combined$-$time\\after}} & \textbf{\makecell{Time-only ES\\after}} & \textbf{\makecell{Combined ES\\after}} \\[3pt]\midrule
