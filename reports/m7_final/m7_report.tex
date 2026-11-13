@@ -651,15 +651,9 @@ At the reference cost, all three policies lose, on average. Combined exits do no
 
 \section*{Appendix F. Detailed development, validation and robustness results}
 
-This appendix holds the full development and validation results and the peer-review diagnostics summarised in Table 13.
+These tables and figures support the summary in Table 5 and the discussion; they are reference material and are not interpreted again here.
 
-\subsection*{Development}
-
-\subsection*{Completed scope and data audit}
-
-The extended development period is 1 January 2021 to 17 October 2022, and uses the same five stocks, entry rule and three exits. It contains seven execution settings under two different timestamp interpretations; these fourteen settings are related, not independent experiments. Preparation includes 216 selected symbol-month entries for 6 series, retaining 1,669,406 rows in the period 2021-2023, after excluding the 1,883 verified August copies described above. Run, code and verification records are in Appendices A and B.
-
-\subsection*{Independent\char45{}\allowbreak{}session estimates}
+\subsection*{F.1 Development (1 January 2021 to 17 October 2022, 443 sessions)}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 13. Comparison of development at reference execution}\par\vspace{5pt}
@@ -687,14 +681,9 @@ Unique ambiguous / eligible episodes. & 0 / 637 & 0 / 662 \\[3pt]
 \par\smallskip{\small\noindent Source: policy\_means.csv, paired\_effects.csv, expected\_shortfall.csv, intervals.csv and exit\_ambiguity.csv. Reference execution: 15 bp round-trip cost, one-minute delay, no extra stop slippage, O-L-H-C ordering. Means and ES use common independent-session days; missing outcomes are not zero returns. Intervals are exploratory.\par}
 \end{minipage}\par\addvspace{8pt}
 
-The development combined-minus-time estimates are negative but imprecise. Both the five- and ten-day-block exploratory intervals contain zero under both timestamp interpretations, and modest gains are possible (along with losses under the resampling model). Twenty-day intervals are withheld since the first eligible segment is only seventeen days. The new diagnostic tables below numerically reveal the development sensitivities and fragility of the tail estimates.
-
 % image_alt: "Development execution sensitivity"
-
 % image_destination: "output/colab/aligned_development/development_sensitivity_print.png"
-
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
-
 \centering
 \begin{tikzpicture}
 \begin{axis}[
@@ -722,12 +711,8 @@ title={Minute labels},title style={font=\small,yshift=13pt},
 \draw[black,thin] (axis cs:-0.6,0)--(axis cs:6.6,0);
 \end{axis}
 \end{tikzpicture}
-
 \par\smallskip{\small\RaggedRight Figure 3. Combined minus time mean effects for the declared execution scenarios. The following comparisons are aligned on reference and stressed dates within each interpretation of the timestamps. The Y axis is basis points (bps) of reference capital per evaluable day. The figures plotted are point estimates, not confidence intervals, and these are development comparisons.\par}
-
 \end{minipage}\par\addvspace{8pt}
-
-\subsection*{Funded equity and drawdown}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 14. Funded drawdown for development on reference execution}\par\vspace{5pt}
@@ -749,15 +734,9 @@ End: Combined & 10.0296 & 10.0116 & 443 & 2022\char45{}\allowbreak{}10\char45{}\
 \par\smallskip{\small\noindent Source: funded\_drawdown.csv, O-L-H-C reference accounts, 1 January 2021 to 17 October 2022. Each account is one segment starting at C0, with 443 identified daily closes and no early ending.\par}
 \end{minipage}\par\addvspace{8pt}
 
-Both stop-based policies have a higher funded maximum drawdown than time-only under both timestamp interpretations and both valuation frequencies, so lower independent-session ES does not mean lower funded drawdown. The funded diagnostic uses a different sample and cash path from the primary comparison.
+{\small\noindent The synthetic coverage check in Table 8 (Appendix B) gives 78.5 to 94.5\% coverage for nominal 95\% intervals, which is why all intervals in this report are treated as exploratory.\par}
 
-\subsection*{Reliability of the intervals}
-
-In the synthetic check reported in Table 8 (Appendix B), coverage ranges from 78.5\% to 94.5\%: 89.0\% to 94.5\% with no or mild autocorrelation, and 78.5\% and 81.5\% for start and end labels with an AR(1) coefficient of 0.7, where intervals are about 30\% narrower than the exact Gaussian width. Monte Carlo standard errors are given in parentheses. Each row uses 200 independent histories with 2,000 resamples per interval and five-day blocks. The nominal 95\% procedure therefore undercovers under strong dependence, which is why all market intervals in this report are treated as exploratory. Seeds and the full diagnostic set-up are in Appendix B.
-
-\subsection*{Validation}
-
-The validation run was performed with the same five stocks, entry rule, barriers and execution settings and completed on 18 October 2026. It evaluates 18 October 2022-25 May 2023. In all settings, all 148 scheduled sessions are evaluable under both timestamp interpretations. The 216 selected symbol-month entries were again read from the instructor's Drive archives, retaining 1,669,406 rows after the same 1,883 verified duplicate exclusions. Their parsed-data fingerprint matches the development record. Final-period source preparation remains separate from strategy evaluation: no final-test outcomes were evaluated. With the final notebook, which adds the 23 June 2023 source amendment, validation was rerun on 12 November 2026; every validation table matched, apart from the 23 June coverage counts and differences below $10^{-9}$, and that run became the basis of the protocol freeze.
+\subsection*{F.2 Validation (18 October 2022 to 25 May 2023, 148 sessions)}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 15. Validation returns and risk at reference execution}\par\vspace{5pt}
@@ -778,19 +757,12 @@ End / Combined. & -2.4365 & 12.0332 & 3.6181 & 3.6060 \\[3pt]
 \endgroup
 \end{minipage}\par\addvspace{8pt}
 
-Table 15 uses reference execution and O-L-H-C ordering. Each ES rests on only 3.70 days of tail weight: the three worst losses at full weight and the fourth at 0.70. All funded accounts have 148 identified daily closes and no funding failures.
-
-The mean difference for combined-minus-time is \(-0.6885\) bp per day (start labels) and \(-0.3855\) bp (end labels). The nominal five-day-block 95\% intervals are [\(-1.7037\), \(-0.0809\)] and [\(-1.2170\), 0.1695] bp, respectively. The first does not include zero, but both are exploratory due to the reported coverage limitation. Ten-day-block intervals are [\(-1.7444\), \(-0.0607\)] and [\(-1.2630\), 0.1873] bp. The twenty-day intervals are withheld: 148 sessions deliver seven support blocks, less than the stated minimum of ten. This is not a notebook cell failure, but a reporting rule.
-
-The descriptive ES of both stop-based exits is lower than that of time-only exits, while the mean returns are lower and the funded drawdowns are larger for both. The mean under start labels is decreased by 0.4120 bp and the mean under end labels is increased by 0.0146 bp with the addition of a target to the stop. The target therefore has no consistent effect on its own. The combined-exit ES leave-one-day-out range is 11.2186-11.8669 bp under start labels and 11.4182-12.0384 bp under end labels. These are sensitivity ranges, not confidence intervals.
-
-
+{\small\noindent Each ES rests on 3.70 days of tail weight. One ambiguous episode (end labels, 1 of 260) turns one stop exit into a target exit and leaves the ranking unchanged.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}\centering
 \includegraphics[width=0.78\linewidth]{\figfile{validation_funded_equity.png}}
 \par\smallskip{\small\RaggedRight Figure 4. Validation funded equity in INR (top) and drawdown in percent (bottom) for the three exits under start and end labels, reference execution. Source: funded\_drawdown.csv.\par}
 \end{minipage}\par\addvspace{8pt}
-
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 16. Validation execution sensitivity}\par\vspace{5pt}
@@ -812,14 +784,9 @@ Entry delay: 5 minutes & -0.4418 & -0.1920 \\[3pt]
 \endgroup
 \end{minipage}\par\addvspace{8pt}
 
-All seven settings in Table 16 give a negative contrast on the same 148 dates. Common fees cancel by construction; an extra 10 bp of stop slippage worsens the contrast by 0.7905 bp (start labels) and 0.6959 bp (end labels), and entry delays do not reverse its sign.
+\subsection*{F.3 Peer-review diagnostics from stored aggregates}
 
-Validation has one ambiguous reference episode, under end labels (1 of 260); there are none among the 266 start-labelled episodes. Switching from O-L-H-C to O-H-L-C turns one stop exit into a target exit, moving the end-label combined mean from \(-2.4365\) to \(-2.4093\) bp per day and the combined-minus-time contrast from \(-0.3855\) to \(-0.3583\) bp. The ranking is unchanged. With start labels, the two- and five-minute delay settings also show path differences of about 0.0239 bp per day.
-
-\subsection*{Peer-review diagnostics from stored aggregates}
-
-These diagnostics are based on the development and validation exports recorded. They add no entries, tweak no parameter and check no final-period result. Table 4 was reported above; Tables 17 to 19 follow.
-
+{\small\noindent Recomputed from the saved development and validation exports; no setting was changed.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 17. Calendar, estimation and funded-account samples}\par\vspace{5pt}
@@ -834,8 +801,7 @@ Validation / end & 148 & 148 & 0 & 148 & 260 \\[3pt]
 Final / start & 148 & 88 & 60 & 148 & 160 \\[3pt]
 Final / end & 148 & 88 & 60 & 148 & 170 \\[3pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
-Scheduled, complete-case and funded dates are different counts. The 83 and 62 unavailable development dates are one explicit exclusion plus 82 and 61 incomplete candidates; a funded account can remain identified on a date with no eligible entry. The 21-date gap between timestamp conventions arises because one missing observation invalidates later twenty-session windows, and a one-minute shift changes which observations fall at window edges; it is not attributable to a single outage and does not occur in validation. In the final test the 60 unavailable dates are the declared gaps of 23 June, 20 July and 22 September 2023 and the twenty sessions after each; the September and October minute gaps fell outside every signal window, so the count matches the higher of the two figures declared before the freeze, under both conventions.
-
+{\small\noindent Scheduled, complete-case and funded dates are different counts. The 83 and 62 unavailable development dates are one explicit exclusion plus 82 and 61 incomplete candidates; a funded account can remain identified on a date with no eligible entry. The 21-date gap between timestamp conventions arises because one missing observation invalidates later twenty-session windows, and a one-minute shift changes which observations fall at window edges; it is not attributable to a single outage and does not occur in validation. In the final test the 60 unavailable dates are the declared gaps of 23 June, 20 July and 22 September 2023 and the twenty sessions after each; the September and October minute gaps fell outside every signal window, so the count matches the higher of the two figures declared before the freeze, under both conventions.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 18. Development combined-minus-time sensitivity}\par\vspace{5pt}
@@ -851,8 +817,7 @@ Stop slippage: 10 bp & -0.9214 & 360 & -0.7704 & 381 \\[3pt]
 Entry delay: 2 min & -0.1840 & 360 & -0.1360 & 381 \\[3pt]
 Entry delay: 5 min & -0.1151 & 360 & -0.0552 & 381 \\[3pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
-Each comparison uses the dates common to the scenario and reference execution (360 and 381 in development, 148 in validation), and the combined-minus-time contrast is negative in every setting.
-
+{\small\noindent Each comparison uses the dates common to the scenario and reference execution (360 and 381 in development, 148 in validation), and the combined-minus-time contrast is negative in every setting.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 19. Expected-shortfall sensitivity to removing one day}\par\vspace{5pt}
@@ -879,9 +844,9 @@ Final / end & Time & 2.2000 & 13.6629 & 13.2718--13.6651 \\[3pt]
 Final / end & Stop & 2.2000 & 13.4155 & 12.3667--13.4319 \\[3pt]
 Final / end & Combined & 2.2000 & 13.3516 & 11.9713--13.3753 \\[3pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
-The last column gives the minimum and maximum ES97.5 when each day is deleted in turn and the tail mass recomputed; it is a sensitivity range, not a confidence interval. The 3.7-day tail in validation and the 2.2-day tail in the final test call for particular caution.
+{\small\noindent The last column gives the minimum and maximum ES97.5 when each day is deleted in turn and the tail mass recomputed; it is a sensitivity range, not a confidence interval. The 3.7-day tail in validation and the 2.2-day tail in the final test call for particular caution.\par}
 
-Table 20 answers the remaining question: does the ranking survive when the single worst shared date is removed? For each stage and label we drop the date with the largest combined loss across the three policies, which is in every policy's tail, and recompute each policy's mean and ES on the remaining dates. Means are exact. The saved tail records hold only the tail days, so where the recomputed ES needs the next-worst loss we report bounds, assuming that day is a loss no larger than the smallest saved tail loss.
+{\small\noindent Table 20 removes, for each stage and label, the date with the largest combined loss across the three exits and recomputes the contrast and ES. Where that date's neighbours are not in the saved tail records, ES is shown as a range.\par}
 
 \par\addvspace{8pt}\noindent\begin{minipage}{\linewidth}
 \textbf{Table 20. Rankings after removing the worst shared date}\par\vspace{5pt}
@@ -895,7 +860,6 @@ Val. / end & 2022-12-09 & $-0.3855$ & $-0.4113$ & 10.75--12.69 & 9.83--11.90 \\[
 Final / start & 2023-12-08 & $-0.0850$ & $-0.1138$ & 12.14--13.12 & 14.38--15.63 \\[3pt]
 Final / end & 2023-09-13 & $-0.0478$ & $-0.0439$ & 12.40--13.49 & 11.10--12.01 \\[3pt]
 \bottomrule\end{tabular}\endgroup\end{minipage}\par\addvspace{8pt}
-Removing the worst shared date leaves the mean ranking unchanged in all six cases: time-only remains best. The contrast becomes slightly more negative in five cases, because time-only had the largest loss on the removed date, and slightly less negative under final end labels, where the combined exit lost more than time-only on that date. Combined-exit ES stays below time-only ES in development and under final end labels. In validation the bounds overlap, so the saved tail records cannot confirm the ES ranking without the worst day. Under final start labels the ranking reverses: without 8 December 2023 the combined exit's ES bounds lie wholly above time-only's, so the final-test ES advantage of the combined exit rests on one day. The development start-label time-only value, 14.995 bp, equals the minimum in Table 19, which confirms the recomputation.
-
+{\small\noindent Time-only stays ahead on the mean in all six cases. Under final start labels the combined exit's ES advantage reverses once 8 December 2023 is removed.\par}
 
 \end{document}
